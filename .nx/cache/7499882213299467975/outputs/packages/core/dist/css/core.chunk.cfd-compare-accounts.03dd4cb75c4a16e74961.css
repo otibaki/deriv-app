@@ -1,0 +1,538 @@
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.compare-cfd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.compare-cfd-header-navigation {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.compare-cfd-header-title {
+  flex: 1;
+}
+
+@media (max-width: 1279px) {
+  .compare-cfd-header-title {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+.compare-cfd-account {
+  max-width: 123.2rem;
+  margin: auto;
+}
+
+.compare-cfd-account-container {
+  margin: 1.5rem;
+}
+
+@media (max-width: 1279px) {
+  .compare-cfd-account-container {
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: scroll;
+    padding: 0 0 20.1rem;
+    max-height: 80rem;
+    width: 100%;
+  }
+}
+
+.compare-cfd-account-container__card-count {
+  display: flex;
+  justify-content: center;
+}
+
+[dir="ltr"] .compare-cfd-account-container__card-count {
+  margin-left: 13rem;
+}
+
+[dir="rtl"] .compare-cfd-account-container__card-count {
+  margin-right: 13rem;
+}
+
+[dir="ltr"] .compare-cfd-account-container__card-count--mobile {
+  margin-left: 0;
+}
+
+[dir="rtl"] .compare-cfd-account-container__card-count--mobile {
+  margin-right: 0;
+}
+
+.compare-cfd-account-spread {
+  display: flex;
+  justify-content: center;
+}
+
+.compare-cfd-account-main-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.compare-cfd-account-card-container {
+  position: relative;
+  overflow: hidden;
+  width: 27rem;
+  border: 1px solid var(--general-hover);
+  border-radius: 2.4rem;
+}
+
+.compare-cfd-account-card-container:hover {
+  box-shadow: 0 2px 8px 0 var(--shadow-menu);
+}
+
+@media (max-width: 1279px) {
+  .compare-cfd-account-card-container {
+    width: 20rem;
+  }
+}
+
+.compare-cfd-account-card-container__eu-clients {
+  position: relative;
+  top: 0.5rem;
+}
+
+.compare-cfd-account-card-container__banner {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  width: 15rem;
+  height: 2rem;
+  background: var(--status-transfer);
+}
+
+[dir="ltr"] .compare-cfd-account-card-container__banner {
+  transform: translateX(17rem) translateY(-2rem) rotate(45deg);
+}
+
+[dir="rtl"] .compare-cfd-account-card-container__banner {
+  transform: translateX(-17rem) translateY(-2rem) rotate(-45deg);
+}
+
+@media (max-width: 1279px) {
+  .compare-cfd-account-card-container__banner {
+    padding: 0.1rem;
+  }
+
+  [dir="ltr"] .compare-cfd-account-card-container__banner {
+    transform: translateX(8rem) translateY(-2rem) rotate(45deg);
+  }
+
+  [dir="rtl"] .compare-cfd-account-card-container__banner {
+    transform: translateX(-8rem) translateY(-2rem) rotate(-45deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .compare-cfd-account-card-container__banner {
+    top: 10px;
+    width: 108px;
+    height: 16px;
+    font-size: var(--text-size-xxxs);
+  }
+
+  [dir="ltr"] .compare-cfd-account-card-container__banner {
+    transform: rotate(45deg);
+    right: -32px;
+  }
+
+  [dir="rtl"] .compare-cfd-account-card-container__banner {
+    transform: rotate(-45deg);
+    left: -32px;
+  }
+}
+
+.compare-cfd-account-outline {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 2.4rem 2.4rem;
+  border-radius: 2.4rem;
+}
+
+.compare-cfd-account-text-container {
+  max-height: 25.5rem;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .compare-cfd-account-text-container {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+
+.compare-cfd-account-text-container--demo {
+  max-height: 13.5rem;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .compare-cfd-account-text-container--demo {
+    min-height: 0;
+    min-height: initial;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+
+.compare-cfd-account-text-container__separator {
+  margin: 0.9rem;
+}
+
+.compare-cfd-account-icon-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 2rem;
+  align-items: center;
+}
+
+.compare-cfd-account-icon-title__separator {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
+
+.compare-cfd-account-instrument-icon {
+  display: flex;
+  align-items: center;
+  margin: 0.2rem;
+  cursor: not-allowed;
+}
+
+.compare-cfd-account-labuan-tooltip {
+  position: relative;
+  top: 0.2rem;
+}
+
+[dir="ltr"] .compare-cfd-account-labuan-tooltip {
+  left: 0.5rem;
+}
+
+[dir="rtl"] .compare-cfd-account-labuan-tooltip {
+  right: 0.5rem;
+}
+
+.compare-cfd-account-labuan-tooltip--msg {
+  position: relative;
+  width: 62%;
+}
+
+@media (max-width: 1279px) {
+  .compare-cfd-account-labuan-tooltip--msg {
+    display: flex;
+    position: fixed;
+    width: 13.4rem;
+  }
+
+  [dir="ltr"] .compare-cfd-account-labuan-tooltip--msg {
+    right: 0;
+  }
+
+  [dir="rtl"] .compare-cfd-account-labuan-tooltip--msg {
+    left: 0;
+  }
+}
+
+.compare-cfd-account-zerospread-tooltip {
+  position: relative;
+  top: 0.2rem;
+}
+
+[dir="ltr"] .compare-cfd-account-zerospread-tooltip {
+  left: 0.5rem;
+}
+
+[dir="rtl"] .compare-cfd-account-zerospread-tooltip {
+  right: 0.5rem;
+}
+
+.compare-cfd-account-zerospread-tooltip--msg {
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .compare-cfd-account-zerospread-tooltip--msg {
+    display: block;
+    position: fixed;
+    width: 15.2rem;
+  }
+
+  [dir="ltr"] .compare-cfd-account-zerospread-tooltip--msg {
+    right: 0;
+  }
+
+  [dir="rtl"] .compare-cfd-account-zerospread-tooltip--msg {
+    left: 0;
+  }
+}
+
+.compare-cfd-account-platform-label {
+  background-color: var(--header-background-mt5);
+  padding: 0.9rem;
+  border-top-left-radius: 1.4rem;
+  border-top-right-radius: 1.4rem;
+}
+
+.compare-cfd-account-platform-label--other-cfds {
+  background-color: var(--header-background-others);
+}
+
+.compare-cfd-account-platform-label--derivx {
+  background-color: var(--header-background-others);
+}
+
+.compare-cfd-account-platform-label--ctrader {
+  background-color: #ffeabf;
+}
+
+.compare-cfd-account-underline {
+  height: 1px;
+  width: 75%;
+  background-color: var(--general-hover);
+  position: absolute;
+  margin-top: 0.4rem;
+}
+
+[dir="ltr"] .compare-cfd-account-underline {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+[dir="rtl"] .compare-cfd-account-underline {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.compare-cfd-account__button {
+  width: calc(100% - 4rem);
+  height: 4rem;
+  margin: 2rem;
+}
+
+.card-list {
+  display: flex;
+  gap: 2rem;
+}
+
+.trading-instruments__span {
+  position: relative;
+  top: 0.2rem;
+  font-size: 1.6rem;
+  color: var(--text-red);
+}
+
+[dir="ltr"] .trading-instruments__text {
+  margin-left: 0.5rem;
+}
+
+[dir="rtl"] .trading-instruments__text {
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay-portal {
+    top: 40px;
+  }
+  .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay-portal {
+    top: 40px;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay__header-title {
+    font-size: 1.6rem !important;
+  }
+  .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay__header-title {
+    font-size: 1.6rem !important;
+  }
+}
+
+@media (max-width: 1279px) {
+  [dir="ltr"] .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay__header-close {
+    right: 1.2rem;
+  }
+  [dir="ltr"] .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay__header-close {
+    right: 1.2rem;
+  }
+
+  [dir="rtl"] .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay__header-close {
+    left: 1.2rem;
+  }
+
+  [dir="rtl"] .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay__header-close {
+    left: 1.2rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay__header-wrapper {
+    height: 100%;
+    padding: 0;
+  }
+  .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay__header-wrapper {
+    height: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay__header {
+    height: 4rem;
+    z-index: 3;
+    padding: 0;
+    margin: 0;
+  }
+  .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay__header {
+    height: 4rem;
+    z-index: 3;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay__content {
+    flex: 1;
+    padding: 0;
+  }
+  .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay__content {
+    flex: 1;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay__header-wrapper, .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay__content {
+    width: 100%;
+  }
+  .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay__header-wrapper, .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay__content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-page-overlay[\:has\(.dc-page-overlay__content\%20.compare-cfd-account-container\)] .dc-page-overlay {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .dc-page-overlay:has(.dc-page-overlay__content .compare-cfd-account-container) .dc-page-overlay {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}

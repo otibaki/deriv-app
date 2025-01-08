@@ -1,0 +1,2575 @@
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.currency-list {
+  width: 100%;
+}
+
+.currency-list form {
+  width: 100%;
+}
+
+.currency-list__items {
+  display: flex;
+  flex-wrap: wrap;
+  width: 768px;
+  margin: auto;
+}
+
+.currency-list__items__center {
+  justify-content: center !important;
+}
+
+@media (min-width: 1280px) {
+  .currency-list__items {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 1279px) {
+  .currency-list__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    width: 100%;
+  }
+}
+
+.currency-list__item {
+  align-items: center;
+  border-radius: 8px;
+  display: inline-flex;
+  flex-direction: column;
+  height: 128px;
+  width: 160px;
+  justify-content: space-around;
+  margin: 1.6rem 1.6rem 0;
+  min-width: 128px;
+}
+
+.currency-list__item:hover:not(.currency-list__item--selected) {
+  cursor: pointer;
+  border: 1px solid var(--border-hover);
+}
+
+.currency-list__item--current {
+  pointer-events: none;
+}
+
+.currency-list__item--current svg {
+  opacity: 0.08;
+}
+
+.currency-list__item--current .label {
+  color: var(--text-disabled);
+}
+
+.currency-list__item--selected {
+  border: 2px solid var(--border-active);
+}
+
+.currency-list__item--selected .label {
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  color: var(--text-prominent);
+}
+
+.currency-list__item > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.currency-list__item .currency-list__icon {
+  height: 48px;
+  width: 48px;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 1279px) {
+  .currency-list__item .currency-list__icon {
+    height: 64px;
+    width: 64px;
+    margin-bottom: 0.8rem;
+  }
+}
+
+.currency-list__item-text {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  color: var(--text-general);
+}
+
+@media (max-width: 1279px) {
+  .currency-list__item {
+    margin: 1.6rem 2rem 0.8rem;
+    padding: 0.8rem 0;
+    width: 85%;
+    min-width: 0;
+    min-width: initial;
+  }
+}
+
+@media only screen and (max-width: 1279px) and (max-width: 340px) {
+  .currency-list__item {
+    margin: 1.6rem 1rem 0.8rem;
+    width: 136px;
+    height: 136px;
+  }
+}
+
+.currency-list__radio-button {
+  display: none;
+}
+
+.currency-list__popover {
+  position: relative;
+  top: -4.8rem;
+  margin-top: -16px;
+}
+
+[dir="ltr"] .currency-list__popover {
+  left: 4.8rem;
+}
+
+[dir="rtl"] .currency-list__popover {
+  right: 4.8rem;
+}
+
+@media (max-width: 1279px) {
+  .currency-list__popover {
+    top: -5.8rem;
+  }
+
+  [dir="ltr"] .currency-list__popover {
+    right: 0;
+  }
+
+  [dir="rtl"] .currency-list__popover {
+    left: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .currency-list__loading-wrapper {
+    min-width: 768px;
+  }
+}
+
+.currency-hr {
+  height: 2px;
+  margin: 1.6rem auto;
+  width: 90%;
+  border-top: 1px solid var(--general-section-1);
+}
+
+@media (max-width: 1279px) {
+  .currency-hr {
+    border-top-width: 2px;
+    border-color: var(--border-disabled);
+    width: calc(100% + 2.4rem);
+  }
+
+  [dir="ltr"] .currency-hr {
+    margin-left: -2.4rem;
+  }
+
+  [dir="rtl"] .currency-hr {
+    margin-right: -2.4rem;
+  }
+}
+
+.currency-selector__subheading {
+  margin-top: 0.8rem;
+}
+
+.currency-selector__radio-group--with-margin--is-header {
+  font-size: 1.6rem;
+  margin: 0.4rem 0 0;
+  font-weight: bold;
+  color: var(--text-prominent);
+}
+
+@media (min-width: 1280px) {
+  .currency-selector__radio-group--with-margin {
+    margin-bottom: 0.4rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 768px;
+  }
+}
+
+.currency-selector__deposit-warn {
+  width: 78%;
+  margin: calc(3% - 1rem) auto;
+  padding: 10px;
+}
+
+.add-currency__title {
+  margin-top: 1rem;
+}
+
+.add-currency__sub-title {
+  margin-top: 0.8rem;
+}
+
+.add-currency__underline {
+  border-bottom: 1px solid var(--general-section-1);
+  width: 55rem;
+  margin: 1.6rem auto 0;
+}
+
+.add-currency__note {
+  background-color: var(--general-section-1);
+  width: 55rem;
+  margin: 1.1rem auto 1rem;
+  padding: 0.5rem;
+}
+
+.add-currency__note-wrapper {
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+}
+
+.add-currency__wizard-header {
+  margin-top: 1rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.add-or-manage {
+  flex-direction: row; /* fix for Safari */
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.add-or-manage .dc-tabs__content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7rem;
+}
+
+.add-or-manage .dc-tabs__list--header-fit-content {
+  margin: 0 auto;
+}
+
+.add-or-manage .account-wizard--disabled-message p:first-child {
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+
+.add-or-manage .currency-selector__radio-group--is-header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: var(--text-general);
+  text-align: center;
+}
+
+.add-or-manage .currency-selector__description {
+  display: none;
+}
+
+.add-or-manage .currency-selector__deposit-warn {
+  width: 78%;
+  margin: calc(3% - 1rem) auto;
+  padding: 10px;
+  background-color: var(--general-section-1);
+  border-radius: 4px;
+}
+
+.add-or-manage__with-margin--is-header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: var(--text-general);
+  text-align: center;
+}
+
+@media (min-width: 1280px) {
+  .add-or-manage .currency-selector__radio-group--with-margin {
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 768px;
+  }
+
+  .add-or-manage .dc-form-submit-button--absolute {
+    position: absolute;
+    padding: 1.6rem;
+    width: 100%;
+  }
+
+  [dir="ltr"] .add-or-manage .dc-form-submit-button--absolute {
+    right: 0;
+  }
+
+  [dir="rtl"] .add-or-manage .dc-form-submit-button--absolute {
+    left: 0;
+  }
+}
+
+@media (max-width: 1279px) {
+  .add-or-manage {
+    flex-wrap: initial;
+  }
+
+  .add-or-manage .account-wizard__btn-area .dc-btn, .add-or-manage .account-wizard__btn-area .dc-btn:last-child {
+    min-width: 0;
+    min-width: initial;
+    margin: 0 1.6rem;
+  }
+
+  .add-or-manage .currency-selector__radio-group--with-margin {
+    margin-bottom: 3rem;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .add-or-manage .change-currency .currency-list__items {
+    margin-bottom: 12rem;
+  }
+
+  .add-or-manage .change-currency .dc-form-submit-button--relative {
+    position: fixed;
+  }
+
+  [dir="ltr"] .add-or-manage .change-currency .dc-form-submit-button--relative {
+    right: 0;
+  }
+
+  [dir="rtl"] .add-or-manage .change-currency .dc-form-submit-button--relative {
+    left: 0;
+  }
+
+  .add-or-manage .account-wizard--disabled-message p:first-child {
+    width: 100%;
+    margin-top: 0.6rem;
+    padding: 2rem 1rem;
+  }
+
+  .add-or-manage .account-wizard--disabled .currency-list__items {
+    margin-top: 1.6rem;
+  }
+
+  .add-or-manage .dc-form-submit-button {
+    position: fixed;
+    padding: 15px;
+    height: 72px;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--fill-normal);
+    border: 2px solid var(--general-section-1);
+  }
+
+  .add-or-manage .dc-form-submit-button button {
+    min-width: 100%;
+  }
+}
+
+.dc-modal__container_real-account-signup-modal--success .status-dialog__close {
+  display: none;
+}
+
+.dc-modal__container_real-account-signup-modal--success .status-dialog__footer {
+  margin: 0;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dc-modal__container--risk-message .status-dialog {
+  width: auto;
+}
+
+@media (max-width: 1279px) {
+  .dc-mobile-dialog__account-signup-mobile-dialog > .status-dialog {
+    justify-content: center;
+  }
+}
+
+.status-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  padding: 2.4rem;
+}
+
+.status-dialog__close {
+  position: absolute;
+  cursor: pointer;
+  top: 1.8rem;
+}
+
+[dir="ltr"] .status-dialog__close {
+  right: 1.8rem;
+}
+
+[dir="rtl"] .status-dialog__close {
+  left: 1.8rem;
+}
+
+.status-dialog__header {
+  display: flex;
+  align-items: center;
+  width: auto;
+  justify-content: center;
+  position: relative;
+}
+
+.status-dialog__header .bottom-right-overlay {
+  position: absolute;
+  bottom: 2rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+[dir="ltr"] .status-dialog__header .bottom-right-overlay {
+  right: 0;
+}
+
+[dir="rtl"] .status-dialog__header .bottom-right-overlay {
+  left: 0;
+}
+
+.status-dialog__header svg.inline-icon {
+  width: 90px;
+  height: 120px;
+}
+
+.status-dialog__header svg {
+  display: block;
+}
+
+.status-dialog__header svg.dc-icon--red {
+  margin: 0 1rem;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__header svg {
+    max-width: 96px;
+    height: auto;
+  }
+}
+
+.status-dialog__header--xlarge, .status-dialog__header--large {
+  width: auto;
+  flex-grow: 1;
+}
+
+.status-dialog__header--xlarge .bottom-right-overlay, .status-dialog__header--large .bottom-right-overlay {
+  width: 4.8rem;
+  height: 4.8rem;
+  bottom: -1rem;
+}
+
+[dir="ltr"] .status-dialog__header--xlarge .bottom-right-overlay, [dir="ltr"] .status-dialog__header--large .bottom-right-overlay {
+  right: -1rem;
+}
+
+[dir="rtl"] .status-dialog__header--xlarge .bottom-right-overlay, [dir="rtl"] .status-dialog__header--large .bottom-right-overlay {
+  left: -1rem;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__header--xlarge .bottom-right-overlay, .status-dialog__header--large .bottom-right-overlay {
+    max-width: 3.6rem;
+    height: auto;
+  }
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__header--xlarge, .status-dialog__header--large {
+    flex-grow: 0;
+  }
+}
+
+.status-dialog__header--xlarge svg:first-child {
+  width: 12.8rem;
+  height: 12.8rem;
+}
+
+.status-dialog__header--large svg.inline-icon {
+  width: 12rem;
+  height: 12rem;
+}
+
+.status-dialog__header--center {
+  justify-content: center;
+  width: auto;
+  margin-top: 3rem;
+}
+
+.status-dialog__header--set-currency svg:first-child {
+  margin: 0 auto;
+}
+
+.status-dialog__header--set-currency .bottom-right-overlay {
+  bottom: 2rem;
+}
+
+.status-dialog__body {
+  flex-grow: 1;
+}
+
+.status-dialog__body--no-grow {
+  flex-grow: 0;
+  margin-bottom: 3.2rem;
+}
+
+.status-dialog__message-header {
+  margin: 1rem 0 0.8rem;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__message-header {
+    line-height: 24px;
+    margin-top: 1.6rem;
+  }
+}
+
+.status-dialog__message-text {
+  padding: 0.2rem 0;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__message-text {
+    padding: 0 1rem;
+    line-height: 2rem;
+  }
+}
+
+.status-dialog__footer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 1.4rem 0 0;
+}
+
+.status-dialog__footer .dc-btn {
+  margin: 0.4rem;
+  height: 4rem;
+  border-width: 2px;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__footer .dc-btn {
+    margin: 0.4rem 1.4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .status-dialog {
+    width: 44rem;
+    min-height: 35.2rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .status-dialog {
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 6rem 0 0;
+  }
+}
+
+.finished-add-currency__dialog {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  padding: 0rem 2.4rem 2.4rem;
+}
+
+.finished-add-currency__footer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin: 1.4rem 0 0;
+  justify-content: center;
+}
+
+.finished-add-currency__footer .dc-btn {
+  margin: 0.4rem;
+  height: 4rem;
+  border-width: 2px;
+  text-align: center;
+}
+
+@media (max-width: 1279px) {
+  .finished-add-currency__footer .dc-btn:first-child {
+    margin: 0.4rem 1.4rem;
+  }
+
+  [dir="ltr"] .finished-add-currency__footer .dc-btn:last-child {
+    margin: 0.4rem 1.4rem 0.4rem 0;
+  }
+
+  [dir="rtl"] .finished-add-currency__footer .dc-btn:last-child {
+    margin: 0.4rem 0 0.4rem 1.4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .finished-add-currency {
+    width: 38.4rem;
+    min-height: 30rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .finished-add-currency {
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 6rem 0 0;
+  }
+}
+
+.finished-add-currency__close {
+  display: block;
+  cursor: pointer;
+  padding: 0.6rem 0.8rem 0;
+}
+
+[dir="ltr"] .finished-add-currency__close {
+  margin: 1.2rem 1.6rem 0 auto;
+}
+
+[dir="rtl"] .finished-add-currency__close {
+  margin: 1.2rem auto 0 1.6rem;
+}
+
+@media (max-width: 1279px) {
+  .finished-add-currency__close {
+    margin: 0.8rem;
+  }
+}
+
+.dc-mobile-dialog {
+  height: 100%;
+}
+
+.dc-mobile-dialog--enter-done .dc-mobile-dialog__content {
+  transform: none;
+  transform: initial;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.change-currency {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.change-currency__title, .change-currency__sub-title {
+  text-transform: none;
+}
+
+.change-currency__title {
+  margin-top: 3rem;
+}
+
+.change-currency__sub-title {
+  margin-bottom: 1.6rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.set-currency-modal {
+  text-align: center;
+}
+
+.set-currency-modal__heading-container {
+  margin: 2rem auto;
+  color: var(--text-general);
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .set-currency-modal__heading-container__main-heading {
+    padding: 0 3rem;
+  }
+}
+
+.set-currency-modal__heading-container__sub-heading {
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  margin-top: 2rem;
+}
+
+.set-currency-modal .currency-selector {
+  min-height: 390px;
+}
+
+.set-currency-modal .currency-selector__radio-group--is-header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: var(--text-general);
+}
+
+.set-currency-modal .currency-selector__description {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .set-currency-modal .currency-selector__crypto .currency-list__items {
+    margin-bottom: 9rem;
+  }
+
+  .set-currency-modal .currency-selector .dc-form-submit-button {
+    position: fixed;
+    bottom: 0;
+    padding: 1.3rem;
+    background-color: var(--general-main-1);
+  }
+
+  [dir="ltr"] .set-currency-modal .currency-selector .dc-form-submit-button {
+    right: 0;
+  }
+
+  [dir="rtl"] .set-currency-modal .currency-selector .dc-form-submit-button {
+    left: 0;
+  }
+
+  .set-currency-modal .currency-selector .dc-form-submit-button--center {
+    justify-content: flex-end;
+    height: auto;
+    height: initial;
+  }
+
+  .set-currency-modal .currency-selector .dc-modal-footer {
+    background-color: var(--general-main-1);
+    position: fixed;
+    width: 100%;
+    bottom: 3.5rem;
+  }
+
+  [dir="ltr"] .set-currency-modal .currency-selector .dc-modal-footer {
+    right: 0;
+  }
+
+  [dir="rtl"] .set-currency-modal .currency-selector .dc-modal-footer {
+    left: 0;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .set-currency-modal .currency-selector {
+    overflow-y: auto;
+  }
+
+  .set-currency-modal .currency-selector__container--no-top-margin {
+    height: auto;
+    height: initial;
+  }
+
+  .set-currency-modal .currency-selector .dc-form-submit-button {
+    position: fixed;
+  }
+
+  .set-currency-modal .currency-selector .dc-form-submit-button button {
+    width: 100%;
+  }
+
+  .set-currency-modal .currency-selector .dc-modal-footer {
+    background-color: var(--general-main-1);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  [dir="ltr"] .set-currency-modal .currency-selector .dc-modal-footer {
+    right: 0;
+  }
+
+  [dir="rtl"] .set-currency-modal .currency-selector .dc-modal-footer {
+    left: 0;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.status-container {
+  display: flex;
+  flex-direction: column;
+  width: 44rem;
+  min-height: 35.2rem;
+}
+
+@media (max-width: 1279px) {
+  .status-container {
+    width: 100%;
+  }
+}
+
+.status-container__header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 16px;
+  height: 56px;
+  border-bottom: 2px solid var(--general-section-1);
+}
+
+.status-container__body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 7rem 0;
+}
+
+.status-container__body-icon {
+  position: relative;
+}
+
+.status-container__body-status-icon {
+  position: absolute;
+  bottom: 0;
+}
+
+[dir="ltr"] .status-container__body-status-icon {
+  right: 0;
+}
+
+[dir="rtl"] .status-container__body-status-icon {
+  left: 0;
+}
+
+.status-container__body-text {
+  margin-top: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+
+[dir="ltr"] .status-container__button {
+  margin-left: 0.8rem;
+}
+
+[dir="rtl"] .status-container__button {
+  margin-right: 0.8rem;
+}
+
+.status-container__footer {
+  height: 7.2rem;
+  padding: 0 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 2px solid var(--general-section-1);
+}
+
+@media (max-width: 1279px) {
+  .status-container__footer {
+    padding: 1.6rem;
+    justify-content: center;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.dc-modal__container_real-account-signup-modal {
+  display: flex;
+  flex-direction: column;
+  transition: none;
+  background-color: var(--general-main-1);
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .dc-modal__container_real-account-signup-modal {
+    max-height: calc(100vh - 10.2rem) !important;
+  }
+}
+
+.dc-modal__container_real-account-signup-modal--success {
+  min-width: 0 !important;
+  min-width: initial !important;
+  max-height: none !important;
+  max-height: initial !important;
+}
+
+.dc-modal__container_real-account-signup-modal--success {
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 47.8rem;
+}
+
+.dc-modal__container_real-account-signup-modal .dc-modal-header__title {
+  text-transform: none;
+}
+
+[dir="ltr"] .dc-modal__container_real-account-signup-modal .dc-modal-header__title {
+  border-top-left-radius: 1rem;
+}
+
+[dir="rtl"] .dc-modal__container_real-account-signup-modal .dc-modal-header__title {
+  border-top-right-radius: 1rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding-top: 3.6rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__restricted-country-error {
+  padding: 3.3rem 2.4rem 2.4rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__restricted-country-error .dc-btn {
+  margin-top: 1.9rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__invalid-input-error {
+  margin: 2.4rem auto;
+  padding-top: 0;
+  padding-top: initial;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__invalid-input-error .dc-btn {
+  margin-top: 1.9rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__invalid-input-error .invalid_fields_input {
+  display: list-item;
+  margin: 0.5rem auto;
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__cta {
+  border-top: 1px solid var(--general-section-1);
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.6rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error > svg {
+  width: 12.8rem;
+  height: 12.8rem;
+  align-self: center;
+  margin: 2rem 0 0;
+}
+
+.dc-modal__container_real-account-signup-modal--error h1 {
+  font-size: 1.6rem;
+  color: var(--text-general);
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.75;
+  text-transform: none;
+  color: var(--text-general);
+  margin-top: 1.6rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error p {
+  font-size: 1.4rem;
+  color: var(--text-prominent);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: none;
+  padding: 1.6rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error a.dc-btn {
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--text-colored-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.dc-modal__container_real-account-signup-modal--error a.email-inline {
+  color: var(--brand-red-coral);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.dc-modal__container_real-account-signup-modal--error span.chat-inline {
+  color: var(--brand-red-coral);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dc-modal__container_real-account-signup-modal--loading {
+  width: 30rem;
+  max-height: 30rem;
+}
+
+.dc-modal__container_real-account-signup-modal--loading .dc-modal-header__title {
+  height: 0;
+}
+
+.dc-modal__container_real-account-signup-modal .dc-themed-scrollbars {
+  height: 100%;
+}
+
+.dc-modal__container--risk-message {
+  height: auto !important;
+  width: 44rem !important;
+}
+
+.dc-modal__container--risk-message .dc-themed-scrollbars {
+  max-height: none !important;
+}
+
+.dc-modal__container--risk-message .dc-modal-footer {
+  border-top: none;
+  padding: 2.4rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal__container--risk-message {
+    width: 30rem !important;
+  }
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-header {
+  border-bottom: 1px solid var(--general-section-1);
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-body {
+  text-align: center;
+  padding: 2.4rem 2.4rem 0rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal__container_center-risk-modal .dc-modal-body {
+    padding: 1.6rem 1.6rem 0rem;
+  }
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-body .risk-acceptance__text {
+  margin-top: 2.4rem;
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-body .verified-account__text {
+  margin-top: 2.4rem;
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-footer {
+  justify-content: center;
+}
+
+.dc-modal__container_verified_account .dc-modal-body {
+  text-align: center;
+}
+
+.dc-modal__container_verified_account .dc-modal-footer {
+  justify-content: center;
+}
+
+.dc-mobile-dialog__account-signup-mobile-dialog .account-wizard--error p {
+  text-align: center;
+}
+
+.dc-mobile-dialog__account-signup-mobile-dialog .account-wizard--error span.chat-inline {
+  color: var(--brand-red-coral);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline;
+  text-align: center;
+}
+
+.dc-mobile-dialog__account-signup-mobile-dialog .account-wizard--error__cta {
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid var(--general-section-1);
+  width: 100%;
+  display: flex;
+  padding: 1.6rem;
+}
+
+.dc-mobile-dialog__account-signup-mobile-dialog .account-wizard--error__cta .dc-btn {
+  width: 100%;
+}
+
+.dc-modal-header--real-account-signup-modal {
+  border-bottom: 1px solid var(--general-section-1);
+}
+
+.account-wizard {
+  display: grid;
+  grid-template-rows: 13rem minmax(10rem, 1fr);
+  height: calc(100% - 5.7rem);
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .account-wizard {
+    transform: translateY(0);
+  }
+
+  .account-wizard--deriv-crypto {
+    grid-template-rows: 0 !important;
+  }
+
+  .account-wizard .currency-list__items__is-crypto {
+    margin-bottom: 9rem;
+  }
+
+  .account-wizard .dc-input__label {
+    background-color: var(--fill-normal) !important;
+  }
+
+  .account-wizard .dc-modal-footer {
+    background-color: var(--general-main-1);
+    z-index: 1;
+  }
+}
+
+@media (max-width: 1279px) {
+  .account-wizard {
+    grid-template-rows: 1fr auto;
+    overflow: hidden;
+  }
+
+  .account-wizard--set-currency {
+    grid-template-rows: 1fr 7rem;
+  }
+}
+
+.account-wizard.add-or-manage {
+  grid-template-rows: 1fr 1fr;
+}
+
+.account-wizard.add-or-manage .dc-form-submit-button {
+  padding: 2rem;
+}
+
+@media (min-width: 1280px) {
+  .account-wizard.add-or-manage form {
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 1279px) {
+  .account-wizard.add-or-manage {
+    grid-template-rows: 1fr 1fr;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+.account-wizard > h2 {
+  text-transform: none;
+  margin-top: 2.4rem;
+  font-size: 1.6rem;
+  color: var(--text-general);
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.75;
+  color: var(--text-less-prominent);
+}
+
+@media (max-width: 1279px) {
+  .account-wizard > h2 {
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+  }
+}
+
+.account-wizard > h3 {
+  font-size: 1.2rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.25;
+  text-transform: none;
+  color: var(--text-general);
+  margin-bottom: 1.6rem;
+}
+
+.account-wizard form {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .account-wizard form {
+    display: grid;
+    grid-template-rows: minmax(20rem, 1fr);
+  }
+}
+
+.account-wizard form .currency-selector__radio-group {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-wizard form .currency-selector__radio-group--is-header {
+  font-size: 1.6rem;
+  margin: 2rem 0 0;
+  font-weight: bold;
+  color: var(--text-prominent);
+}
+
+.account-wizard form .currency-selector__description {
+  margin-top: 2.4rem;
+  font-size: 1.4rem;
+  color: var(--text-prominent);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 1279px) {
+  .account-wizard form .currency-selector__description {
+    width: 100%;
+    padding: 1.6rem;
+    text-align: center;
+  }
+}
+
+.account-wizard form .currency-selector__description--info {
+  display: flex;
+  background-color: var(--transparent-info);
+  border-radius: 4px;
+  padding: 0.8rem;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.account-wizard form .currency-selector__container {
+  width: 100%;
+}
+
+@media (max-width: 1279px) {
+  .account-wizard form .currency-selector__container {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .account-wizard form .currency-selector__container--no-top-margin {
+    margin-top: 0;
+  }
+}
+
+.account-wizard form .currency-selector__button {
+  margin-top: 1.6rem;
+}
+
+@media (max-width: 1279px) {
+  .account-wizard form .currency-selector--deriv-account {
+    border-top: 2px solid var(--general-section-1);
+    padding-top: 1rem;
+  }
+
+  .account-wizard form .currency-selector--deriv-account .dc-btn:last-child {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.account-wizard__body {
+  display: flex;
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .account-wizard__body .details-form {
+    grid-template-rows: minmax(10rem, 1fr);
+  }
+}
+
+.account-wizard__set-currency p {
+  margin: 2.4rem 0;
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: initial;
+  color: var(--text-prominent);
+}
+
+@media (max-width: 1279px) {
+  .account-wizard__set-currency p {
+    font-size: 1.2rem;
+  }
+
+  [dir="ltr"] .account-wizard__set-currency p {
+    margin: 2.4rem auto 0 2.4rem;
+    text-align: left;
+  }
+
+  [dir="rtl"] .account-wizard__set-currency p {
+    margin: 2.4rem 2.4rem 0 auto;
+    text-align: right;
+  }
+}
+
+@media (max-width: 1279px) {
+  .account-wizard__set-currency h2 {
+    font-size: 1.2rem;
+  }
+
+  [dir="ltr"] .account-wizard__set-currency h2 {
+    text-align: left;
+    margin-left: 2.4rem;
+  }
+
+  [dir="rtl"] .account-wizard__set-currency h2 {
+    text-align: right;
+    margin-right: 2.4rem;
+  }
+}
+
+.account-wizard .checkbox {
+  align-items: center;
+  margin: 1rem 0 0;
+}
+
+.account-wizard .checkbox__box--active {
+  background-color: var(--brand-red-coral);
+}
+
+.account-wizard .checkbox__box--active:after {
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+[dir="ltr"] .account-wizard .checkbox__label {
+  text-align: left;
+}
+
+[dir="rtl"] .account-wizard .checkbox__label {
+  text-align: right;
+}
+
+.account-wizard .checkbox__label {
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.account-wizard--disabled {
+  position: relative;
+}
+
+.account-wizard--disabled .currency-list__items {
+  margin-top: 2.4rem;
+}
+
+.account-wizard--disabled .currency-list__item {
+  pointer-events: none;
+}
+
+.account-wizard--disabled .currency-list__item svg {
+  opacity: 0.08;
+}
+
+.account-wizard--disabled .currency-list__item .label {
+  color: var(--text-disabled);
+}
+
+.account-wizard--disabled-message {
+  display: flex;
+  justify-content: center;
+}
+
+.account-wizard--disabled-message-description {
+  margin-top: 2.4rem;
+  width: 78%;
+  background-color: var(--status-warning-transparent);
+  padding: 0.8rem 0;
+  border-radius: 4px;
+}
+
+@media (max-width: 1279px) {
+  .account-wizard--error {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .account-wizard--error__restricted-country-error, .account-wizard--error__invalid-input-error {
+    margin: auto 2.4rem;
+    height: calc(100vh - 84px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .account-wizard--error__restricted-country-error .dc-btn, .account-wizard--error__invalid-input-error .dc-btn {
+    margin-top: 1.9rem;
+    width: 100%;
+  }
+
+  .account-wizard--error__restricted-country-error .invalid_fields_input, .account-wizard--error__invalid-input-error .invalid_fields_input {
+    display: list-item;
+    margin: 0.5rem auto;
+    list-style: disc;
+    list-style-position: inside;
+  }
+
+  .account-wizard--error h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--text-prominent);
+  }
+
+  .account-wizard--error p {
+    font-size: 1.4rem;
+    margin: 1.6rem;
+    line-height: 1.4;
+    color: var(--text-general);
+  }
+
+  .account-wizard--error .dc-btn {
+    height: 4rem;
+  }
+
+  .account-wizard--error .dc-ion {
+    width: 100%;
+    max-width: 9.6rem;
+    margin-top: 2rem;
+    height: auto;
+  }
+
+  .account-wizard__header-steps {
+    padding: 1.6rem 0 0;
+    width: 100%;
+  }
+
+  .account-wizard__header-steps-title {
+    padding: 0 1.6rem 0.8rem;
+  }
+
+  .account-wizard__header-steps-subtitle {
+    padding: 1.6rem 1.6rem 0;
+  }
+}
+
+.add-crypto-currency,
+.change-currency {
+  height: 100%;
+}
+
+.add-crypto-currency__title,
+.change-currency__title {
+  margin-top: 3rem;
+}
+
+.add-crypto-currency__sub-title,
+.change-currency__sub-title {
+  margin-bottom: 1rem;
+}
+
+.add-crypto-currency__button,
+.change-currency__button {
+  margin-top: 1.6rem;
+  width: 100%;
+}
+
+@media (max-width: 1279px) {
+  .add-crypto-currency .dc-form-submit-button,
+  .change-currency .dc-form-submit-button {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--general-main-1);
+  }
+
+  .add-crypto-currency .dc-btn,
+  .change-currency .dc-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-height: 568px) {
+  .cashier-deposit .currency-selector__radio-group--with-margin {
+    margin-bottom: 6rem;
+  }
+}
+
+/* TODO: [refactor-components] Refactor form subheader to components */
+.account-form__header {
+  font-size: var(--text-size-xs);
+  font-weight: bold;
+  margin-bottom: 1.6rem;
+  position: relative;
+  height: 1.6rem;
+  white-space: nowrap;
+}
+
+.account-form__header-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.account-form__header-section:after {
+  border-top: 1px solid var(--general-section-1);
+  content: "";
+  height: 100%;
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 1279px) {
+  .account-form__header-section:after {
+    border-top-color: var(--general-disabled);
+  }
+}
+
+.account-form__header--has-description {
+  margin-bottom: 0.5rem;
+}
+
+.account-form__header:not(:first-child) {
+  margin-top: 1.6rem;
+}
+
+[dir="ltr"] .account-form__title {
+  padding-right: 0.8rem;
+}
+
+[dir="rtl"] .account-form__title {
+  padding-left: 0.8rem;
+}
+
+.account-form__subtitle {
+  align-self: baseline;
+  margin-top: 0.2rem;
+}
+
+[dir="ltr"] .account-form__subtitle {
+  padding-right: 0.8rem;
+}
+
+[dir="rtl"] .account-form__subtitle {
+  padding-left: 0.8rem;
+}
+
+.account-form__description {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: var(--text-prominent);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  [dir="ltr"] .emp-status {
+    padding-right: 2rem;
+  }
+
+  [dir="rtl"] .emp-status {
+    padding-left: 2rem;
+  }
+}
+
+.trading-assessment {
+  display: flex;
+  flex-direction: column;
+}
+
+.trading-assessment .dc-radio-group {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment {
+    height: calc(100vh - 16rem);
+    overflow: auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .trading-assessment--existing-user {
+    margin-top: 9.2rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment--existing-user {
+    height: calc(100vh - 12rem);
+  }
+
+  .trading-assessment--existing-user .trading-assessment__side-note {
+    padding: 2.2rem 1.6rem;
+  }
+}
+
+.trading-assessment__wrapper__dropdown--list--display {
+  height: 4rem;
+}
+
+.trading-assessment__side-note {
+  text-align: justify;
+  padding: 0 10rem;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__side-note {
+    padding: 0 1.6rem;
+  }
+}
+
+.trading-assessment__question-counter {
+  margin: 2.4rem 0 0;
+}
+
+[dir="ltr"] .trading-assessment__question-counter {
+  padding-left: 12rem;
+}
+
+[dir="rtl"] .trading-assessment__question-counter {
+  padding-right: 12rem;
+}
+
+@media (max-width: 1279px) {
+  [dir="ltr"] .trading-assessment__question-counter {
+    padding-left: 1.6rem;
+  }
+
+  [dir="rtl"] .trading-assessment__question-counter {
+    padding-right: 1.6rem;
+  }
+}
+
+.trading-assessment__form {
+  margin-top: 1.6rem;
+  display: grid;
+  grid-template-rows: 4.7fr 1fr;
+}
+
+.trading-assessment__form--existing_user {
+  grid-template-rows: 5.8fr 1fr;
+}
+
+.trading-assessment__form--layout {
+  grid-template-rows: 35rem 1fr !important;
+}
+
+.trading-assessment__form--fields {
+  display: flex;
+  padding: 0 10rem;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__form--fields {
+    padding: 0 1.6rem;
+  }
+}
+
+.trading-assessment__form .dc-themed-scrollbars {
+  width: 100%;
+}
+
+.trading-assessment__form .dc-dropdown__display .dc-dropdown__display-placeholder-text-limit-fit {
+  max-width: none;
+  max-width: initial;
+  padding-bottom: 0.5rem;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__form .dc-dropdown__display .dc-dropdown__display-placeholder-text-limit-fit {
+    width: 90%;
+    white-space: normal;
+  }
+}
+
+.trading-assessment__wrapper__question .dc-field--error {
+  margin: 1.6rem 0;
+}
+
+[dir="ltr"] .trading-assessment__wrapper__question .dc-field--error {
+  padding-left: 0;
+}
+
+[dir="rtl"] .trading-assessment__wrapper__question .dc-field--error {
+  padding-right: 0;
+}
+
+@media (min-width: 1280px) {
+  .trading-assessment__wrapper__question {
+    padding: 0 2rem;
+  }
+}
+
+.trading-assessment__wrapper__question .dc-radio-group {
+  gap: 1.6rem;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__wrapper__question .dc-radio-group__circle {
+    align-self: flex-start !important;
+  }
+}
+
+.trading-assessment__wrapper__dropdown {
+  gap: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .trading-assessment__wrapper__dropdown {
+    padding: 0 3rem;
+  }
+}
+
+.trading-assessment .disable-pointer {
+  cursor: not-allowed;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment .dc-dropdown__display-placeholder {
+    width: 100%;
+  }
+
+  .trading-assessment .dc-dropdown__display-placeholder .trading-assessment__form .dc-dropdown__display .dc-dropdown__display-placeholder-text-limit-fit {
+    width: 90%;
+  }
+
+  .trading-assessment .dc-dropdown__display-placeholder--is-left-text.dc-dropdown__display-placeholder--is-title {
+    white-space: normal !important;
+  }
+
+  .trading-assessment .dc-dropdown__display-placeholder--is-left-text.dc-dropdown__display-placeholder--is-title {
+    line-height: 1.6rem;
+  }
+}
+
+.trading-assessment__existing_btn {
+  border-top: 2px solid var(--general-disabled);
+  display: flex;
+  justify-content: end;
+  padding: 1rem 2rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__btn-group {
+    position: fixed;
+    bottom: 0;
+    padding: 1.6rem;
+    border-top: 2px solid var(--general-disabled);
+    width: 100%;
+    display: flex;
+    background: var(--general-main-1);
+  }
+
+  .trading-assessment__btn-group--btn {
+    width: 100%;
+  }
+}
+
+.dc-mobile-dialog__risk-acceptance {
+  margin-top: 9.4rem;
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2.4rem;
+}
+
+.dc-mobile-dialog__test-warning {
+  margin-top: 1.6rem;
+}
+
+.dc-mobile-dialog__test-warning .dc-modal-body {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+.dc-mobile-dialog__test-warning .dc-modal-footer {
+  position: fixed;
+  bottom: 0;
+  padding: 1.6rem;
+  border-top: 2px solid var(--general-disabled);
+  width: 100%;
+  display: flex;
+  background: var(--general-main-1);
+}
+
+.dc-mobile-dialog__test-warning .dc-modal-footer .dc-btn {
+  width: 100%;
+}
+
+[dir="ltr"] .field-layout .trading-assessment__wrapper__dropdown div:last-child .dc-dropdown__display-placeholder {
+  padding-right: 1rem;
+}
+
+[dir="rtl"] .field-layout .trading-assessment__wrapper__dropdown div:last-child .dc-dropdown__display-placeholder {
+  padding-left: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .field-layout .trading-assessment__wrapper__dropdown div:last-child .dc-dropdown__display .dc-dropdown__display-placeholder-text-limit-fit {
+    white-space: inherit;
+    text-overflow: initial;
+  }
+}
+
+.field-layout .trading-frequency--field {
+  height: 5rem;
+}
+
+.risk-tolerance-modal__title {
+  margin-bottom: 3.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.risk-tolerance-modal__title--separator {
+  border-top: 2px solid var(--general-section-5);
+  width: 50%;
+}
+
+.risk-tolerance-modal__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.risk-tolerance-modal__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.personal-details-form,
+.address-details-form {
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .personal-details-form,
+  .address-details-form {
+    padding: 0 16rem;
+  }
+}
+
+.personal-details-form .dc-radio-group__input {
+  width: 0;
+  height: 0;
+}
+
+@media (min-width: 1280px) {
+  .personal-details-form {
+    padding-bottom: 7rem;
+  }
+}
+
+.wizard__main-step .account-form__fieldset {
+  max-width: none !important;
+  max-width: initial !important;
+}
+
+.wizard__main-step .account-form__fieldset {
+  width: 100%;
+}
+
+.wizard__main-step .details-form__elements {
+  width: 100%;
+}
+
+.wizard__main-step .financial-assessment__form {
+  width: 70%;
+}
+
+@media (max-width: 1279px) {
+  .wizard__main-step .financial-assessment__form {
+    width: 100%;
+  }
+}
+
+.wizard__main-step .employment-status-field {
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,8 @@
+
+> @deriv/bot-skeleton@1.0.0 build
+> shx rm -rf ./dist/ && shx mkdir -p ./dist/media && npm run build:copy
+
+
+> @deriv/bot-skeleton@1.0.0 build:copy
+> shx cp -r ../../node_modules/blockly/media/. ./dist/media/ && shx cp -r ./src/assets/images/. ./dist/media/ && shx cp -r ./src/scratch/sounds/. ./dist/media/
+

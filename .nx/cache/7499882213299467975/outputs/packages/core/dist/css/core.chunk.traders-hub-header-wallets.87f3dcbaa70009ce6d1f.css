@@ -1,0 +1,5576 @@
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+.notifications-toggle:hover .notifications-toggle__icon {
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+}
+
+.notifications-toggle:hover .notifications-toggle__icon .color1-fill {
+  fill: var(--text-prominent);
+}
+
+.notifications-toggle:hover .notifications-toggle__icon .color1-stroke {
+  stroke: var(--text-prominent);
+}
+
+.notifications-toggle:hover .notifications-toggle__icon .color2-fill {
+  fill: none;
+}
+
+.notifications-toggle:hover .notifications-toggle__icon .color2-stroke {
+  stroke: none;
+}
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.notifications {
+  /** @define notifications-toggle; weak */
+  /** @define notifications-dialog; weak */
+  /** @define notifications-empty; weak */
+  /** @define notifications-item; weak */
+}
+
+.notifications-toggle {
+  position: relative;
+}
+
+[dir="ltr"] .notifications-toggle {
+  margin-right: 24px;
+}
+
+[dir="rtl"] .notifications-toggle {
+  margin-left: 24px;
+}
+
+.notifications-toggle__icon {
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+}
+
+.notifications-toggle__icon-wrapper {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.notifications-toggle__icon-wrapper--active {
+  cursor: default;
+}
+
+.notifications-toggle__icon .color1-fill {
+  fill: var(--text-general);
+}
+
+.notifications-toggle__icon .color1-stroke {
+  stroke: var(--text-general);
+}
+
+.notifications-toggle__step {
+  position: absolute;
+  top: -2px;
+  pointer-events: none;
+}
+
+[dir="ltr"] .notifications-toggle__step {
+  left: 1rem;
+}
+
+[dir="rtl"] .notifications-toggle__step {
+  right: 1rem;
+}
+
+.notifications-toggle--active .dc-popover {
+  pointer-events: none;
+}
+
+.notifications-dialog {
+  position: absolute;
+  top: 48px;
+  width: 264px;
+  height: 525px;
+  background: var(--general-main-2);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 2px var(--shadow-menu);
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.25s linear;
+  opacity: 0;
+  transform: translate3d(0, -20px, 0);
+}
+
+[dir="ltr"] .notifications-dialog {
+  left: calc(-50% - 10rem);
+}
+
+[dir="rtl"] .notifications-dialog {
+  right: calc(-50% - 10rem);
+}
+
+.notifications-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-normal);
+}
+
+.notifications-dialog__header-text {
+  margin: 1rem 0;
+}
+
+@media (max-width: 600px) {
+  .notifications-dialog__header {
+    display: none;
+  }
+}
+
+.notifications-dialog__footer {
+  height: 3.7rem;
+  align-items: end;
+  display: flex;
+  justify-content: end;
+  background: var(--general-main-2);
+  box-shadow: 0 4px 8px 2px var(--shadow-menu);
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.25s linear;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+[dir="ltr"] .notifications-dialog__footer {
+  padding-left: 1.3rem;
+}
+
+[dir="rtl"] .notifications-dialog__footer {
+  padding-right: 1.3rem;
+}
+
+.notifications-dialog__separator {
+  border-bottom: 1px solid var(--general-section-1);
+}
+
+.notifications-dialog__clear {
+  border: 1px solid var(--shadow-box);
+  height: 2.4rem;
+  width: auto;
+  bottom: 0.6rem;
+  padding: 0.7rem;
+}
+
+[dir="ltr"] .notifications-dialog__clear {
+  right: 1.7rem;
+}
+
+[dir="rtl"] .notifications-dialog__clear {
+  left: 1.7rem;
+}
+
+.notifications-dialog__clear:hover {
+  background: var(--button-secondary-hover);
+}
+
+.notifications-dialog__content {
+  padding: 0.8rem 0;
+  height: calc(100% - 37px);
+  border-radius: 4px;
+}
+
+.notifications-dialog__content--empty {
+  display: flex;
+}
+
+.notifications-dialog__content--sticky {
+  display: flex;
+  position: sticky;
+  bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .notifications-dialog__content {
+    height: calc(100vh - 40px);
+  }
+}
+
+.notifications-dialog--enter-done {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.notifications-dialog--enter, .notifications-dialog--exit {
+  opacity: 0;
+  transform: translate3d(0, -20px, 0);
+}
+
+[dir="ltr"] .notifications-dialog--shifted {
+  left: calc(-50% - 18rem);
+}
+
+[dir="rtl"] .notifications-dialog--shifted {
+  right: calc(-50% - 18rem);
+}
+
+@media (max-width: 600px) {
+  .notifications-dialog {
+    opacity: 1;
+    opacity: initial;
+    transform: none;
+    position: relative;
+    top: auto;
+    top: initial;
+    box-shadow: none;
+    height: 100%;
+    width: 100%;
+    background: var(--general-main-2);
+  }
+
+  [dir="ltr"] .notifications-dialog {
+    left: auto;
+    left: initial;
+  }
+
+  [dir="rtl"] .notifications-dialog {
+    right: auto;
+    right: initial;
+  }
+}
+
+.notifications-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notifications-empty__container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notifications-empty__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notifications-empty__icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 8px;
+}
+
+.notifications-empty__icon .color1-fill {
+  fill: var(--text-less-prominent);
+}
+
+.notifications-empty__header {
+  padding: 8px;
+}
+
+.notifications-item {
+  padding: 0.8rem;
+  position: relative;
+}
+
+[dir="ltr"] .notifications-item {
+  margin-left: 3.2rem;
+  margin-right: 0.8rem;
+}
+
+[dir="rtl"] .notifications-item {
+  margin-right: 3.2rem;
+  margin-left: 0.8rem;
+}
+
+.notifications-item:not(:last-child):after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  width: calc(100% + 4rem);
+  height: 1px;
+  background: var(--border-disabled);
+}
+
+[dir="ltr"] .notifications-item:not(:last-child):after {
+  left: -3.2rem;
+}
+
+[dir="rtl"] .notifications-item:not(:last-child):after {
+  right: -3.2rem;
+}
+
+.notifications-item__cta-button {
+  padding: 0.3rem 0.8rem;
+  height: auto;
+  width: auto;
+  white-space: normal;
+}
+
+[dir="ltr"] .notifications-item__cta-button {
+  margin: 0.8rem 0 0.8rem auto;
+}
+
+[dir="rtl"] .notifications-item__cta-button {
+  margin: 0.8rem auto 0.8rem 0;
+}
+
+@media (max-width: 600px) {
+  [dir="ltr"] .notifications-item__cta-button {
+    margin: 0.8rem 0 1.6rem auto;
+  }
+
+  [dir="rtl"] .notifications-item__cta-button {
+    margin: 0.8rem auto 1.6rem 0;
+  }
+}
+
+.notifications-item__link-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.notifications-item__title {
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.notifications-item__title-icon {
+  position: absolute;
+  top: 2px;
+  height: 16px;
+  width: 16px;
+  pointer-events: none;
+}
+
+[dir="ltr"] .notifications-item__title-icon {
+  left: -26px;
+}
+
+[dir="rtl"] .notifications-item__title-icon {
+  right: -26px;
+}
+
+.notifications-item__message {
+  font-size: 1.2rem;
+  color: var(--text-prominent);
+  line-height: 1.5;
+}
+
+.notifications-item__message a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--text-prominent);
+}
+
+.notifications-item__action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 600px) {
+  .notifications-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .notifications-item:after {
+    width: calc(100% + 1.4em);
+    height: 2px;
+  }
+
+  [dir="ltr"] .notifications-item:after {
+    left: -1.8rem;
+  }
+
+  [dir="rtl"] .notifications-item:after {
+    right: -1.8rem;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.platform-switcher {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.platform-switcher:not(.platform-switcher--is-mobile):hover {
+  background-color: var(--general-hover);
+}
+
+[dir="ltr"] .platform-switcher svg:first-child,
+[dir="ltr"] .platform-switcher p,
+[dir="ltr"] .platform-switcher h1 {
+  margin: 0 0 0 0.8rem;
+}
+
+[dir="rtl"] .platform-switcher svg:first-child,
+[dir="rtl"] .platform-switcher p,
+[dir="rtl"] .platform-switcher h1 {
+  margin: 0 0.8rem 0 0;
+}
+
+.platform-switcher svg:last-child {
+  margin: 0 0.8rem;
+}
+
+.platform-switcher__arrow {
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.platform-switcher__arrow .color1-fill {
+  fill: var(--text-general);
+}
+
+.platform-switcher__preloader {
+  margin-top: 4px;
+  align-self: center;
+  width: 146px;
+}
+
+.platform-switcher__preloader--is-mobile {
+  width: 162px;
+}
+
+[dir="ltr"] .platform-switcher--active .platform-switcher__arrow {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .platform-switcher--active .platform-switcher__arrow {
+  transform: rotate(-180deg);
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .platform-switcher {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+/* @define platform-dropdown; weak */
+.platform-dropdown {
+  z-index: 7;
+  background-color: var(--overlay-outside-dialog);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+@media (max-width: 1279px) {
+  .platform-dropdown {
+    position: absolute;
+  }
+
+  .platform-dropdown .platform-dropdown__list {
+    position: absolute;
+    top: 0;
+    width: 295px;
+    background-color: var(--general-main-2);
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  [dir="ltr"] .platform-dropdown .platform-dropdown__list {
+    left: 0;
+    padding-right: 1.6rem;
+  }
+
+  [dir="rtl"] .platform-dropdown .platform-dropdown__list {
+    right: 0;
+    padding-left: 1.6rem;
+  }
+
+  .platform-dropdown .platform-dropdown__list-platform {
+    width: calc(100% - 1.6rem);
+    margin: 1.4rem 1.6rem;
+    padding: 1.4rem 1.6rem;
+  }
+}
+
+.platform-dropdown--enter-done {
+  opacity: 1;
+}
+
+.platform-dropdown--enter-done .platform-dropdown__list {
+  transform: translateY(48px);
+}
+
+.platform-dropdown__cta {
+  position: absolute;
+  bottom: 0;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+[dir="ltr"] .platform-dropdown__cta {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+[dir="rtl"] .platform-dropdown__cta {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.platform-dropdown__cta--link {
+  color: var(--text-loss-danger);
+}
+
+@media (max-width: 1279px) {
+  .platform-dropdown__cta {
+    position: relative;
+    text-align: center;
+  }
+
+  [dir="ltr"] .platform-dropdown__cta {
+    padding: 1rem 0 0 1.3rem;
+  }
+
+  [dir="rtl"] .platform-dropdown__cta {
+    padding: 1rem 1.3rem 0 0;
+  }
+}
+
+.platform-dropdown__list {
+  background-color: var(--general-main-1);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transform: translateY(0px);
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-flow: wrap;
+  padding-bottom: 3rem;
+}
+
+.platform-dropdown__list-platform {
+  position: relative;
+  display: inline-flex;
+  background-color: transparent;
+  color: var(--text-general);
+  text-decoration: none;
+  margin: 2.4rem 1.6rem;
+  padding: 2.4rem 1.6rem;
+  width: 320px;
+  border-radius: 0.8rem;
+  /* postcss-bem-linter: ignore */
+}
+
+.platform-dropdown__list-platform-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 2.4rem;
+}
+
+.platform-dropdown__list-platform-description {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  margin-top: 0.8rem;
+}
+
+.platform-dropdown__list-platform-background {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  background-color: var(--general-hover);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.platform-dropdown__list-platform.active {
+  border: solid 2px var(--border-active);
+}
+
+.platform-dropdown__list-platform:not(.active):hover {
+  background: var(--state-hover);
+}
+
+@media (max-width: 1279px) {
+  .platform-dropdown__list-platform {
+    width: 302px;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.cashier__counter {
+  position: absolute;
+  top: 0.4rem;
+}
+
+[dir="ltr"] .cashier__counter {
+  right: -1.5rem;
+}
+
+[dir="rtl"] .cashier__counter {
+  left: -1.5rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+.acc-switcher__logout-icon, .acc-info__select-arrow {
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+}
+
+.acc-switcher__logout-icon .color1-fill, .acc-info__select-arrow .color1-fill {
+  fill: var(--text-general);
+}
+
+.acc-switcher__logout-icon .color1-stroke, .acc-info__select-arrow .color1-stroke {
+  stroke: var(--text-general);
+}
+
+.acc-switcher__logout-icon .color2-fill, .acc-info__select-arrow .color2-fill {
+  fill: none;
+}
+
+.acc-switcher__logout-icon .color2-stroke, .acc-info__select-arrow .color2-stroke {
+  stroke: none;
+}
+.active.acc-switcher__logout-icon, .active.acc-info__select-arrow {
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+}
+
+.active.acc-switcher__logout-icon .color1-fill, .active.acc-info__select-arrow .color1-fill {
+  fill: var(--text-prominent);
+}
+
+.active.acc-switcher__logout-icon .color1-stroke, .active.acc-info__select-arrow .color1-stroke {
+  stroke: var(--text-prominent);
+}
+
+.active.acc-switcher__logout-icon .color2-fill, .active.acc-info__select-arrow .color2-fill {
+  fill: none;
+}
+
+.active.acc-switcher__logout-icon .color2-stroke, .active.acc-info__select-arrow .color2-stroke {
+  stroke: none;
+}
+.disabled.acc-switcher__logout-icon, .disabled.acc-info__select-arrow {
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+}
+
+.disabled.acc-switcher__logout-icon .color1-fill, .disabled.acc-info__select-arrow .color1-fill {
+  fill: var(--text-disabled);
+}
+
+.disabled.acc-switcher__logout-icon .color1-stroke, .disabled.acc-info__select-arrow .color1-stroke {
+  stroke: var(--text-disabled);
+}
+
+.disabled.acc-switcher__logout-icon .color2-fill, .disabled.acc-info__select-arrow .color2-fill {
+  fill: none;
+}
+
+.disabled.acc-switcher__logout-icon .color2-stroke, .disabled.acc-info__select-arrow .color2-stroke {
+  stroke: none;
+}
+.white.acc-switcher__logout-icon, .white.acc-info__select-arrow {
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+}
+
+.white.acc-switcher__logout-icon .color1-fill, .white.acc-info__select-arrow .color1-fill {
+  fill: var(--text-prominent);
+}
+
+.white.acc-switcher__logout-icon .color1-stroke, .white.acc-info__select-arrow .color1-stroke {
+  stroke: var(--text-prominent);
+}
+.border_hover_color.acc-switcher__logout-icon, .border_hover_color.acc-info__select-arrow {
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+}
+
+.border_hover_color.acc-switcher__logout-icon .color1-fill, .border_hover_color.acc-info__select-arrow .color1-fill {
+  fill: var(--text-prominent);
+}
+
+.border_hover_color.acc-switcher__logout-icon .color1-stroke, .border_hover_color.acc-info__select-arrow .color1-stroke {
+  stroke: var(--text-prominent);
+}
+.secondary.acc-switcher__logout-icon, .secondary.acc-info__select-arrow {
+  /* postcss-bem-linter: ignore */
+  /* postcss-bem-linter: ignore */
+}
+
+.secondary.acc-switcher__logout-icon .color1-fill, .secondary.acc-info__select-arrow .color1-fill {
+  fill: var(--text-less-prominent);
+}
+
+.secondary.acc-switcher__logout-icon .color1-stroke, .secondary.acc-info__select-arrow .color1-stroke {
+  stroke: var(--text-less-prominent);
+}
+
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+/** @define acc-info */
+.acc-info {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: center;
+}
+
+[dir="ltr"] .acc-info {
+  padding: 0 1.6rem 0 1.7rem;
+}
+
+[dir="rtl"] .acc-info {
+  padding: 0 1.7rem 0 1.6rem;
+}
+
+.acc-info__preloader {
+  position: absolute;
+  top: 0;
+  width: 37rem;
+  height: 4rem;
+  z-index: 2;
+  background: var(--general-main-1);
+}
+
+[dir="ltr"] .acc-info__preloader {
+  right: 0;
+}
+
+[dir="rtl"] .acc-info__preloader {
+  left: 0;
+}
+
+.acc-info__preloader:before {
+  content: "";
+  position: absolute;
+  width: 8rem;
+  height: 3.5rem;
+  top: 0;
+  background: var(--general-main-1);
+}
+
+[dir="ltr"] .acc-info__preloader:before {
+  left: -8rem;
+}
+
+[dir="rtl"] .acc-info__preloader:before {
+  right: -8rem;
+}
+
+.acc-info__preloader--no-currency:before {
+  width: 9rem;
+}
+
+[dir="ltr"] .acc-info__preloader--no-currency:before {
+  left: -9rem;
+}
+
+[dir="rtl"] .acc-info__preloader--no-currency:before {
+  right: -9rem;
+}
+
+@media (max-width: 600px) {
+  .acc-info__preloader {
+    width: 14rem;
+    height: 4rem;
+    top: -0.3rem;
+  }
+
+  .acc-info__preloader:before {
+    display: none;
+  }
+
+  .acc-info__preloader--is-crypto {
+    width: 100%;
+  }
+}
+
+.acc-info__preloader__dtrader {
+  position: absolute;
+  top: 0;
+  width: 37rem;
+  height: 4rem;
+  z-index: 2;
+  background: var(--general-main-1);
+}
+
+[dir="ltr"] .acc-info__preloader__dtrader {
+  right: 0;
+}
+
+[dir="rtl"] .acc-info__preloader__dtrader {
+  left: 0;
+}
+
+.acc-info__preloader__dtrader:before {
+  content: "";
+  position: absolute;
+  width: 8rem;
+  height: 3.5rem;
+  top: 0;
+  background: var(--general-main-1);
+}
+
+[dir="ltr"] .acc-info__preloader__dtrader:before {
+  left: -8rem;
+}
+
+[dir="rtl"] .acc-info__preloader__dtrader:before {
+  right: -8rem;
+}
+
+.acc-info__preloader__dtrader--no-currency:before {
+  width: 9rem;
+}
+
+[dir="ltr"] .acc-info__preloader__dtrader--no-currency:before {
+  left: -9rem;
+}
+
+[dir="rtl"] .acc-info__preloader__dtrader--no-currency:before {
+  right: -9rem;
+}
+
+@media (max-width: 600px) {
+  .acc-info__preloader__dtrader {
+    width: 14rem;
+    height: 4rem;
+    top: -0.3rem;
+  }
+
+  .acc-info__preloader__dtrader:before {
+    display: none;
+  }
+
+  .acc-info__preloader__dtrader--is-crypto {
+    width: 100%;
+  }
+}
+
+.acc-info__preloader__dtrader--wallets {
+  width: 47rem;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .acc-info__preloader__dtrader--wallets {
+    width: auto;
+  }
+}
+
+.acc-info__container {
+  align-items: center;
+  -webkit-box-align: center;
+  display: flex;
+}
+
+.acc-info__wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+[dir="ltr"] .acc-info__wrapper {
+  margin-right: 0.8rem;
+}
+
+[dir="rtl"] .acc-info__wrapper {
+  margin-left: 0.8rem;
+}
+
+.acc-info__id {
+  pointer-events: none;
+}
+
+.acc-info__id-icon {
+  vertical-align: middle;
+}
+
+[dir="ltr"] .acc-info__id-icon {
+  margin-right: 0.8rem;
+}
+
+[dir="rtl"] .acc-info__id-icon {
+  margin-left: 0.8rem;
+}
+
+.acc-info__separator {
+  width: 2rem;
+  height: 3.2rem;
+}
+
+[dir="ltr"] .acc-info__separator {
+  border-right: 1px solid var(--general-section-1);
+  margin-right: -0.1rem;
+}
+
+[dir="rtl"] .acc-info__separator {
+  border-left: 1px solid var(--general-section-1);
+  margin-left: -0.1rem;
+}
+
+.acc-info__balance {
+  font-size: 1.6rem;
+  color: var(--text-profit-success);
+  font-weight: 700;
+  text-transform: default;
+  text-align: center;
+  line-height: 1.75;
+  line-height: 2.4rem;
+  pointer-events: none;
+}
+
+[dir="ltr"] .acc-info__balance {
+  margin-right: 0.8rem;
+}
+
+[dir="rtl"] .acc-info__balance {
+  margin-left: 0.8rem;
+}
+
+.acc-info__account-type-and-balance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+}
+
+[dir="ltr"] .acc-info__account-type-and-balance {
+  padding: 0 1rem 0.1rem 0;
+}
+
+[dir="rtl"] .acc-info__account-type-and-balance {
+  padding: 0 0 0.1rem 1rem;
+}
+
+.acc-info__select-arrow {
+  pointer-events: none;
+  transform: rotate(0);
+  transform-origin: 50% 45%;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+[dir="ltr"] .acc-info__select-arrow--invert {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .acc-info__select-arrow--invert {
+  transform: rotate(-180deg);
+}
+
+@media (min-width: 1280px) {
+  .acc-info:hover:not(.show):not(.acc-info--is-disabled) {
+    background: var(--state-hover);
+  }
+
+  .acc-info:hover:not(.show):not(.acc-info--is-disabled) .symbols {
+    background: transparent;
+  }
+}
+
+@media (max-width: 600px) {
+  .acc-info {
+    padding: 0 1rem;
+  }
+
+  [dir="ltr"] .acc-info {
+    margin-right: -0.8rem;
+  }
+
+  [dir="rtl"] .acc-info {
+    margin-left: -0.8rem;
+  }
+
+  .acc-info__balance {
+    font-size: 1.4rem;
+  }
+
+  .acc-info__balance--no-currency {
+    white-space: nowrap;
+  }
+}
+
+.acc-info--is-virtual .acc-info__balance {
+  color: var(--text-profit-success);
+}
+
+.acc-info--is-disabled {
+  cursor: not-allowed;
+}
+
+[dir="ltr"] .acc-info--show .acc-info__select-arrow {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .acc-info--show .acc-info__select-arrow {
+  transform: rotate(-180deg);
+}
+
+.acc-info--show .acc-info__select-arrow--invert {
+  transform: rotate(0deg);
+}
+
+[dir="ltr"] .acc-info__button {
+  margin: 0 1.6em 0 0 !important;
+}
+
+[dir="rtl"] .acc-info__button {
+  margin: 0 0 0 1.6em !important;
+}
+
+[dir="ltr"] .acc-info__button:not(:last-child) {
+  margin-right: 1em;
+}
+
+[dir="rtl"] .acc-info__button:not(:last-child) {
+  margin-left: 1em;
+}
+
+@media (max-width: 600px) {
+  .acc-info__button {
+    height: 2.8rem !important;
+  }
+}
+
+.acc-info__wallets {
+  padding: 1.2rem 1.6rem;
+  gap: 0.8rem;
+}
+
+[dir="ltr"] .acc-info__wallets-notification-icon {
+  margin-right: 1rem;
+}
+
+[dir="rtl"] .acc-info__wallets-notification-icon {
+  margin-left: 1rem;
+}
+
+.acc-info__wallets-container {
+  align-items: center;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.acc-info__wallets-account-type-and-balance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  pointer-events: none;
+}
+
+.acc-info__wallets-balance {
+  color: var(--text-general);
+}
+
+[dir="ltr"] .acc-info__wallets-balance {
+  margin-right: 0;
+}
+
+[dir="rtl"] .acc-info__wallets-balance {
+  margin-left: 0;
+}
+
+/* @define acc-switcher; weak */
+.acc-switcher {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 0 0.8rem;
+  height: 4rem;
+  position: relative;
+}
+
+.acc-switcher--is-loading {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: var(--general-main-2);
+}
+
+[dir="ltr"] .acc-switcher--is-loading {
+  left: 0;
+}
+
+[dir="rtl"] .acc-switcher--is-loading {
+  right: 0;
+}
+
+.acc-switcher__wrapper {
+  border-radius: 4px;
+  position: absolute;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.25s linear;
+  box-shadow: 0 8px 16px 0 var(--shadow-menu);
+  top: calc(100% + 4px);
+  width: 320px;
+  background-color: var(--general-main-2);
+}
+
+[dir="ltr"] .acc-switcher__wrapper {
+  right: 0;
+}
+
+[dir="rtl"] .acc-switcher__wrapper {
+  left: 0;
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .acc-switcher__wrapper {
+    position: static;
+    position: initial;
+  }
+}
+
+.acc-switcher__wrapper--wallets {
+  width: 32rem;
+}
+
+[dir="ltr"] .acc-switcher__wrapper--wallets {
+  right: -3.2rem;
+}
+
+[dir="rtl"] .acc-switcher__wrapper--wallets {
+  left: -3.2rem;
+}
+
+.acc-switcher__wrapper--enter-done {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.acc-switcher__wrapper--enter, .acc-switcher__wrapper--exit {
+  opacity: 0;
+  transform: translate3d(0, -20px, 0);
+}
+
+.acc-switcher__wrapper .acc-switcher__button {
+  max-width: calc(100% - 1.6rem);
+  margin: 0.2rem 0.8rem 0.8rem;
+  height: 4rem;
+}
+
+@media (max-width: 1279px) {
+  .acc-switcher__wrapper {
+    position: relative;
+    top: auto;
+    top: initial;
+    left: auto;
+    left: initial;
+    right: auto;
+    right: initial;
+    width: 100%;
+    box-shadow: none;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+.acc-switcher__wrapper .dc-themed-scrollbars {
+  scrollbar-color: var(--text-less-prominent) transparent;
+}
+
+.acc-switcher__wrapper .dc-themed-scrollbars::-webkit-scrollbar-thumb {
+  background-color: var(--text-less-prominent);
+}
+
+.acc-switcher__new-account {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.6rem 1.8rem;
+  font-size: var(--text-size-xs);
+}
+
+[dir="ltr"] .acc-switcher__new-account-text {
+  margin-left: 0.8rem;
+}
+
+[dir="rtl"] .acc-switcher__new-account-text {
+  margin-right: 0.8rem;
+}
+
+[dir="ltr"] .acc-switcher__new-account-btn {
+  margin-left: auto;
+}
+
+[dir="rtl"] .acc-switcher__new-account-btn {
+  margin-right: auto;
+}
+
+.acc-switcher__new-account--disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+[dir="ltr"] .acc-switcher__reset-account-btn {
+  margin-left: auto;
+}
+
+[dir="rtl"] .acc-switcher__reset-account-btn {
+  margin-right: auto;
+}
+
+.acc-switcher__list {
+  border-radius: 4px;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  background: var(--general-main-2);
+}
+
+.acc-switcher__list-wrapper {
+  padding: 0.4rem 0.8rem 0;
+}
+
+.acc-switcher__list-title {
+  flex: 1;
+}
+
+.acc-switcher__list-container {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.acc-switcher__help-icon {
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+[dir="ltr"] .acc-switcher__help-icon {
+  margin-left: 0.8rem;
+}
+
+[dir="rtl"] .acc-switcher__help-icon {
+  margin-right: 0.8rem;
+}
+
+.acc-switcher__accounts {
+  border-radius: 4px;
+  background: var(--general-main-2);
+  position: relative;
+}
+
+.acc-switcher__accounts .acc-switcher__account {
+  margin-bottom: 2px;
+  background: var(--general-main-2);
+}
+
+.acc-switcher__accounts .acc-switcher__account:hover:not(.acc-switcher__account--selected) {
+  background-color: var(--state-hover);
+  border-radius: 4px;
+}
+
+.acc-switcher__accounts .acc-switcher__account.acc-switcher__account--disabled:hover {
+  background-color: var(--general-main-2);
+}
+
+.acc-switcher__accounts .acc-switcher__account .acc-switcher__id {
+  color: var(--text-general);
+  width: 100%;
+  line-height: 1.43;
+}
+
+.acc-switcher__accounts .acc-switcher__account--selected {
+  background: var(--state-active);
+}
+
+.acc-switcher__accounts .acc-switcher__account--selected .acc-switcher__id {
+  color: var(--text-prominent);
+  font-weight: 700;
+}
+
+.acc-switcher__accounts .acc-switcher__account--selected .acc-switcher__id--virtual:before {
+  color: var(--text-prominent);
+  border: 1px solid var(--text-prominent);
+}
+
+.acc-switcher__accounts .acc-switcher__account--disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.acc-switcher__accounts .acc-switcher__account:only-child {
+  border-radius: 4px;
+}
+
+.acc-switcher__accounts .acc-switcher__account:last-child {
+  margin-bottom: 8px;
+}
+
+.acc-switcher__accounts--is-loading {
+  padding-bottom: 0.8rem;
+}
+
+.acc-switcher__account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.3rem 1.6rem;
+  position: relative;
+  background: var(--general-main-2);
+  text-decoration: none;
+}
+
+[dir="ltr"] .acc-switcher__account .acc-switcher__id {
+  text-align: left;
+}
+
+[dir="rtl"] .acc-switcher__account .acc-switcher__id {
+  text-align: right;
+}
+
+.acc-switcher__account .acc-switcher__id {
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.5;
+  align-items: center;
+  display: flex;
+  color: var(--text-prominent);
+}
+
+[dir="ltr"] .acc-switcher__account .acc-switcher__id-icon {
+  margin-right: 8px;
+}
+
+[dir="rtl"] .acc-switcher__account .acc-switcher__id-icon {
+  margin-left: 8px;
+}
+
+.acc-switcher__account:hover:not(.acc-switcher__account--selected) {
+  background: var(--state-hover);
+}
+
+.acc-switcher__account--selected {
+  background: var(--state-active);
+  border-radius: 4px;
+}
+
+[dir="ltr"] .acc-switcher__account--selected .acc-switcher__id {
+  text-align: left;
+}
+
+[dir="rtl"] .acc-switcher__account--selected .acc-switcher__id {
+  text-align: right;
+}
+
+.acc-switcher__account--selected .acc-switcher__id {
+  font-size: 1.4rem;
+  color: var(--text-colored-background);
+  font-weight: 700;
+  text-transform: none;
+  line-height: 1.5;
+}
+
+.acc-switcher__account--selected .acc-switcher__id--virtual:before {
+  color: var(--text-prominent);
+  border: 1px solid var(--text-prominent);
+}
+
+.acc-switcher__account--selected .acc-switcher__loginid-text {
+  color: var(--text-prominent);
+  font-weight: normal;
+}
+
+.acc-switcher__account--selected .no-currency {
+  color: var(--text-prominent);
+}
+
+.acc-switcher__footer {
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+[dir="ltr"] .acc-switcher__footer {
+  padding-left: 1.3rem;
+}
+
+[dir="rtl"] .acc-switcher__footer {
+  padding-right: 1.3rem;
+}
+
+.acc-switcher__compare {
+  justify-self: end;
+  grid-column: 1/2;
+}
+
+.acc-switcher__logout {
+  grid-column: 2/3;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  justify-self: start;
+  padding: 1.6em 1.3em;
+}
+
+.acc-switcher__logout-text {
+  cursor: pointer;
+}
+
+.acc-switcher__logout-icon {
+  cursor: pointer;
+}
+
+[dir="ltr"] .acc-switcher__logout-icon {
+  margin-left: 8px;
+}
+
+[dir="rtl"] .acc-switcher__logout-icon {
+  margin-right: 8px;
+}
+
+[dir="ltr"] .acc-switcher__balance {
+  margin-left: auto;
+  text-align: right;
+}
+
+[dir="rtl"] .acc-switcher__balance {
+  margin-right: auto;
+  text-align: left;
+}
+
+.acc-switcher__separator {
+  display: block;
+  position: relative;
+}
+
+.acc-switcher__separator:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--general-section-2);
+  z-index: 1;
+}
+
+.acc-switcher__separator--no-padding:after {
+  width: calc(100% + 0.4rem);
+}
+
+.acc-switcher__separator--auto-margin {
+  margin-top: auto;
+}
+
+.acc-switcher__total {
+  height: 2.6rem;
+  margin: 0.4rem 1.6rem;
+  align-items: center;
+  display: flex;
+}
+
+.acc-switcher__total-subtitle {
+  margin: 0 1.6rem 1.2rem;
+}
+
+.acc-switcher__loginid-text {
+  font-size: 1rem;
+  color: var(--text-less-prominent);
+  line-height: 1.4;
+}
+
+.acc-switcher__loginid-text--disabled {
+  color: var(--text-disabled);
+}
+
+.acc-switcher__loader {
+  margin: 1rem auto !important;
+}
+
+.acc-switcher__loader {
+  font-size: 0.8rem;
+}
+
+.acc-switcher__btn {
+  width: calc(100% - 32px);
+  margin: 0 16px 8px;
+}
+
+[dir="ltr"] .acc-switcher__btn--traders_hub {
+  margin: 1.3rem 1.1rem 1rem 1rem;
+}
+
+[dir="rtl"] .acc-switcher__btn--traders_hub {
+  margin: 1.3rem 1rem 1rem 1.1rem;
+}
+
+[dir="ltr"] .acc-switcher__traders-hub {
+  padding: 1.2rem 0.5rem 0.6rem 0.8rem;
+}
+
+[dir="rtl"] .acc-switcher__traders-hub {
+  padding: 1.2rem 0.8rem 0.6rem 0.5rem;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  [dir="ltr"] .acc-switcher__traders-hub {
+    padding: 1.2rem 0.5rem 0.6rem 2.5rem;
+  }
+
+  [dir="rtl"] .acc-switcher__traders-hub {
+    padding: 1.2rem 2.5rem 0.6rem 0.5rem;
+  }
+}
+
+.acc-switcher__traders-hub--link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.acc-switcher__traders-hub--link :hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.acc-switcher__traders-hub--text {
+  align-items: center;
+  color: var(--text-loss-danger);
+}
+
+/** @define set-currency; weak */
+[dir="ltr"] .set-currency {
+  margin-right: 8px;
+}
+
+[dir="rtl"] .set-currency {
+  margin-left: 8px;
+}
+
+.set-currency .dc-btn {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .set-currency .dc-btn {
+    height: 2.8rem !important;
+  }
+}
+
+/** @define no-currency; weak */
+.no-currency {
+  font-size: 0.8rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: inherit;
+  text-transform: none;
+  color: var(--text-less-prominent);
+  line-height: 1.5;
+}
+
+[dir="ltr"] .no-currency {
+  text-align: right;
+}
+
+[dir="rtl"] .no-currency {
+  text-align: left;
+}
+
+/** @define badge-server; weak */
+.badge-server {
+  display: inline-block;
+  background-color: #2a3052;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  height: 2.2rem;
+}
+
+[dir="ltr"] .badge-server {
+  margin-left: 0.5rem;
+}
+
+[dir="rtl"] .badge-server {
+  margin-right: 0.5rem;
+}
+
+.badge-server-bot {
+  color: var(--text-colored-background);
+}
+
+.badge-server--disabled {
+  background-color: var(--border-disabled);
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .dc-modal__container_accounts-switcher {
+    left: 0;
+    right: 0;
+    max-width: 60rem;
+    margin: auto;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.acc-switcher-wallet-item__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.35rem 1.6rem;
+  border-radius: 4px;
+  gap: 1.6rem;
+  cursor: pointer;
+}
+
+.acc-switcher-wallet-item__container--active {
+  background-color: var(--general-active);
+}
+
+.acc-switcher-wallet-item__container:hover:not(.acc-switcher-wallet-item__container--active) {
+  background-color: var(--general-hover);
+}
+
+.acc-switcher-wallet-item__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.account-switcher-wallet-list {
+  padding: 0.4rem 0.8rem;
+  border-bottom: 1px solid var(--general-hover);
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .account-switcher-wallet-list {
+    padding: 0;
+    overflow: auto;
+    border-bottom: 0;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.account-switcher-wallet {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.account-switcher-wallet__header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--general-hover);
+}
+
+.account-switcher-wallet__list {
+  padding: 0.4rem 0.8rem;
+}
+
+.account-switcher-wallet__looking-for-cfds {
+  border-top: 1px solid var(--general-hover);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem;
+  border: none;
+  background: none;
+}
+
+.account-switcher-wallet__looking-for-cfds:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.account-switcher-wallet__arrow {
+  cursor: pointer;
+}
+
+[dir="ltr"] .account-switcher-wallet__arrow {
+  transform: rotate(-90deg);
+}
+
+[dir="rtl"] .account-switcher-wallet__arrow {
+  transform: rotate(90deg);
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.account-switcher-wallet-mobile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.account-switcher-wallet-mobile__button {
+  margin: 1rem 1.6rem;
+}
+
+.account-switcher-wallet-mobile__divider {
+  border-top: 1px solid var(--general-hover);
+  width: 100%;
+}
+
+.account-switcher-wallet-mobile__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5.6rem;
+  border: none;
+  padding: 0 1.6rem;
+  cursor: pointer;
+  background: none;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.currency-list {
+  width: 100%;
+}
+
+.currency-list form {
+  width: 100%;
+}
+
+.currency-list__items {
+  display: flex;
+  flex-wrap: wrap;
+  width: 768px;
+  margin: auto;
+}
+
+.currency-list__items__center {
+  justify-content: center !important;
+}
+
+@media (min-width: 1280px) {
+  .currency-list__items {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 1279px) {
+  .currency-list__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    width: 100%;
+  }
+}
+
+.currency-list__item {
+  align-items: center;
+  border-radius: 8px;
+  display: inline-flex;
+  flex-direction: column;
+  height: 128px;
+  width: 160px;
+  justify-content: space-around;
+  margin: 1.6rem 1.6rem 0;
+  min-width: 128px;
+}
+
+.currency-list__item:hover:not(.currency-list__item--selected) {
+  cursor: pointer;
+  border: 1px solid var(--border-hover);
+}
+
+.currency-list__item--current {
+  pointer-events: none;
+}
+
+.currency-list__item--current svg {
+  opacity: 0.08;
+}
+
+.currency-list__item--current .label {
+  color: var(--text-disabled);
+}
+
+.currency-list__item--selected {
+  border: 2px solid var(--border-active);
+}
+
+.currency-list__item--selected .label {
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  color: var(--text-prominent);
+}
+
+.currency-list__item > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.currency-list__item .currency-list__icon {
+  height: 48px;
+  width: 48px;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 1279px) {
+  .currency-list__item .currency-list__icon {
+    height: 64px;
+    width: 64px;
+    margin-bottom: 0.8rem;
+  }
+}
+
+.currency-list__item-text {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  color: var(--text-general);
+}
+
+@media (max-width: 1279px) {
+  .currency-list__item {
+    margin: 1.6rem 2rem 0.8rem;
+    padding: 0.8rem 0;
+    width: 85%;
+    min-width: 0;
+    min-width: initial;
+  }
+}
+
+@media only screen and (max-width: 1279px) and (max-width: 340px) {
+  .currency-list__item {
+    margin: 1.6rem 1rem 0.8rem;
+    width: 136px;
+    height: 136px;
+  }
+}
+
+.currency-list__radio-button {
+  display: none;
+}
+
+.currency-list__popover {
+  position: relative;
+  top: -4.8rem;
+  margin-top: -16px;
+}
+
+[dir="ltr"] .currency-list__popover {
+  left: 4.8rem;
+}
+
+[dir="rtl"] .currency-list__popover {
+  right: 4.8rem;
+}
+
+@media (max-width: 1279px) {
+  .currency-list__popover {
+    top: -5.8rem;
+  }
+
+  [dir="ltr"] .currency-list__popover {
+    right: 0;
+  }
+
+  [dir="rtl"] .currency-list__popover {
+    left: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .currency-list__loading-wrapper {
+    min-width: 768px;
+  }
+}
+
+.currency-hr {
+  height: 2px;
+  margin: 1.6rem auto;
+  width: 90%;
+  border-top: 1px solid var(--general-section-1);
+}
+
+@media (max-width: 1279px) {
+  .currency-hr {
+    border-top-width: 2px;
+    border-color: var(--border-disabled);
+    width: calc(100% + 2.4rem);
+  }
+
+  [dir="ltr"] .currency-hr {
+    margin-left: -2.4rem;
+  }
+
+  [dir="rtl"] .currency-hr {
+    margin-right: -2.4rem;
+  }
+}
+
+.currency-selector__subheading {
+  margin-top: 0.8rem;
+}
+
+.currency-selector__radio-group--with-margin--is-header {
+  font-size: 1.6rem;
+  margin: 0.4rem 0 0;
+  font-weight: bold;
+  color: var(--text-prominent);
+}
+
+@media (min-width: 1280px) {
+  .currency-selector__radio-group--with-margin {
+    margin-bottom: 0.4rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 768px;
+  }
+}
+
+.currency-selector__deposit-warn {
+  width: 78%;
+  margin: calc(3% - 1rem) auto;
+  padding: 10px;
+}
+
+.add-currency__title {
+  margin-top: 1rem;
+}
+
+.add-currency__sub-title {
+  margin-top: 0.8rem;
+}
+
+.add-currency__underline {
+  border-bottom: 1px solid var(--general-section-1);
+  width: 55rem;
+  margin: 1.6rem auto 0;
+}
+
+.add-currency__note {
+  background-color: var(--general-section-1);
+  width: 55rem;
+  margin: 1.1rem auto 1rem;
+  padding: 0.5rem;
+}
+
+.add-currency__note-wrapper {
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+}
+
+.add-currency__wizard-header {
+  margin-top: 1rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.add-or-manage {
+  flex-direction: row; /* fix for Safari */
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.add-or-manage .dc-tabs__content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7rem;
+}
+
+.add-or-manage .dc-tabs__list--header-fit-content {
+  margin: 0 auto;
+}
+
+.add-or-manage .account-wizard--disabled-message p:first-child {
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+
+.add-or-manage .currency-selector__radio-group--is-header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: var(--text-general);
+  text-align: center;
+}
+
+.add-or-manage .currency-selector__description {
+  display: none;
+}
+
+.add-or-manage .currency-selector__deposit-warn {
+  width: 78%;
+  margin: calc(3% - 1rem) auto;
+  padding: 10px;
+  background-color: var(--general-section-1);
+  border-radius: 4px;
+}
+
+.add-or-manage__with-margin--is-header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: var(--text-general);
+  text-align: center;
+}
+
+@media (min-width: 1280px) {
+  .add-or-manage .currency-selector__radio-group--with-margin {
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 768px;
+  }
+
+  .add-or-manage .dc-form-submit-button--absolute {
+    position: absolute;
+    padding: 1.6rem;
+    width: 100%;
+  }
+
+  [dir="ltr"] .add-or-manage .dc-form-submit-button--absolute {
+    right: 0;
+  }
+
+  [dir="rtl"] .add-or-manage .dc-form-submit-button--absolute {
+    left: 0;
+  }
+}
+
+@media (max-width: 1279px) {
+  .add-or-manage {
+    flex-wrap: initial;
+  }
+
+  .add-or-manage .account-wizard__btn-area .dc-btn, .add-or-manage .account-wizard__btn-area .dc-btn:last-child {
+    min-width: 0;
+    min-width: initial;
+    margin: 0 1.6rem;
+  }
+
+  .add-or-manage .currency-selector__radio-group--with-margin {
+    margin-bottom: 3rem;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .add-or-manage .change-currency .currency-list__items {
+    margin-bottom: 12rem;
+  }
+
+  .add-or-manage .change-currency .dc-form-submit-button--relative {
+    position: fixed;
+  }
+
+  [dir="ltr"] .add-or-manage .change-currency .dc-form-submit-button--relative {
+    right: 0;
+  }
+
+  [dir="rtl"] .add-or-manage .change-currency .dc-form-submit-button--relative {
+    left: 0;
+  }
+
+  .add-or-manage .account-wizard--disabled-message p:first-child {
+    width: 100%;
+    margin-top: 0.6rem;
+    padding: 2rem 1rem;
+  }
+
+  .add-or-manage .account-wizard--disabled .currency-list__items {
+    margin-top: 1.6rem;
+  }
+
+  .add-or-manage .dc-form-submit-button {
+    position: fixed;
+    padding: 15px;
+    height: 72px;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--fill-normal);
+    border: 2px solid var(--general-section-1);
+  }
+
+  .add-or-manage .dc-form-submit-button button {
+    min-width: 100%;
+  }
+}
+
+.dc-modal__container_real-account-signup-modal--success .status-dialog__close {
+  display: none;
+}
+
+.dc-modal__container_real-account-signup-modal--success .status-dialog__footer {
+  margin: 0;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dc-modal__container--risk-message .status-dialog {
+  width: auto;
+}
+
+@media (max-width: 1279px) {
+  .dc-mobile-dialog__account-signup-mobile-dialog > .status-dialog {
+    justify-content: center;
+  }
+}
+
+.status-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  padding: 2.4rem;
+}
+
+.status-dialog__close {
+  position: absolute;
+  cursor: pointer;
+  top: 1.8rem;
+}
+
+[dir="ltr"] .status-dialog__close {
+  right: 1.8rem;
+}
+
+[dir="rtl"] .status-dialog__close {
+  left: 1.8rem;
+}
+
+.status-dialog__header {
+  display: flex;
+  align-items: center;
+  width: auto;
+  justify-content: center;
+  position: relative;
+}
+
+.status-dialog__header .bottom-right-overlay {
+  position: absolute;
+  bottom: 2rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+[dir="ltr"] .status-dialog__header .bottom-right-overlay {
+  right: 0;
+}
+
+[dir="rtl"] .status-dialog__header .bottom-right-overlay {
+  left: 0;
+}
+
+.status-dialog__header svg.inline-icon {
+  width: 90px;
+  height: 120px;
+}
+
+.status-dialog__header svg {
+  display: block;
+}
+
+.status-dialog__header svg.dc-icon--red {
+  margin: 0 1rem;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__header svg {
+    max-width: 96px;
+    height: auto;
+  }
+}
+
+.status-dialog__header--xlarge, .status-dialog__header--large {
+  width: auto;
+  flex-grow: 1;
+}
+
+.status-dialog__header--xlarge .bottom-right-overlay, .status-dialog__header--large .bottom-right-overlay {
+  width: 4.8rem;
+  height: 4.8rem;
+  bottom: -1rem;
+}
+
+[dir="ltr"] .status-dialog__header--xlarge .bottom-right-overlay, [dir="ltr"] .status-dialog__header--large .bottom-right-overlay {
+  right: -1rem;
+}
+
+[dir="rtl"] .status-dialog__header--xlarge .bottom-right-overlay, [dir="rtl"] .status-dialog__header--large .bottom-right-overlay {
+  left: -1rem;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__header--xlarge .bottom-right-overlay, .status-dialog__header--large .bottom-right-overlay {
+    max-width: 3.6rem;
+    height: auto;
+  }
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__header--xlarge, .status-dialog__header--large {
+    flex-grow: 0;
+  }
+}
+
+.status-dialog__header--xlarge svg:first-child {
+  width: 12.8rem;
+  height: 12.8rem;
+}
+
+.status-dialog__header--large svg.inline-icon {
+  width: 12rem;
+  height: 12rem;
+}
+
+.status-dialog__header--center {
+  justify-content: center;
+  width: auto;
+  margin-top: 3rem;
+}
+
+.status-dialog__header--set-currency svg:first-child {
+  margin: 0 auto;
+}
+
+.status-dialog__header--set-currency .bottom-right-overlay {
+  bottom: 2rem;
+}
+
+.status-dialog__body {
+  flex-grow: 1;
+}
+
+.status-dialog__body--no-grow {
+  flex-grow: 0;
+  margin-bottom: 3.2rem;
+}
+
+.status-dialog__message-header {
+  margin: 1rem 0 0.8rem;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__message-header {
+    line-height: 24px;
+    margin-top: 1.6rem;
+  }
+}
+
+.status-dialog__message-text {
+  padding: 0.2rem 0;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__message-text {
+    padding: 0 1rem;
+    line-height: 2rem;
+  }
+}
+
+.status-dialog__footer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 1.4rem 0 0;
+}
+
+.status-dialog__footer .dc-btn {
+  margin: 0.4rem;
+  height: 4rem;
+  border-width: 2px;
+}
+
+@media (max-width: 1279px) {
+  .status-dialog__footer .dc-btn {
+    margin: 0.4rem 1.4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .status-dialog {
+    width: 44rem;
+    min-height: 35.2rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .status-dialog {
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 6rem 0 0;
+  }
+}
+
+.finished-add-currency__dialog {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  padding: 0rem 2.4rem 2.4rem;
+}
+
+.finished-add-currency__footer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin: 1.4rem 0 0;
+  justify-content: center;
+}
+
+.finished-add-currency__footer .dc-btn {
+  margin: 0.4rem;
+  height: 4rem;
+  border-width: 2px;
+  text-align: center;
+}
+
+@media (max-width: 1279px) {
+  .finished-add-currency__footer .dc-btn:first-child {
+    margin: 0.4rem 1.4rem;
+  }
+
+  [dir="ltr"] .finished-add-currency__footer .dc-btn:last-child {
+    margin: 0.4rem 1.4rem 0.4rem 0;
+  }
+
+  [dir="rtl"] .finished-add-currency__footer .dc-btn:last-child {
+    margin: 0.4rem 0 0.4rem 1.4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .finished-add-currency {
+    width: 38.4rem;
+    min-height: 30rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .finished-add-currency {
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 6rem 0 0;
+  }
+}
+
+.finished-add-currency__close {
+  display: block;
+  cursor: pointer;
+  padding: 0.6rem 0.8rem 0;
+}
+
+[dir="ltr"] .finished-add-currency__close {
+  margin: 1.2rem 1.6rem 0 auto;
+}
+
+[dir="rtl"] .finished-add-currency__close {
+  margin: 1.2rem auto 0 1.6rem;
+}
+
+@media (max-width: 1279px) {
+  .finished-add-currency__close {
+    margin: 0.8rem;
+  }
+}
+
+.dc-mobile-dialog {
+  height: 100%;
+}
+
+.dc-mobile-dialog--enter-done .dc-mobile-dialog__content {
+  transform: none;
+  transform: initial;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.change-currency {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.change-currency__title, .change-currency__sub-title {
+  text-transform: none;
+}
+
+.change-currency__title {
+  margin-top: 3rem;
+}
+
+.change-currency__sub-title {
+  margin-bottom: 1.6rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.set-currency-modal {
+  text-align: center;
+}
+
+.set-currency-modal__heading-container {
+  margin: 2rem auto;
+  color: var(--text-general);
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .set-currency-modal__heading-container__main-heading {
+    padding: 0 3rem;
+  }
+}
+
+.set-currency-modal__heading-container__sub-heading {
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  margin-top: 2rem;
+}
+
+.set-currency-modal .currency-selector {
+  min-height: 390px;
+}
+
+.set-currency-modal .currency-selector__radio-group--is-header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: var(--text-general);
+}
+
+.set-currency-modal .currency-selector__description {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .set-currency-modal .currency-selector__crypto .currency-list__items {
+    margin-bottom: 9rem;
+  }
+
+  .set-currency-modal .currency-selector .dc-form-submit-button {
+    position: fixed;
+    bottom: 0;
+    padding: 1.3rem;
+    background-color: var(--general-main-1);
+  }
+
+  [dir="ltr"] .set-currency-modal .currency-selector .dc-form-submit-button {
+    right: 0;
+  }
+
+  [dir="rtl"] .set-currency-modal .currency-selector .dc-form-submit-button {
+    left: 0;
+  }
+
+  .set-currency-modal .currency-selector .dc-form-submit-button--center {
+    justify-content: flex-end;
+    height: auto;
+    height: initial;
+  }
+
+  .set-currency-modal .currency-selector .dc-modal-footer {
+    background-color: var(--general-main-1);
+    position: fixed;
+    width: 100%;
+    bottom: 3.5rem;
+  }
+
+  [dir="ltr"] .set-currency-modal .currency-selector .dc-modal-footer {
+    right: 0;
+  }
+
+  [dir="rtl"] .set-currency-modal .currency-selector .dc-modal-footer {
+    left: 0;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .set-currency-modal .currency-selector {
+    overflow-y: auto;
+  }
+
+  .set-currency-modal .currency-selector__container--no-top-margin {
+    height: auto;
+    height: initial;
+  }
+
+  .set-currency-modal .currency-selector .dc-form-submit-button {
+    position: fixed;
+  }
+
+  .set-currency-modal .currency-selector .dc-form-submit-button button {
+    width: 100%;
+  }
+
+  .set-currency-modal .currency-selector .dc-modal-footer {
+    background-color: var(--general-main-1);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  [dir="ltr"] .set-currency-modal .currency-selector .dc-modal-footer {
+    right: 0;
+  }
+
+  [dir="rtl"] .set-currency-modal .currency-selector .dc-modal-footer {
+    left: 0;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.status-container {
+  display: flex;
+  flex-direction: column;
+  width: 44rem;
+  min-height: 35.2rem;
+}
+
+@media (max-width: 1279px) {
+  .status-container {
+    width: 100%;
+  }
+}
+
+.status-container__header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 16px;
+  height: 56px;
+  border-bottom: 2px solid var(--general-section-1);
+}
+
+.status-container__body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 7rem 0;
+}
+
+.status-container__body-icon {
+  position: relative;
+}
+
+.status-container__body-status-icon {
+  position: absolute;
+  bottom: 0;
+}
+
+[dir="ltr"] .status-container__body-status-icon {
+  right: 0;
+}
+
+[dir="rtl"] .status-container__body-status-icon {
+  left: 0;
+}
+
+.status-container__body-text {
+  margin-top: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+
+[dir="ltr"] .status-container__button {
+  margin-left: 0.8rem;
+}
+
+[dir="rtl"] .status-container__button {
+  margin-right: 0.8rem;
+}
+
+.status-container__footer {
+  height: 7.2rem;
+  padding: 0 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 2px solid var(--general-section-1);
+}
+
+@media (max-width: 1279px) {
+  .status-container__footer {
+    padding: 1.6rem;
+    justify-content: center;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.dc-modal__container_real-account-signup-modal {
+  display: flex;
+  flex-direction: column;
+  transition: none;
+  background-color: var(--general-main-1);
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .dc-modal__container_real-account-signup-modal {
+    max-height: calc(100vh - 10.2rem) !important;
+  }
+}
+
+.dc-modal__container_real-account-signup-modal--success {
+  min-width: 0 !important;
+  min-width: initial !important;
+  max-height: none !important;
+  max-height: initial !important;
+}
+
+.dc-modal__container_real-account-signup-modal--success {
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 47.8rem;
+}
+
+.dc-modal__container_real-account-signup-modal .dc-modal-header__title {
+  text-transform: none;
+}
+
+[dir="ltr"] .dc-modal__container_real-account-signup-modal .dc-modal-header__title {
+  border-top-left-radius: 1rem;
+}
+
+[dir="rtl"] .dc-modal__container_real-account-signup-modal .dc-modal-header__title {
+  border-top-right-radius: 1rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding-top: 3.6rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__restricted-country-error {
+  padding: 3.3rem 2.4rem 2.4rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__restricted-country-error .dc-btn {
+  margin-top: 1.9rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__invalid-input-error {
+  margin: 2.4rem auto;
+  padding-top: 0;
+  padding-top: initial;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__invalid-input-error .dc-btn {
+  margin-top: 1.9rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__invalid-input-error .invalid_fields_input {
+  display: list-item;
+  margin: 0.5rem auto;
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.dc-modal__container_real-account-signup-modal--error .account-wizard--error__cta {
+  border-top: 1px solid var(--general-section-1);
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.6rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error > svg {
+  width: 12.8rem;
+  height: 12.8rem;
+  align-self: center;
+  margin: 2rem 0 0;
+}
+
+.dc-modal__container_real-account-signup-modal--error h1 {
+  font-size: 1.6rem;
+  color: var(--text-general);
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.75;
+  text-transform: none;
+  color: var(--text-general);
+  margin-top: 1.6rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error p {
+  font-size: 1.4rem;
+  color: var(--text-prominent);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: none;
+  padding: 1.6rem;
+}
+
+.dc-modal__container_real-account-signup-modal--error a.dc-btn {
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--text-colored-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.dc-modal__container_real-account-signup-modal--error a.email-inline {
+  color: var(--brand-red-coral);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.dc-modal__container_real-account-signup-modal--error span.chat-inline {
+  color: var(--brand-red-coral);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dc-modal__container_real-account-signup-modal--loading {
+  width: 30rem;
+  max-height: 30rem;
+}
+
+.dc-modal__container_real-account-signup-modal--loading .dc-modal-header__title {
+  height: 0;
+}
+
+.dc-modal__container_real-account-signup-modal .dc-themed-scrollbars {
+  height: 100%;
+}
+
+.dc-modal__container--risk-message {
+  height: auto !important;
+  width: 44rem !important;
+}
+
+.dc-modal__container--risk-message .dc-themed-scrollbars {
+  max-height: none !important;
+}
+
+.dc-modal__container--risk-message .dc-modal-footer {
+  border-top: none;
+  padding: 2.4rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal__container--risk-message {
+    width: 30rem !important;
+  }
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-header {
+  border-bottom: 1px solid var(--general-section-1);
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-body {
+  text-align: center;
+  padding: 2.4rem 2.4rem 0rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal__container_center-risk-modal .dc-modal-body {
+    padding: 1.6rem 1.6rem 0rem;
+  }
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-body .risk-acceptance__text {
+  margin-top: 2.4rem;
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-body .verified-account__text {
+  margin-top: 2.4rem;
+}
+
+.dc-modal__container_center-risk-modal .dc-modal-footer {
+  justify-content: center;
+}
+
+.dc-modal__container_verified_account .dc-modal-body {
+  text-align: center;
+}
+
+.dc-modal__container_verified_account .dc-modal-footer {
+  justify-content: center;
+}
+
+.dc-mobile-dialog__account-signup-mobile-dialog .account-wizard--error p {
+  text-align: center;
+}
+
+.dc-mobile-dialog__account-signup-mobile-dialog .account-wizard--error span.chat-inline {
+  color: var(--brand-red-coral);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline;
+  text-align: center;
+}
+
+.dc-mobile-dialog__account-signup-mobile-dialog .account-wizard--error__cta {
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid var(--general-section-1);
+  width: 100%;
+  display: flex;
+  padding: 1.6rem;
+}
+
+.dc-mobile-dialog__account-signup-mobile-dialog .account-wizard--error__cta .dc-btn {
+  width: 100%;
+}
+
+.dc-modal-header--real-account-signup-modal {
+  border-bottom: 1px solid var(--general-section-1);
+}
+
+.account-wizard {
+  display: grid;
+  grid-template-rows: 13rem minmax(10rem, 1fr);
+  height: calc(100% - 5.7rem);
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .account-wizard {
+    transform: translateY(0);
+  }
+
+  .account-wizard--deriv-crypto {
+    grid-template-rows: 0 !important;
+  }
+
+  .account-wizard .currency-list__items__is-crypto {
+    margin-bottom: 9rem;
+  }
+
+  .account-wizard .dc-input__label {
+    background-color: var(--fill-normal) !important;
+  }
+
+  .account-wizard .dc-modal-footer {
+    background-color: var(--general-main-1);
+    z-index: 1;
+  }
+}
+
+@media (max-width: 1279px) {
+  .account-wizard {
+    grid-template-rows: 1fr auto;
+    overflow: hidden;
+  }
+
+  .account-wizard--set-currency {
+    grid-template-rows: 1fr 7rem;
+  }
+}
+
+.account-wizard.add-or-manage {
+  grid-template-rows: 1fr 1fr;
+}
+
+.account-wizard.add-or-manage .dc-form-submit-button {
+  padding: 2rem;
+}
+
+@media (min-width: 1280px) {
+  .account-wizard.add-or-manage form {
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 1279px) {
+  .account-wizard.add-or-manage {
+    grid-template-rows: 1fr 1fr;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+.account-wizard > h2 {
+  text-transform: none;
+  margin-top: 2.4rem;
+  font-size: 1.6rem;
+  color: var(--text-general);
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.75;
+  color: var(--text-less-prominent);
+}
+
+@media (max-width: 1279px) {
+  .account-wizard > h2 {
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+  }
+}
+
+.account-wizard > h3 {
+  font-size: 1.2rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.25;
+  text-transform: none;
+  color: var(--text-general);
+  margin-bottom: 1.6rem;
+}
+
+.account-wizard form {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .account-wizard form {
+    display: grid;
+    grid-template-rows: minmax(20rem, 1fr);
+  }
+}
+
+.account-wizard form .currency-selector__radio-group {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-wizard form .currency-selector__radio-group--is-header {
+  font-size: 1.6rem;
+  margin: 2rem 0 0;
+  font-weight: bold;
+  color: var(--text-prominent);
+}
+
+.account-wizard form .currency-selector__description {
+  margin-top: 2.4rem;
+  font-size: 1.4rem;
+  color: var(--text-prominent);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 1279px) {
+  .account-wizard form .currency-selector__description {
+    width: 100%;
+    padding: 1.6rem;
+    text-align: center;
+  }
+}
+
+.account-wizard form .currency-selector__description--info {
+  display: flex;
+  background-color: var(--transparent-info);
+  border-radius: 4px;
+  padding: 0.8rem;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.account-wizard form .currency-selector__container {
+  width: 100%;
+}
+
+@media (max-width: 1279px) {
+  .account-wizard form .currency-selector__container {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .account-wizard form .currency-selector__container--no-top-margin {
+    margin-top: 0;
+  }
+}
+
+.account-wizard form .currency-selector__button {
+  margin-top: 1.6rem;
+}
+
+@media (max-width: 1279px) {
+  .account-wizard form .currency-selector--deriv-account {
+    border-top: 2px solid var(--general-section-1);
+    padding-top: 1rem;
+  }
+
+  .account-wizard form .currency-selector--deriv-account .dc-btn:last-child {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.account-wizard__body {
+  display: flex;
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .account-wizard__body .details-form {
+    grid-template-rows: minmax(10rem, 1fr);
+  }
+}
+
+.account-wizard__set-currency p {
+  margin: 2.4rem 0;
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: initial;
+  color: var(--text-prominent);
+}
+
+@media (max-width: 1279px) {
+  .account-wizard__set-currency p {
+    font-size: 1.2rem;
+  }
+
+  [dir="ltr"] .account-wizard__set-currency p {
+    margin: 2.4rem auto 0 2.4rem;
+    text-align: left;
+  }
+
+  [dir="rtl"] .account-wizard__set-currency p {
+    margin: 2.4rem 2.4rem 0 auto;
+    text-align: right;
+  }
+}
+
+@media (max-width: 1279px) {
+  .account-wizard__set-currency h2 {
+    font-size: 1.2rem;
+  }
+
+  [dir="ltr"] .account-wizard__set-currency h2 {
+    text-align: left;
+    margin-left: 2.4rem;
+  }
+
+  [dir="rtl"] .account-wizard__set-currency h2 {
+    text-align: right;
+    margin-right: 2.4rem;
+  }
+}
+
+.account-wizard .checkbox {
+  align-items: center;
+  margin: 1rem 0 0;
+}
+
+.account-wizard .checkbox__box--active {
+  background-color: var(--brand-red-coral);
+}
+
+.account-wizard .checkbox__box--active:after {
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+[dir="ltr"] .account-wizard .checkbox__label {
+  text-align: left;
+}
+
+[dir="rtl"] .account-wizard .checkbox__label {
+  text-align: right;
+}
+
+.account-wizard .checkbox__label {
+  font-size: 1.4rem;
+  color: var(--text-general);
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.account-wizard--disabled {
+  position: relative;
+}
+
+.account-wizard--disabled .currency-list__items {
+  margin-top: 2.4rem;
+}
+
+.account-wizard--disabled .currency-list__item {
+  pointer-events: none;
+}
+
+.account-wizard--disabled .currency-list__item svg {
+  opacity: 0.08;
+}
+
+.account-wizard--disabled .currency-list__item .label {
+  color: var(--text-disabled);
+}
+
+.account-wizard--disabled-message {
+  display: flex;
+  justify-content: center;
+}
+
+.account-wizard--disabled-message-description {
+  margin-top: 2.4rem;
+  width: 78%;
+  background-color: var(--status-warning-transparent);
+  padding: 0.8rem 0;
+  border-radius: 4px;
+}
+
+@media (max-width: 1279px) {
+  .account-wizard--error {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .account-wizard--error__restricted-country-error, .account-wizard--error__invalid-input-error {
+    margin: auto 2.4rem;
+    height: calc(100vh - 84px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .account-wizard--error__restricted-country-error .dc-btn, .account-wizard--error__invalid-input-error .dc-btn {
+    margin-top: 1.9rem;
+    width: 100%;
+  }
+
+  .account-wizard--error__restricted-country-error .invalid_fields_input, .account-wizard--error__invalid-input-error .invalid_fields_input {
+    display: list-item;
+    margin: 0.5rem auto;
+    list-style: disc;
+    list-style-position: inside;
+  }
+
+  .account-wizard--error h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--text-prominent);
+  }
+
+  .account-wizard--error p {
+    font-size: 1.4rem;
+    margin: 1.6rem;
+    line-height: 1.4;
+    color: var(--text-general);
+  }
+
+  .account-wizard--error .dc-btn {
+    height: 4rem;
+  }
+
+  .account-wizard--error .dc-ion {
+    width: 100%;
+    max-width: 9.6rem;
+    margin-top: 2rem;
+    height: auto;
+  }
+
+  .account-wizard__header-steps {
+    padding: 1.6rem 0 0;
+    width: 100%;
+  }
+
+  .account-wizard__header-steps-title {
+    padding: 0 1.6rem 0.8rem;
+  }
+
+  .account-wizard__header-steps-subtitle {
+    padding: 1.6rem 1.6rem 0;
+  }
+}
+
+.add-crypto-currency,
+.change-currency {
+  height: 100%;
+}
+
+.add-crypto-currency__title,
+.change-currency__title {
+  margin-top: 3rem;
+}
+
+.add-crypto-currency__sub-title,
+.change-currency__sub-title {
+  margin-bottom: 1rem;
+}
+
+.add-crypto-currency__button,
+.change-currency__button {
+  margin-top: 1.6rem;
+  width: 100%;
+}
+
+@media (max-width: 1279px) {
+  .add-crypto-currency .dc-form-submit-button,
+  .change-currency .dc-form-submit-button {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--general-main-1);
+  }
+
+  .add-crypto-currency .dc-btn,
+  .change-currency .dc-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-height: 568px) {
+  .cashier-deposit .currency-selector__radio-group--with-margin {
+    margin-bottom: 6rem;
+  }
+}
+
+/* TODO: [refactor-components] Refactor form subheader to components */
+.account-form__header {
+  font-size: var(--text-size-xs);
+  font-weight: bold;
+  margin-bottom: 1.6rem;
+  position: relative;
+  height: 1.6rem;
+  white-space: nowrap;
+}
+
+.account-form__header-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.account-form__header-section:after {
+  border-top: 1px solid var(--general-section-1);
+  content: "";
+  height: 100%;
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 1279px) {
+  .account-form__header-section:after {
+    border-top-color: var(--general-disabled);
+  }
+}
+
+.account-form__header--has-description {
+  margin-bottom: 0.5rem;
+}
+
+.account-form__header:not(:first-child) {
+  margin-top: 1.6rem;
+}
+
+[dir="ltr"] .account-form__title {
+  padding-right: 0.8rem;
+}
+
+[dir="rtl"] .account-form__title {
+  padding-left: 0.8rem;
+}
+
+.account-form__subtitle {
+  align-self: baseline;
+  margin-top: 0.2rem;
+}
+
+[dir="ltr"] .account-form__subtitle {
+  padding-right: 0.8rem;
+}
+
+[dir="rtl"] .account-form__subtitle {
+  padding-left: 0.8rem;
+}
+
+.account-form__description {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: var(--text-prominent);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  [dir="ltr"] .emp-status {
+    padding-right: 2rem;
+  }
+
+  [dir="rtl"] .emp-status {
+    padding-left: 2rem;
+  }
+}
+
+.trading-assessment {
+  display: flex;
+  flex-direction: column;
+}
+
+.trading-assessment .dc-radio-group {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment {
+    height: calc(100vh - 16rem);
+    overflow: auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .trading-assessment--existing-user {
+    margin-top: 9.2rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment--existing-user {
+    height: calc(100vh - 12rem);
+  }
+
+  .trading-assessment--existing-user .trading-assessment__side-note {
+    padding: 2.2rem 1.6rem;
+  }
+}
+
+.trading-assessment__wrapper__dropdown--list--display {
+  height: 4rem;
+}
+
+.trading-assessment__side-note {
+  text-align: justify;
+  padding: 0 10rem;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__side-note {
+    padding: 0 1.6rem;
+  }
+}
+
+.trading-assessment__question-counter {
+  margin: 2.4rem 0 0;
+}
+
+[dir="ltr"] .trading-assessment__question-counter {
+  padding-left: 12rem;
+}
+
+[dir="rtl"] .trading-assessment__question-counter {
+  padding-right: 12rem;
+}
+
+@media (max-width: 1279px) {
+  [dir="ltr"] .trading-assessment__question-counter {
+    padding-left: 1.6rem;
+  }
+
+  [dir="rtl"] .trading-assessment__question-counter {
+    padding-right: 1.6rem;
+  }
+}
+
+.trading-assessment__form {
+  margin-top: 1.6rem;
+  display: grid;
+  grid-template-rows: 4.7fr 1fr;
+}
+
+.trading-assessment__form--existing_user {
+  grid-template-rows: 5.8fr 1fr;
+}
+
+.trading-assessment__form--layout {
+  grid-template-rows: 35rem 1fr !important;
+}
+
+.trading-assessment__form--fields {
+  display: flex;
+  padding: 0 10rem;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__form--fields {
+    padding: 0 1.6rem;
+  }
+}
+
+.trading-assessment__form .dc-themed-scrollbars {
+  width: 100%;
+}
+
+.trading-assessment__form .dc-dropdown__display .dc-dropdown__display-placeholder-text-limit-fit {
+  max-width: none;
+  max-width: initial;
+  padding-bottom: 0.5rem;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__form .dc-dropdown__display .dc-dropdown__display-placeholder-text-limit-fit {
+    width: 90%;
+    white-space: normal;
+  }
+}
+
+.trading-assessment__wrapper__question .dc-field--error {
+  margin: 1.6rem 0;
+}
+
+[dir="ltr"] .trading-assessment__wrapper__question .dc-field--error {
+  padding-left: 0;
+}
+
+[dir="rtl"] .trading-assessment__wrapper__question .dc-field--error {
+  padding-right: 0;
+}
+
+@media (min-width: 1280px) {
+  .trading-assessment__wrapper__question {
+    padding: 0 2rem;
+  }
+}
+
+.trading-assessment__wrapper__question .dc-radio-group {
+  gap: 1.6rem;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__wrapper__question .dc-radio-group__circle {
+    align-self: flex-start !important;
+  }
+}
+
+.trading-assessment__wrapper__dropdown {
+  gap: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .trading-assessment__wrapper__dropdown {
+    padding: 0 3rem;
+  }
+}
+
+.trading-assessment .disable-pointer {
+  cursor: not-allowed;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment .dc-dropdown__display-placeholder {
+    width: 100%;
+  }
+
+  .trading-assessment .dc-dropdown__display-placeholder .trading-assessment__form .dc-dropdown__display .dc-dropdown__display-placeholder-text-limit-fit {
+    width: 90%;
+  }
+
+  .trading-assessment .dc-dropdown__display-placeholder--is-left-text.dc-dropdown__display-placeholder--is-title {
+    white-space: normal !important;
+  }
+
+  .trading-assessment .dc-dropdown__display-placeholder--is-left-text.dc-dropdown__display-placeholder--is-title {
+    line-height: 1.6rem;
+  }
+}
+
+.trading-assessment__existing_btn {
+  border-top: 2px solid var(--general-disabled);
+  display: flex;
+  justify-content: end;
+  padding: 1rem 2rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 1279px) {
+  .trading-assessment__btn-group {
+    position: fixed;
+    bottom: 0;
+    padding: 1.6rem;
+    border-top: 2px solid var(--general-disabled);
+    width: 100%;
+    display: flex;
+    background: var(--general-main-1);
+  }
+
+  .trading-assessment__btn-group--btn {
+    width: 100%;
+  }
+}
+
+.dc-mobile-dialog__risk-acceptance {
+  margin-top: 9.4rem;
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2.4rem;
+}
+
+.dc-mobile-dialog__test-warning {
+  margin-top: 1.6rem;
+}
+
+.dc-mobile-dialog__test-warning .dc-modal-body {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+.dc-mobile-dialog__test-warning .dc-modal-footer {
+  position: fixed;
+  bottom: 0;
+  padding: 1.6rem;
+  border-top: 2px solid var(--general-disabled);
+  width: 100%;
+  display: flex;
+  background: var(--general-main-1);
+}
+
+.dc-mobile-dialog__test-warning .dc-modal-footer .dc-btn {
+  width: 100%;
+}
+
+[dir="ltr"] .field-layout .trading-assessment__wrapper__dropdown div:last-child .dc-dropdown__display-placeholder {
+  padding-right: 1rem;
+}
+
+[dir="rtl"] .field-layout .trading-assessment__wrapper__dropdown div:last-child .dc-dropdown__display-placeholder {
+  padding-left: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .field-layout .trading-assessment__wrapper__dropdown div:last-child .dc-dropdown__display .dc-dropdown__display-placeholder-text-limit-fit {
+    white-space: inherit;
+    text-overflow: initial;
+  }
+}
+
+.field-layout .trading-frequency--field {
+  height: 5rem;
+}
+
+.risk-tolerance-modal__title {
+  margin-bottom: 3.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.risk-tolerance-modal__title--separator {
+  border-top: 2px solid var(--general-section-5);
+  width: 50%;
+}
+
+.risk-tolerance-modal__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.risk-tolerance-modal__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.personal-details-form,
+.address-details-form {
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .personal-details-form,
+  .address-details-form {
+    padding: 0 16rem;
+  }
+}
+
+.personal-details-form .dc-radio-group__input {
+  width: 0;
+  height: 0;
+}
+
+@media (min-width: 1280px) {
+  .personal-details-form {
+    padding-bottom: 7rem;
+  }
+}
+
+.wizard__main-step .account-form__fieldset {
+  max-width: none !important;
+  max-width: initial !important;
+}
+
+.wizard__main-step .account-form__fieldset {
+  width: 100%;
+}
+
+.wizard__main-step .details-form__elements {
+  width: 100%;
+}
+
+.wizard__main-step .financial-assessment__form {
+  width: 70%;
+}
+
+@media (max-width: 1279px) {
+  .wizard__main-step .financial-assessment__form {
+    width: 100%;
+  }
+}
+
+.wizard__main-step .employment-status-field {
+  margin-top: 0.5rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+[dir="ltr"] #dt_set_account_currency_modal .dc-btn--secondary {
+  margin-right: 1rem;
+}
+
+[dir="rtl"] #dt_set_account_currency_modal .dc-btn--secondary {
+  margin-left: 1rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.currency-selection-modal__header {
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 1.6rem 2.4rem;
+  border-bottom: 2px solid var(--general-section-1);
+}
+
+.currency-selection-modal__header .close-icon {
+  cursor: pointer;
+}
+
+[dir="ltr"] .currency-selection-modal__header .close-icon {
+  margin-left: auto;
+}
+
+[dir="rtl"] .currency-selection-modal__header .close-icon {
+  margin-right: auto;
+}
+
+.currency-selection-modal__body {
+  display: flex;
+  flex-direction: column;
+  height: 31.2rem;
+  padding: 0.8rem 0.8rem 2.8rem;
+  overflow-y: scroll;
+}
+
+.currency-selection-modal__body .currency-item-card {
+  width: 100%;
+  height: 5.4rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.currency-selection-modal__body .currency-item-card:hover {
+  background-color: var(--state-hover);
+}
+
+.currency-selection-modal__body .currency-item-card--active {
+  background: var(--state-active);
+}
+
+[dir="ltr"] .currency-selection-modal__body .currency-item-card__icons {
+  margin-right: 1.6rem;
+}
+
+[dir="rtl"] .currency-selection-modal__body .currency-item-card__icons {
+  margin-left: 1.6rem;
+}
+
+.currency-selection-modal__body .currency-item-card__details {
+  display: flex;
+  flex-direction: column;
+}
+
+[dir="ltr"] .currency-selection-modal__body .currency-item-card__balance {
+  margin-left: auto;
+}
+
+[dir="rtl"] .currency-selection-modal__body .currency-item-card__balance {
+  margin-right: auto;
+}
+
+.currency-selection-modal__bottom-controls {
+  width: 100%;
+  height: 7.2rem;
+  position: absolute;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem 2.4rem;
+  border-top: 2px solid var(--general-section-1);
+  background-color: var(--general-main-1);
+  z-index: 4;
+}
+
+.currency-selection-modal__bottom-controls .block-button {
+  width: 100%;
+}

@@ -1,0 +1,402 @@
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.da-article {
+  background-color: var(--general-section-1);
+  width: 25.6rem;
+  padding: 1.6rem 2.4rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 8px;
+}
+@media (min-width: 1280px) {
+  [dir="ltr"] .da-article {
+    margin-left: 1.2rem;
+  }
+  [dir="rtl"] .da-article {
+    margin-right: 1.2rem;
+  }
+}
+@media (max-width: 1279px) {
+  .da-article {
+    width: calc(100% - 3.2rem);
+    margin: 1.6rem;
+  }
+}
+.da-article__header {
+  margin-bottom: 0.8rem;
+}
+.da-article__list {
+  list-style-type: disc;
+  padding-left: 1.6rem;
+}
+.da-article__list s li::marker {
+  font-size: var(--text-size-xs);
+}
+.da-article__list li + li {
+  margin-top: 0.8rem;
+}
+.da-article__learn-more {
+  cursor: pointer;
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+.da-article__learn-more:hover {
+  -webkit-text-decoration: underline var(--brand-red-coral);
+          text-decoration: underline var(--brand-red-coral);
+}
+.da-article__learn-more-icon {
+  margin-left: 0.4rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.connected-apps__wrapper {
+  display: grid;
+  grid-gap: 1.6rem;
+  gap: 1.6rem;
+  grid-template-rows: min-content;
+  grid-template-columns: 1fr min-content;
+}
+@media (max-width: 1279px) {
+  .connected-apps__wrapper {
+    grid-template-columns: 1fr;
+    padding: 1.6rem;
+  }
+}
+.connected-apps__content--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+@media (max-width: 1279px) {
+  .connected-apps__content--wrapper {
+    gap: 1.6rem;
+  }
+}
+.connected-apps__list--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.connected-apps__list--row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+.connected-apps__list--template {
+  background: var(--general-section-1);
+  border-radius: 8px;
+  padding: 1.6rem;
+}
+.connected-apps__list--name, .connected-apps__list--last-login, .connected-apps__list--permission, .connected-apps__list--revoke {
+  display: flex;
+  flex-direction: column;
+}
+.connected-apps__list--last-login {
+  width: 8rem;
+}
+.connected-apps__list--revoke {
+  justify-content: flex-end;
+}
+.connected-apps__tabular--wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 10rem min-content;
+}
+.connected-apps__tabular--cell {
+  padding: 1rem;
+  border-bottom: 1px solid var(--general-section-1);
+  min-height: 5.2rem;
+}
+.connected-apps__tabular--skip-left-padding {
+  padding-left: 0;
+  word-wrap: anywhere;
+}
+.connected-apps__tabular--header {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--general-section-1);
+}
+.connected-apps__articles--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  margin-left: 0.8rem;
+}
+@media (max-width: 1279px) {
+  .connected-apps__articles--wrapper {
+    margin-left: 0;
+  }
+}
+.connected-apps__articles--wrapper .da-article {
+  margin: 0;
+}
+@media (max-width: 1279px) {
+  .connected-apps__articles--wrapper .da-article {
+    width: 100%;
+  }
+}
+.connected-apps__empty--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 9.6rem;
+}
+@media (max-width: 1279px) {
+  .connected-apps__empty--wrapper {
+    gap: 1.6rem;
+    margin-top: 0;
+  }
+}
+.connected-apps__bullets--list {
+  list-style: auto;
+  display: flex;
+  flex-direction: column;
+}
+.connected-apps__bullets--with-apps {
+  gap: 1.4rem;
+  padding: 1.4rem 0 0 1.4rem;
+}
+@media (max-width: 1279px) {
+  .connected-apps__bullets--with-apps {
+    padding: 1rem 0 0 1rem;
+  }
+}
+.connected-apps__bullets--without-apps {
+  padding: 0 1.6rem;
+  gap: 0.8rem;
+}
+@media (max-width: 1279px) {
+  .connected-apps__bullets--without-apps {
+    gap: 0.4rem;
+  }
+}
+
+.dc-modal__container_connected-apps .dc-modal-body {
+  padding: 2.4rem;
+}
+.dc-modal__container_connected-apps .dc-modal-body .connected-apps-modal--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+.dc-modal__container_connected-apps .dc-modal-body .connected-apps-modal--icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dc-modal__container_connected-apps .dc-modal-body .connected-apps-modal--buttons {
+  display: flex;
+  gap: 0.8rem;
+}

@@ -1,0 +1,36 @@
+
+> @deriv/cfd@1.0.0 build
+> f () { NODE_OPTIONS='-r ts-node/register' webpack --config "./build/webpack.config.js" --env base=$1; }; f
+
+(node:12436) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+assets by path [1m[32mcfd/js/*.js[39m[22m 2.05 MiB
+  assets by info 316 KiB [1m[32m[immutable][39m[22m
+    asset [1m[32mcfd/js/cfd.cfd-compare-accounts.5892b8afcdd01f7c3c57.js[39m[22m 89.4 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (name: cfd-compare-accounts)
+    asset [1m[32mcfd/js/cfd.src_Containers_cfd-password-change_tsx.09a1dd251eed80464c8f.js[39m[22m 65.9 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m
+    asset [1m[32mcfd/js/cfd.src_Containers_mt5-create-password_mt5-create-password_tsx.f33610c7b46649b622b7.js[39m[22m 44.7 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m
+    asset [1m[32mcfd/js/cfd.cfd-app.9583f37a63333c26d3da.js[39m[22m 42 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (name: cfd-app)
+    + 5 assets
+  + 14 assets
+assets by path [1m[32mcfd/css/*.css[39m[22m 46.8 KiB
+  asset [1m[32mcfd/css/cfd.main.c0ebc2decb6392a6a50f.css[39m[22m 16.7 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (name: CFDPasswordModal)
+  asset [1m[32mcfd/css/cfd.cfd-compare-accounts.b16310389b1696f16a3f.css[39m[22m 10.4 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (name: cfd-compare-accounts)
+  asset [1m[32mcfd/css/cfd.main.c26adf5c328849353549.css[39m[22m 7.36 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (name: MT5TradeModal)
+  asset [1m[32mcfd/css/cfd.main.92ff1eb5368fdfb850e1.css[39m[22m 6.51 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (name: MT5MigrationModal)
+  asset [1m[32mcfd/css/cfd.src_Containers_mt5-create-password_mt5-create-password_tsx.2ab96bd4572bd0c4def2.css[39m[22m 5.81 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m
+asset [1m[32mcfd/asset-manifest.json[39m[22m 2.48 KiB [1m[32m[emitted][39m[22m
+orphan modules 855 KiB (javascript) 962 KiB (css/mini-extract) [1m[33m[orphan][39m[22m 225 modules
+runtime modules 39.1 KiB 63 modules
+built modules 589 KiB (javascript) 46.8 KiB (css/mini-extract) [1m[33m[built][39m[22m
+  modules by path [1m./src/[39m[22m 508 KiB (javascript) 46.8 KiB (css/mini-extract)
+    javascript modules 508 KiB 105 modules
+    css modules 46.8 KiB 6 modules
+  modules by path [1m../../node_modules/[39m[22m 80.7 KiB 33 modules
+  modules by path [1mexternal "@deriv/[39m[22m 336 bytes
+    modules by path [1mexternal "@deriv/account/[39m[22m 84 bytes 2 modules
+    + 6 modules
+  modules by path [1mexternal "@deriv-com/[39m[22m 84 bytes
+    [1mexternal "@deriv-com/analytics"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    [1mexternal "@deriv-com/utils"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  + 6 modules
+webpack 5.97.1 compiled [1m[32msuccessfully[39m[22m in 18846 ms

@@ -1,0 +1,43 @@
+
+> @deriv/account@1.0.0 build
+> f () { NODE_OPTIONS='-r ts-node/register' webpack --config "./build/webpack.config.js" --env base=$1;}; f
+
+[1G[0Kassets by path [1m[32maccount/js/*.js[39m[22m 920 KiB
+  assets by info 857 KiB [1m[32m[immutable][39m[22m
+    asset [1m[33maccount/js/account.vendors-node_modules_binary-com_binary-document-uploader_DocumentUploader_js-node_modules_day-7988b1.24cc026d4f712960dc8a.js[39m[22m [1m[33m431 KiB[39m[22m [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m [1m[33m[big][39m[22m (id hint: vendors) 2 related assets
+    + 16 assets
+  + 14 assets
+assets by path [1m[32maccount/css/*.css[39m[22m 1.05 MiB
+  asset [1m[33maccount/css/vendors-node_modules_binary-com_binary-document-uploader_DocumentUploader_js-node_modules_day-7988b1.5a54eeb80aa5a89d9dd9.css[39m[22m [1m[33m988 KiB[39m[22m [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m [1m[33m[big][39m[22m (id hint: vendors)
+  asset [1m[32maccount/css/account-app.b6f9fe5af1fc4864b465.css[39m[22m 54.1 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: account-app)
+  asset [1m[32maccount/css/Sections_Profile_PhoneVerification_index_ts.f8da1a15eecfa607a01e.css[39m[22m 9 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m
+  asset [1m[32maccount/css/Sections_Security_SelfExclusion_index_ts.b39d7707c554d6c76e96.css[39m[22m 6.5 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m
+  asset [1m[32maccount/css/Sections_Security_Passkeys_index_ts.9db522f4c6042de60bb7.css[39m[22m 4.86 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m
+  asset [1m[32maccount/css/Sections_Security_ApiToken_index_ts.dc154f32c2e0e1cadde6.css[39m[22m 3.92 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m
+  asset [1m[32maccount/css/Sections_Security_ConnectedApps_index_ts.5bcdd83611f9e673edd2.css[39m[22m 3.37 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m
+  asset [1m[32maccount/css/Sections_Security_AccountLimits_index_ts.42c066bcc7e33181d635.css[39m[22m 2.77 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m
+  + 2 assets
+orphan modules 2.15 MiB (javascript) 788 KiB (css/mini-extract) [1m[33m[orphan][39m[22m 753 modules
+runtime modules 18.6 KiB 49 modules
+built modules 1.64 MiB (javascript) 1.06 MiB (css/mini-extract) [1m[33m[built][39m[22m
+  modules by path [1m../../../node_modules/[39m[22m 776 KiB (javascript) 1010 KiB (css/mini-extract) 209 modules
+  modules by path [1m./[39m[22m 901 KiB (javascript) 80.6 KiB (css/mini-extract)
+    javascript modules 901 KiB 47 modules
+    css modules 80.6 KiB 22 modules
+  modules by path [1mexternal "@deriv/[39m[22m 378 bytes
+    [1mexternal "@deriv/shared"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    + 8 modules
+  modules by path [1mexternal "@deriv-com/[39m[22m 126 bytes
+    [1mexternal "@deriv-com/translations"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    [1mexternal "@deriv-com/utils"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    [1mexternal "@deriv-com/analytics"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  + 5 modules
+
+[1m[33mWARNING[39m[22m in [1masset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  account/css/vendors-node_modules_binary-com_binary-document-uploader_DocumentUploader_js-node_modules_day-7988b1.5a54eeb80aa5a89d9dd9.css (988 KiB)
+  account/js/account.vendors-node_modules_binary-com_binary-document-uploader_DocumentUploader_js-node_modules_day-7988b1.24cc026d4f712960dc8a.js (431 KiB)[39m[22m
+
+webpack 5.97.1 compiled with [1m[33m1 warning[39m[22m in 29567 ms
+[1G[0K⠙[1G[0K

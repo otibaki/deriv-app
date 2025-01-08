@@ -1,0 +1,37 @@
+
+> @deriv/cfd@1.0.0 build
+> f () { NODE_OPTIONS='-r ts-node/register' webpack --config "./build/webpack.config.js" --env base=$1; }; f
+
+(node:23916) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+assets by path [1m[32mcfd/js/*.js[39m[22m 429 KiB
+  assets by info 55.2 KiB [1m[32m[immutable][39m[22m
+    asset [1m[32mcfd/js/cfd.src_Containers_cfd-password-change_tsx.5e26bd913280399de9e4.js[39m[22m 15.7 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m 2 related assets
+    asset [1m[32mcfd/js/cfd.cfd-compare-accounts.76f81ed9290e49b750bb.js[39m[22m 10.4 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: cfd-compare-accounts) 1 related asset
+    asset [1m[32mcfd/js/cfd.src_Containers_cfd-password-change-content_tsx.6640cb3e341912e06752.js[39m[22m 10.3 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m 2 related assets
+    asset [1m[32mcfd/js/cfd.src_Containers_mt5-create-password_mt5-create-password_tsx.e9ee4ab0c15d40673e8b.js[39m[22m 6.41 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m 1 related asset
+    asset [1m[32mcfd/js/cfd.cfd-app.61b3da93c84143c29821.js[39m[22m 5.02 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: cfd-app) 1 related asset
+    + 4 assets
+  + 14 assets
+assets by path [1m[32mcfd/css/*.css[39m[22m 25.1 KiB
+  asset [1m[32mcfd/css/cfd.main.d4e5ebe150b04bab25f1.css[39m[22m 11.6 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: CFDPasswordModal)
+  asset [1m[32mcfd/css/cfd.cfd-compare-accounts.3c17a70c8f495b52ee53.css[39m[22m 6.42 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: cfd-compare-accounts)
+  asset [1m[32mcfd/css/cfd.main.b0a5b44433a1b07fe4d2.css[39m[22m 3.12 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: MT5MigrationModal)
+  asset [1m[32mcfd/css/cfd.src_Containers_mt5-create-password_mt5-create-password_tsx.8dd0e6e57d8ff43870f2.css[39m[22m 2.52 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m
+  asset [1m[32mcfd/css/cfd.main.fd0cf5e009b88cef1da7.css[39m[22m 1.41 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: MT5TradeModal)
+orphan modules 1.02 MiB (javascript) 761 KiB (css/mini-extract) [1m[33m[orphan][39m[22m 300 modules
+runtime modules 39.3 KiB 69 modules
+built modules 602 KiB (javascript) 25.5 KiB (css/mini-extract) [1m[33m[built][39m[22m
+  cacheable modules 602 KiB (javascript) 25.5 KiB (css/mini-extract)
+    javascript modules 602 KiB 63 modules
+    css modules 25.5 KiB 6 modules
+  modules by path [1mexternal "@deriv/[39m[22m 336 bytes
+    modules by path [1mexternal "@deriv/account/[39m[22m 84 bytes
+      [1mexternal "@deriv/account/dist/account/js/sent-email-modal"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+      [1mexternal "@deriv/account/src/Configs/get-mt5-status-badge-config"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    + 6 modules
+  modules by path [1mexternal "@deriv-com/[39m[22m 84 bytes
+    [1mexternal "@deriv-com/analytics"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    [1mexternal "@deriv-com/utils"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  + 6 modules
+webpack 5.97.1 compiled [1m[32msuccessfully[39m[22m in 23694 ms

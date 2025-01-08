@@ -1,0 +1,1955 @@
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.common-mistake-examples__title {
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.common-mistake-examples__content {
+  display: grid;
+  grid-row-gap: 1.6rem;
+  row-gap: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .common-mistake-examples__content {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3.2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .common-mistake-examples__content {
+    grid-template-columns: repeat(3, 1fr);
+    -moz-column-gap: calc((100% - 71.1rem) / 2);
+         column-gap: calc((100% - 71.1rem) / 2);
+    row-gap: 3.2rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .common-mistake-examples__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.common-mistake-examples__content-layout {
+  background-color: var(--transparent-danger);
+  gap: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8rem;
+  box-sizing: border-box;
+  border: 1px solid var(--general-section-1);
+  border-radius: 4px;
+  width: 23.7rem;
+  height: 21.8rem;
+}
+
+@media (max-width: 1279px) {
+  .common-mistake-examples__content-layout {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.common-mistake-examples__content-description {
+  display: grid;
+  grid-column-gap: 0.2rem;
+  grid-template-columns: 1fr auto;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.da-inline-note-with-icon {
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+  display: flex;
+  background: var(--status-alert-background);
+  border-radius: 4px;
+  gap: 0.8rem;
+  line-height: 1.4rem;
+}
+
+.da-inline-note-with-icon .dc-icon {
+  margin-top: 0.2rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.poa-mobile-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.poa-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.poa-header--non-modal {
+  margin-bottom: 1.6rem;
+}
+
+.timeline {
+  background-color: var(--general-section-1);
+  padding: 0.4rem 1.6rem;
+  align-items: center;
+  height: 5.2rem;
+  -moz-column-gap: 1.6rem;
+       column-gap: 1.6rem;
+  display: flex;
+}
+
+.timeline-item {
+  display: flex;
+}
+
+.poa-error-banner {
+  margin-top: 2.4rem;
+}
+
+.progress-container {
+  height: 0.2rem;
+  width: 80%;
+  background-color: var(--general-hover);
+  border-radius: 96px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: var(--brand-red-coral);
+  border-radius: 96px;
+}
+
+.progress-bar--animate {
+  animation: progressAnimation 0.8s ease-in-out forwards;
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.da-icon-with-message {
+  margin-top: 8rem;
+  padding: 3.2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.da-icon-with-message__text {
+  margin-top: 1rem;
+}
+
+.da-icon-with-message-full-width {
+  width: calc(100vw - 33rem);
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .da-icon-with-message {
+    width: 100vw;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.manual-poi-details {
+  margin: 0 -1rem;
+  height: 100%;
+  display: flex;
+}
+
+.manual-poi-details--mobile {
+  padding: 2.4rem;
+}
+
+.manual-poi-details h3 {
+  margin-bottom: 2.5rem;
+}
+
+.manual-poi-details__form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.manual-poi-details__form .account-form__footer {
+  max-width: 68rem;
+}
+
+@media (max-width: 1279px) {
+  .manual-poi-details__form .account-form__footer {
+    max-width: 100%;
+    align-items: center;
+  }
+}
+
+.manual-poi-details__fields-content {
+  flex: auto;
+}
+
+.manual-poi-details__fields-wrap {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.manual-poi-details--mobile .manual-poi-details__fields-wrap {
+  flex-wrap: wrap;
+}
+
+[dir="ltr"] .manual-poi-details__fields-wrap .dc-datepicker {
+  margin-left: 2.4rem;
+}
+
+[dir="rtl"] .manual-poi-details__fields-wrap .dc-datepicker {
+  margin-right: 2.4rem;
+}
+
+@media (max-width: 1279px) {
+  [dir="ltr"] .manual-poi-details__fields-wrap .dc-datepicker {
+    margin-left: 0;
+    margin-left: initial;
+  }
+
+  [dir="rtl"] .manual-poi-details__fields-wrap .dc-datepicker {
+    margin-right: 0;
+    margin-right: initial;
+  }
+}
+
+@media (max-width: 1279px) {
+  .manual-poi-details__fields-wrap .dc-input {
+    margin-bottom: 2rem;
+  }
+}
+
+.manual-poi-details__field {
+  margin-bottom: 1.75rem;
+}
+
+.manual-poi-details__divider {
+  height: 2px;
+  background-color: var(--general-section-1);
+  margin-bottom: 2.4rem;
+}
+
+.manual-poi-details__divider--m16 {
+  margin-bottom: 1.6rem;
+}
+
+.manual-poi-details__uploaders-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .manual-poi-details__uploaders-wrap {
+    flex-wrap: nowrap;
+  }
+}
+
+.manual-poi-details__uploaders-wrap .dc-file-dropzone__message {
+  width: 100%;
+  max-width: none;
+  pointer-events: all;
+}
+
+.manual-poi-details__uploader {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 25rem;
+  margin-bottom: 1.6rem;
+}
+
+.manual-poi-details--mobile .manual-poi-details__uploader {
+  max-width: none;
+}
+
+.manual-poi-details__uploader--full {
+  max-width: none;
+}
+
+.manual-poi-details__uploader-details {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  min-height: 19.2rem;
+}
+
+.manual-poi-details__uploader-details--preview {
+  padding: 0 2.4rem;
+  max-height: 20.3rem;
+}
+
+.manual-poi-details__uploader-details p {
+  margin-bottom: 2.4rem;
+}
+
+.manual-poi-details__uploader-details--preview p {
+  margin-bottom: 0;
+}
+
+.manual-poi-details__uploader-image {
+  position: relative;
+  width: 100%;
+  max-width: 27.6rem;
+  height: 16.6rem;
+  border-radius: 0.8rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-bottom: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.manual-poi-details__uploader-image--has-frame {
+  background-size: contain;
+}
+
+.manual-poi-details--mobile .manual-poi-details__uploader-image {
+  height: 13.4rem;
+}
+
+.manual-poi-details__uploader-frame {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: auto;
+}
+
+[dir="ltr"] .manual-poi-details__uploader-frame {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[dir="rtl"] .manual-poi-details__uploader-frame {
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.manual-poi-details__uploader-remove {
+  position: absolute;
+  top: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.25s linear;
+}
+
+[dir="ltr"] .manual-poi-details__uploader-remove {
+  right: 0.8rem;
+}
+
+[dir="rtl"] .manual-poi-details__uploader-remove {
+  left: 0.8rem;
+}
+
+.manual-poi-details__uploader-remove:hover {
+  transform: scale(1.25, 1.25);
+}
+
+.manual-poi-details__uploader-icon {
+  width: 12.8rem;
+  height: 7.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.manual-poi-details__icons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.7rem;
+  justify-content: center;
+}
+
+.manual-poi-details__icons-item {
+  flex: 0.25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+  min-height: 9.2rem;
+}
+
+.manual-poi-details--mobile .manual-poi-details__icons-item {
+  flex: none;
+  width: 50%;
+  min-height: 7.6rem;
+}
+
+.manual-poi-details__icons-item p {
+  max-width: 12.4rem;
+}
+
+.manual-poi-details--mobile .manual-poi-details__icons-item p {
+  max-width: 13.2rem;
+}
+
+.manual-poi-details__icons-item svg {
+  height: 4.8rem;
+}
+
+.manual-poi-details__btns {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+[dir="ltr"] .manual-poi-details__btns .dc-btn:not(:last-of-type) {
+  margin-right: 0.8rem;
+}
+
+[dir="rtl"] .manual-poi-details__btns .dc-btn:not(:last-of-type) {
+  margin-left: 0.8rem;
+}
+
+@media (max-width: 1279px) {
+  .manual-poi-details__btns {
+    height: auto;
+    padding-bottom: 0;
+    padding-bottom: initial;
+  }
+
+  .manual-poi-details__btns .dc-btn {
+    width: 50%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .manual-poi-details__btns {
+    width: 56.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .manual-poi-details__btns {
+    width: 100%;
+  }
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+@media (min-width: 320px) and (max-width: 767px) {
+  .manual-poi {
+    margin: 3.2rem 0 1.6rem;
+  }
+}
+
+.manual-poi__title {
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+  padding-top: 1.6rem;
+}
+
+.manual-poi .dc-card__wrapper {
+  justify-content: center;
+}
+
+.manual-poi .dc-card__wrapper:last-of-type {
+  margin-bottom: 4rem !important;
+}
+
+.manual-poi__card {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+[dir="ltr"] [dir=rtl] .manual-poi__card svg:not(:first-child) {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] [dir=rtl] .manual-poi__card svg:not(:first-child) {
+  transform: rotate(-180deg);
+}
+
+.manual-poi__card .dc-icon {
+  flex: none;
+}
+
+.manual-poi__card-content {
+  width: 100%;
+}
+
+[dir="ltr"] .manual-poi__card-content {
+  margin: 0 0 0 2.4rem;
+}
+
+[dir="rtl"] .manual-poi__card-content {
+  margin: 0 2.4rem 0 0;
+}
+
+[dir="ltr"] .manual-poi--mobile .manual-poi__card-content {
+  margin: 0 0 0 1.6rem;
+}
+
+[dir="rtl"] .manual-poi--mobile .manual-poi__card-content {
+  margin: 0 1.6rem 0 0;
+}
+
+.manual-poi__card-content p {
+  max-width: 45.8rem;
+}
+
+.manual-poi--mobile .manual-poi__card-content p {
+  max-width: 15.2rem;
+}
+
+.manual-poi__card-content p:first-of-type {
+  margin-bottom: 0.8rem;
+}
+
+.manual-poi__card-icon {
+  flex: none;
+}
+
+.manual-poi__detail-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  cursor: pointer;
+  width: 100%;
+  grid-column-gap: 1rem;
+  align-content: start;
+}
+
+.manual-poi__upload-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 10rem;
+  grid-gap: 1rem;
+  margin: 1rem 0 0;
+}
+
+@media (min-width: 1024px) {
+  .manual-poi__upload-icons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.manual-poi__upload-icons--no-margin {
+  margin: 0;
+  text-align: center;
+  align-items: center;
+}
+
+.manual-poi__upload-container {
+  position: relative;
+  width: 100%;
+}
+
+.manual-poi__image-preview {
+  width: 28.8rem;
+  height: 16rem;
+  background-image: var(--poi-background-image-upload-preview);
+  background-size: cover;
+  border-radius: 4px;
+}
+
+.manual-poi__image-preview-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.manual-poi__confirm-buttons {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.dc-modal-header--verification-modal {
+  border-bottom: 1px solid var(--general-section-1);
+}
+
+.dc-modal .proof-of-identity {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.dc-modal .proof-of-identity__country-container {
+  width: 39.5rem;
+}
+
+.dc-modal .proof-of-identity__main-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 84rem;
+  position: inherit;
+}
+
+.dc-modal .proof-of-identity__main-container .onfido-container {
+  padding: 1.6rem 0;
+}
+
+.dc-modal .proof-of-identity__main-container .manual-poi {
+  max-width: 67rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.dc-modal .proof-of-identity__main-container .manual-poi-details {
+  margin: 0 auto;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa {
+  margin-top: 1rem;
+  padding: 1rem 0 10rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .dc-themed-scrollbars .account__scrollbars_container {
+  padding: 0;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section {
+  align-items: initial;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-side-note {
+  width: 26rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content {
+  width: 40rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-icon {
+  margin-bottom: 1rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-item {
+  width: 100%;
+  padding: 0 0.5em;
+  font-size: var(--text-size-xxs);
+  line-height: 1.5;
+  color: var(--text-prominent);
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-list {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[dir="ltr"] .dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-list {
+  margin-right: 1.6rem;
+}
+
+[dir="rtl"] .dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-list {
+  margin-left: 1.6rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-list .account-poa__upload-box {
+  border: 1px solid var(--icon-grey-background);
+  border-radius: 8px;
+  margin: 0 0.8rem 1.6rem;
+  padding: 0.8rem;
+  display: flex;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-box {
+  flex-direction: column;
+  margin-bottom: 2rem;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1 0 calc(33.3333333333% - 3.2rem);
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-file {
+  flex: 1;
+  height: 24rem;
+  position: relative;
+  margin: 0 0.8rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-file .dc-file-dropzone {
+  border: 1px solid var(--general-active);
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-remove-btn {
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.25s linear;
+}
+
+[dir="ltr"] .dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-remove-btn {
+  right: 0.8rem;
+}
+
+[dir="rtl"] .dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__upload-remove-btn {
+  left: 0.8rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__details-section {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form_poa .account-form__section-content .account-poa__details-fields {
+  width: 100%;
+  min-width: 40rem;
+  flex: 1;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form__fieldset {
+  gap: initial !important;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form__fieldset {
+  margin-bottom: 0;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form__fieldset .dc-autocomplete {
+  margin-bottom: 3.2rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form__header {
+  margin-bottom: 1.6rem;
+  position: relative;
+  height: 1.6rem;
+  white-space: nowrap;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form__header:not(:first-child) {
+  margin-top: 1.6rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form__section {
+  grid-template-areas: "section-side-note section-content";
+  grid-template-columns: auto 1fr;
+  grid-gap: 1rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form__section-side-note {
+  grid-area: section-side-note;
+}
+
+.dc-modal .proof-of-identity__main-container .account-form__section-content {
+  grid-area: section-content;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__main-container .account-form__section {
+    grid-template-columns: none;
+    grid-gap: 0;
+    grid-template-areas: "section-side-note" "section-content";
+  }
+}
+
+.dc-modal .proof-of-identity__main-container .account-form__footer {
+  height: 8rem;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  padding: 1.6rem 2.4rem;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 4;
+  border-top: 1px solid var(--general-section-1);
+  background-color: var(--general-main-1);
+  max-width: none;
+}
+
+[dir="ltr"] .dc-modal .proof-of-identity__main-container .account-form__footer {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+[dir="rtl"] .dc-modal .proof-of-identity__main-container .account-form__footer {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__main-container .account-form__footer-btn {
+    width: 100%;
+  }
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__list-container {
+  margin-top: 1.6rem;
+  max-width: 50.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__list-icon {
+  margin: 0.2rem 1.2rem 0;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__list-message {
+  display: flex;
+  margin-bottom: 1.6rem;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__list-message:last-of-type {
+  margin-bottom: 0;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__list-button.dc-btn {
+  margin-top: 2.4rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: center;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__message {
+  margin-top: 1em;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__message-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0 1.6rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__message-content .dc-btn {
+  height: 4rem;
+  margin-top: 3.2rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__main-container .account-management__message-content .dc-btn {
+    margin: 1.6rem 0;
+    padding: 1.6rem;
+    width: 100%;
+  }
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__message-icon {
+  width: 12.8rem;
+  height: 12.8rem;
+  margin-top: 8rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__main-container .account-management__message-icon {
+    margin-top: 4rem;
+    /* iPhone SE screen height fixes due to UI space restrictions */
+  }
+}
+
+@media only screen and (max-width: 1279px) and (max-height: 480px) {
+  .dc-modal .proof-of-identity__main-container .account-management__message-icon {
+    margin-top: 3.2rem;
+  }
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__message-title {
+  font-size: var(--text-size-xs);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__message-subtitle {
+  font-size: var(--text-size-xxs);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__message-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.dc-modal .proof-of-identity__main-container .account-management__message-wrapper-full-width {
+  width: calc(100vw - 33rem);
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__main-container .account-management__message-wrapper-full-width {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__main-container .account-management__message-wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__main-container .account-management__message {
+    line-height: 2rem;
+    text-align: center;
+  }
+}
+
+.dc-modal .proof-of-identity .min-height {
+  min-height: 50vh;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity .min-height {
+    min-height: 0;
+    min-height: initial;
+  }
+}
+
+.dc-modal .proof-of-identity__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__container {
+    min-height: 0;
+    min-height: initial;
+    overflow-y: scroll;
+    justify-content: center;
+  }
+}
+
+.dc-modal .proof-of-identity__container--reset {
+  align-items: normal;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__container--reset {
+    overflow-y: visible;
+    overflow-y: initial;
+    padding: 1.6rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__container--reset .proof-of-identity__submit-button {
+    margin: 0;
+    margin: initial;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__container--reset .account-form__footer {
+    padding: 1.6rem 2.4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .dc-modal .proof-of-identity__container--reset .form-body {
+    z-index: 5;
+  }
+}
+
+.dc-modal .proof-of-identity__container .icon {
+  width: 12.8rem;
+  height: 12.8rem;
+  margin: 5.2rem auto 2.6rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__container .icon {
+    width: 7.2rem;
+    height: 7.2rem;
+    margin-top: 2.6rem;
+  }
+}
+
+.dc-modal .proof-of-identity__container .external-dropdown .dc-dropdown-list {
+  z-index: 5;
+}
+
+.dc-modal .proof-of-identity__redirection .dc-btn {
+  margin-top: 3.2rem;
+  height: 4rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__redirection .dc-btn {
+    margin: 1.6rem 0;
+    padding: 1.6rem;
+    width: 100%;
+  }
+}
+
+.dc-modal .proof-of-identity__country-text {
+  margin-bottom: 1.6rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__text {
+    width: 94%;
+    text-align: center;
+  }
+}
+
+.dc-modal .proof-of-identity__dropdown-container {
+  margin-top: 1.6rem;
+}
+
+.dc-modal .proof-of-identity__inner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__inner-container {
+    flex-direction: column;
+  }
+}
+
+.dc-modal .proof-of-identity__header {
+  margin: 5.4rem 0 1.6rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__header {
+    margin: 2.4rem 0 0.8rem;
+  }
+}
+
+.dc-modal .proof-of-identity__footer.external-footer {
+  padding: 0;
+  padding: initial;
+  position: static;
+  position: initial;
+  top: auto;
+  top: initial;
+  bottom: auto;
+  bottom: initial;
+  border: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 4;
+}
+
+.dc-modal .proof-of-identity__footer {
+  height: 8rem;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  padding: 1.6rem 2.4rem;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 4;
+  border-top: 0.1rem solid var(--general-section-1);
+  background-color: var(--general-main-1);
+}
+
+[dir="ltr"] .dc-modal .proof-of-identity__footer {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+[dir="rtl"] .dc-modal .proof-of-identity__footer {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+[dir="ltr"] .dc-modal .proof-of-identity__footer-alert {
+  margin-right: auto;
+}
+
+[dir="rtl"] .dc-modal .proof-of-identity__footer-alert {
+  margin-left: auto;
+}
+
+@media (max-width: 1279px) {
+  [dir="ltr"] .dc-modal .proof-of-identity__submit-button {
+    margin-right: 1.2rem;
+  }
+
+  [dir="rtl"] .dc-modal .proof-of-identity__submit-button {
+    margin-left: 1.2rem;
+  }
+}
+
+.dc-modal .proof-of-identity__fieldset {
+  width: 39.5rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__fieldset {
+    width: 94%;
+    margin: 0.4rem 0 3.2rem;
+  }
+}
+
+.dc-modal .proof-of-identity__fieldset .document-dropdown {
+  margin: 0.4rem 0 3.2rem;
+}
+
+.dc-modal .proof-of-identity__fieldset .country-dropdown {
+  min-height: 35.2rem;
+}
+
+.dc-modal .proof-of-identity__fieldset-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__fieldset-container {
+    width: 100%;
+  }
+}
+
+.dc-modal .proof-of-identity__fieldset-input {
+  width: 39.5rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__fieldset-input {
+    width: 94%;
+    margin-top: 0.4rem;
+  }
+}
+
+[dir="ltr"] .dc-modal .proof-of-identity__sample-container {
+  margin-left: 1.6rem;
+}
+
+[dir="rtl"] .dc-modal .proof-of-identity__sample-container {
+  margin-right: 1.6rem;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__sample-container {
+    width: 94%;
+  }
+
+  [dir="ltr"] .dc-modal .proof-of-identity__sample-container {
+    margin-left: 0;
+    margin-left: initial;
+  }
+
+  [dir="rtl"] .dc-modal .proof-of-identity__sample-container {
+    margin-right: 0;
+    margin-right: initial;
+  }
+}
+
+.dc-modal .proof-of-identity__sample-container-external {
+  margin-top: 2.8rem;
+}
+
+.dc-modal .proof-of-identity__sample-container .dc-modal .proof-of-identity__image-container {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.8rem;
+  border-radius: 4px;
+  background-color: #f2f3f4;
+}
+
+.dc-modal .proof-of-identity__image {
+  max-width: 24.5rem;
+  border-radius: 4px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media (max-width: 1279px) {
+  .dc-modal .proof-of-identity__image {
+    max-width: calc(95vw - 1.6rem);
+  }
+}
+
+.dc-modal .proof-of-identity__redirect {
+  width: auto !important;
+}
+
+.dc-modal .proof-of-identity .text {
+  display: block;
+}
+
+.dc-modal .proof-of-identity .btm-spacer {
+  margin-bottom: 1.6rem;
+}

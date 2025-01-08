@@ -1,0 +1,735 @@
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.quill-input__wrapper[\:has\(.quill-addon\)] {
+  display: flex;
+}
+.quill-input__wrapper:has(.quill-addon) {
+  display: flex;
+}
+
+.quill-input__wrapper[\:has\(.quill-addon__position--left\)] {
+  padding-left: 0;
+}
+
+.quill-input__wrapper:has(.quill-addon__position--left) {
+  padding-left: 0;
+}
+
+.quill-input__wrapper[\:has\(.quill-addon__position--right\)] {
+  flex-direction: row-reverse;
+  padding-right: 0;
+}
+
+.quill-input__wrapper:has(.quill-addon__position--right) {
+  flex-direction: row-reverse;
+  padding-right: 0;
+}
+
+.quill-addon {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding-left: var(--semantic-spacing-general-md);
+  padding-right: var(--semantic-spacing-general-md);
+}
+
+.quill-addon__position--left--outline {
+  border-right: var(--borderWidth-xs) solid var(--component-field-border-color-default);
+}
+
+.quill-addon__position--left--fill {
+  border-right: var(--borderWidth-sm) solid;
+}
+
+.quill-addon__position--right--outline {
+  border-left: var(--borderWidth-xs) solid var(--component-field-border-color-default);
+}
+
+.quill-addon__position--right--fill {
+  border-left: var(--borderWidth-sm) solid;
+}
+
+.quill-addon__variant--outline {
+  background-color: var(--semantic-color-slate-solid-surface-frame-mid);
+}
+
+.quill-addon__label--disabled {
+  color: var(--core-color-opacity-black-300);
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.phone-verification__get-code-modal--contents, .phone-verification__verified-modal--contents, .phone-verification__cancel-modal--contents {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+.phone-verification__get-code-modal--contents__buttons, .phone-verification__verified-modal--contents__buttons, .phone-verification__cancel-modal--contents__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 0.8rem;
+  margin-top: 2.4rem;
+}
+.phone-verification__get-code-modal--contents__phone-number-container, .phone-verification__verified-modal--contents__phone-number-container, .phone-verification__cancel-modal--contents__phone-number-container {
+  display: flex;
+}
+[dir=rtl] .phone-verification__get-code-modal--contents__phone-number-container__phone-number, [dir=rtl] .phone-verification__verified-modal--contents__phone-number-container__phone-number, [dir=rtl] .phone-verification__cancel-modal--contents__phone-number-container__phone-number {
+  direction: ltr;
+}
+.phone-verification__cancel-modal--header {
+  background-color: var(--core-color-solid-red-100);
+}
+.phone-verification__verified-modal--header {
+  background-color: var(--core-color-solid-green-100);
+}
+.phone-verification__redirect_button {
+  display: flex;
+  align-items: center;
+}
+[dir="ltr"] .phone-verification__redirect_button--text {
+  padding-left: 1.6rem;
+}
+[dir="rtl"] .phone-verification__redirect_button--text {
+  padding-right: 1.6rem;
+}
+.phone-verification__redirect_button--icon {
+  cursor: pointer;
+}
+.phone-verification__card {
+  width: 60rem;
+  height: 60rem;
+  border: 1px solid #ebecef;
+  border: 1px solid var(--core-color-solid-slate-100, #ebecef);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.6rem;
+  margin-top: 2.4rem;
+}
+.phone-verification__card--small-card {
+  height: 40rem;
+}
+.phone-verification__card--session-timeout-component {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  margin-bottom: 2.4rem;
+}
+.phone-verification__card--inputfield {
+  width: 60%;
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+.phone-verification__card--inputfield--error {
+  margin-bottom: 0.2rem;
+}
+@media (max-width: 1279px) {
+  .phone-verification__card--inputfield {
+    margin-top: 3.2rem;
+  }
+}
+@media (min-width: 601px) and (max-width: 1279px) {
+  .phone-verification__card--inputfield {
+    width: 80%;
+  }
+}
+@media (max-width: 600px) {
+  .phone-verification__card--inputfield {
+    width: 100%;
+  }
+}
+[dir=rtl] .phone-verification__card--inputfield__phone-number-input {
+  direction: ltr;
+}
+[dir=rtl] .phone-verification__card--inputfield__phone-number-input .label {
+  direction: rtl;
+}
+.phone-verification__card--inputfield__livechat {
+  color: #c40000;
+  color: var(--core-color-solid-red-900, #c40000);
+  font-weight: bold;
+  text-decoration: underline;
+}
+.phone-verification__card--inputfield__livechat:hover {
+  cursor: pointer;
+}
+[dir=rtl] .phone-verification__card--inputfield .quill-phone-input__container {
+  direction: ltr;
+}
+[dir=rtl] .phone-verification__card--inputfield .quill-phone-input__container .quill-dropdown-item {
+  text-align: right;
+}
+[dir=rtl] .phone-verification__card--inputfield .quill-phone-input__container .phone-code-search {
+  direction: rtl;
+}
+[dir=rtl] .phone-verification__card--inputfield .quill-phone-input__container .phone-code-search .quill-input-no-label__wrapper > input {
+  text-align: right;
+}
+.phone-verification__card--buttons_container {
+  width: 100%;
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 0.8rem;
+  justify-content: center;
+}
+@media (min-width: 601px) and (max-width: 1279px) {
+  .phone-verification__card--buttons_container {
+    margin-bottom: 29rem;
+  }
+}
+@media (min-width: 1024px) {
+  .phone-verification__card--buttons_container {
+    margin-bottom: 29rem;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .phone-verification__card--buttons_container {
+    flex-direction: column-reverse;
+  }
+}
+@media (min-width: 1024px) {
+  .phone-verification__card--buttons_container--with-1-carrier .quill-button {
+    width: 27.6rem;
+  }
+}
+@media (min-width: 601px) and (max-width: 1279px) {
+  .phone-verification__card--buttons_container--with-1-carrier .quill-button {
+    width: 27.6rem;
+  }
+}
+.phone-verification__card--email-verification-content {
+  width: 100%;
+  margin-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+[dir=rtl] .phone-verification__card--email-verification-content__phone-number {
+  direction: ltr;
+}
+.phone-verification__card--email-verification-otp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 60%;
+  margin-top: 1.6rem;
+  align-items: flex-start;
+}
+@media (max-width: 1279px) {
+  .phone-verification__card--email-verification-otp-container {
+    gap: 3.2rem;
+  }
+}
+@media (min-width: 601px) and (max-width: 1279px) {
+  .phone-verification__card--email-verification-otp-container {
+    width: 80%;
+  }
+}
+@media (max-width: 600px) {
+  .phone-verification__card--email-verification-otp-container {
+    width: 100%;
+  }
+}
+.phone-verification__card .quill-snackbar {
+  z-index: 1;
+}
+@media (min-width: 601px) and (max-width: 1279px) {
+  .phone-verification__card .quill-snackbar {
+    position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (min-width: 1024px) {
+  .phone-verification__card .quill-snackbar {
+    position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .phone-verification__card {
+    width: 100vw;
+    border: none;
+    margin-top: 0.8rem;
+  }
+  .phone-verification__card .dc-input {
+    width: 100%;
+  }
+}
+
+[dir=rtl] .action-sheet--content .quill-dropdown-item {
+  text-align: right;
+}
+[dir=rtl] .action-sheet--content .phone-code-search {
+  direction: rtl;
+}
+[dir=rtl] .action-sheet--content .phone-code-search .quill-input-no-label__wrapper > input {
+  text-align: right;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.tag {
+  min-width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.tag__size-sm {
+  padding-left: var(--component-tag-spacing-padding-sm);
+  padding-right: var(--component-tag-spacing-padding-sm);
+  gap: var(--component-tag-spacing-padding-sm);
+  height: var(--component-tag-height-sm);
+  border-radius: var(--component-tag-border-radius-xs);
+}
+
+.tag__size-sm > svg {
+  width: 12px;
+  height: 18px;
+}
+
+.tag__size-xs {
+  padding-left: var(--component-tag-spacing-gap-xs);
+  padding-right: var(--component-tag-spacing-gap-xs);
+  gap: var(--component-tag-spacing-gap-xs);
+  height: var(--component-tag-height-xs);
+  border-radius: var(--component-tag-border-radius-xs);
+}
+
+.tag__size-xs > svg {
+  width: 12px;
+  height: 18px;
+}
+
+.tag__size-md {
+  padding-left: var(--component-tag-spacing-gap-md);
+  padding-right: var(--component-tag-spacing-gap-md);
+  gap: var(--component-tag-spacing-gap-md);
+  height: var(--component-tag-height-md);
+  border-radius: var(--component-tag-border-radius-sm);
+}
+
+.tag__size-md > svg {
+  width: 14px;
+  height: 22px;
+}
+
+.tag__size-lg {
+  padding-left: var(--component-tag-spacing-gap-lg);
+  padding-right: var(--component-tag-spacing-gap-lg);
+  gap: var(--component-tag-spacing-gap-lg);
+  height: var(--component-tag-height-lg);
+  border-radius: var(--component-tag-border-radius-md);
+}
+
+.tag__size-lg > svg {
+  width: 16px;
+  height: 24px;
+}
+
+.tag__icon {
+  display: flex;
+  align-items: center;
+}
+
+.tag__icon--xs > svg {
+  width: var(--core-spacing-600);
+  height: var(--core-spacing-900);
+}
+
+.tag__icon--sm > svg {
+  width: var(--core-spacing-600);
+  height: var(--core-spacing-900);
+}
+
+.tag__icon--md > svg {
+  width: var(--core-spacing-700);
+  height: var(--core-spacing-1100);
+}
+
+.tag__icon--lg > svg {
+  width: var(--core-spacing-800);
+  height: var(--core-spacing-1200);
+}
+
+.tag__color--success {
+  color: var(--component-tag-label-color-success);
+}
+
+.tag__color--success-fill {
+  background-color: var(--component-tag-bg-success);
+}
+
+.tag__color--success-outline {
+  border: var(--component-tag-border-width) solid var(--component-tag-border-color-success);
+}
+
+.tag__color--success-svg {
+  fill: var(--component-tag-icon-success);
+}
+
+.tag__color--error {
+  color: var(--component-tag-label-color-danger);
+}
+
+.tag__color--error-fill {
+  background-color: var(--component-tag-bg-danger);
+}
+
+.tag__color--error-outline {
+  border: var(--component-tag-border-width) solid var(--component-tag-border-color-danger);
+}
+
+.tag__color--error-svg {
+  fill: var(--component-tag-icon-danger);
+}
+
+.tag__color--warning {
+  color: var(--component-tag-label-color-warning);
+}
+
+.tag__color--warning-fill {
+  background-color: var(--component-tag-bg-warning);
+}
+
+.tag__color--warning-outline {
+  border: var(--component-tag-border-width) solid var(--component-tag-border-color-warning);
+}
+
+.tag__color--warning-svg {
+  fill: var(--component-tag-icon-warning);
+}
+
+.tag__color--info {
+  color: var(--component-tag-label-color-information);
+}
+
+.tag__color--info-fill {
+  background-color: var(--component-tag-bg-information);
+}
+
+.tag__color--info-outline {
+  border: var(--component-tag-border-width) solid var(--component-tag-border-color-information);
+}
+
+.tag__color--info-svg {
+  fill: var(--component-tag-icon-information);
+}

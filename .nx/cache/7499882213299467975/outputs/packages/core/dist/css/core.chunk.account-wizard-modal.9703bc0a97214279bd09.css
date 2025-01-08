@@ -1,0 +1,942 @@
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.da-inline-note-with-icon {
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+  display: flex;
+  background: var(--status-alert-background);
+  border-radius: 4px;
+  gap: 0.8rem;
+  line-height: 1.4rem;
+}
+
+.da-inline-note-with-icon .dc-icon {
+  margin-top: 0.2rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.terms-of-use {
+  margin: 0 8rem !important;
+  width: 84% !important;
+}
+.terms-of-use {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-bottom: 0;
+  padding-bottom: initial;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .terms-of-use {
+    margin: 0 !important;
+    margin: initial !important;
+    width: auto !important;
+    width: initial !important;
+  }
+}
+
+.terms-of-use__checkbox {
+  margin-top: 1.6rem;
+}
+
+.terms-of-use__checkbox .dc-checkbox {
+  align-items: initial;
+}
+
+.terms-of-use__checkbox:last-of-type {
+  margin-bottom: 5rem;
+}
+
+.terms-of-use__hr {
+  height: 2px;
+  margin: 1.6rem 0 0;
+  width: 100%;
+  border-top: 1px solid var(--general-section-1);
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .terms-of-use__hr {
+    border-top-width: 2px;
+    border-color: var(--border-disabled);
+    width: 100%;
+  }
+}
+
+.terms-of-use h4 {
+  margin: 1rem 0;
+  text-transform: none;
+}
+
+.terms-of-use p {
+  text-transform: none;
+  color: var(--text-general);
+}
+
+.terms-of-use input {
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .terms-of-use .dc-checkbox__box {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .terms-of-use .dc-checkbox__box .dc-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+.fatca-declaration__layout {
+  display: flex;
+  gap: 1.6rem;
+  flex-direction: column;
+}
+
+.fatca-declaration__points {
+  line-height: 2rem !important;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .fatca-declaration__points {
+    line-height: 1.8rem !important;
+  }
+}
+
+.fatca-declaration__agreement {
+  width: 32.8rem !important;
+}
+
+.fatca-declaration__agreement .dc-dropdown__container {
+  margin-bottom: 2rem;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.employment_tax_detail_field-checkbox {
+  align-items: flex-start;
+  margin: 1.6rem auto;
+}
+
+.employment_tax_detail_field-checkbox__box {
+  align-self: baseline;
+}
+
+.employment_tax_detail_field-checkbox__label {
+  text-align: justify;
+}
+
+[dir="ltr"] .employment_tax_detail_field-checkbox .dc-checkbox__box {
+  margin-left: 0;
+  margin-left: initial;
+}
+
+[dir="rtl"] .employment_tax_detail_field-checkbox .dc-checkbox__box {
+  margin-right: 0;
+  margin-right: initial;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.employment-tax-info__form {
+  padding: 0 16rem;
+}
+
+.employment-tax-info__form .account-form__fieldset:first-child {
+  margin-top: 1rem;
+}
+
+.employment-tax-info__layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.employment-tax-info__layout .details-form {
+  display: flex;
+}
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.details-form {
+  display: grid;
+  align-content: start;
+}
+
+@media (min-width: 1280px) {
+  .details-form {
+    padding: 0 0.4rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .details-form {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.details-form__banner-container {
+  display: flex;
+  justify-content: center;
+  padding: 0 4.6rem;
+}
+
+.details-form__banner-container .da-inline-note-with-icon {
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+  display: flex;
+  background: rgba(255, 173, 58, 0.16);
+  border-radius: 4px;
+  gap: 0.8rem;
+  line-height: 1.4rem;
+}
+
+@media (max-width: 1279px) {
+  .details-form__banner-container {
+    padding: 0 1.6rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1279px) {
+  .details-form__banner-container {
+    display: inline;
+  }
+}
+
+@media (min-width: 1280px) {
+  .details-form__sub-header {
+    margin: 0 4rem 4rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .details-form__sub-header {
+    margin-bottom: 0.8rem;
+  }
+}
+
+.details-form__elements {
+  flex-grow: 1;
+  margin: 1.2rem auto;
+  width: 45%;
+}
+
+.details-form__elements--wide {
+  width: 45%;
+}
+
+.details-form__elements-container {
+  height: calc(100% - 76px);
+  overflow: hidden;
+}
+
+@media (max-width: 1279px) {
+  .details-form__elements-container {
+    height: auto;
+    width: calc(100% - 3.2rem);
+    overflow: visible;
+    overflow: initial;
+    margin: 1.6rem auto;
+  }
+}
+
+.details-form__elements .dc-autocomplete {
+  margin-bottom: 3.2rem;
+}
+
+.details-form__elements .dc-radio__input {
+  margin-bottom: 2.4rem;
+}
+
+.details-form__elements .dc-input__label {
+  top: 1rem;
+}
+
+.details-form__elements .dc-input label {
+  top: 1rem;
+  background-color: var(--general-main-2);
+}
+
+@media (max-width: 1279px) {
+  .details-form__elements .dc-input label {
+    background-color: var(--fill-normal);
+  }
+}
+
+.details-form__elements .dc-input .dc-field--error {
+  font-size: 1.1rem;
+}
+
+@media (min-width: 1280px) {
+  .details-form__elements .dc-input {
+    /* To get rid of ugly chrome autofill shadow dom-applied background color */
+  }
+
+  .details-form__elements .dc-input__field:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--fill-normal) inset !important;
+  }
+
+  .details-form__elements .dc-input__field:-webkit-autofill:hover, .details-form__elements .dc-input__field:-webkit-autofill:focus, .details-form__elements .dc-input__field:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--fill-normal) inset !important;
+  }
+}
+
+.details-form__elements .dc-datepicker__input .dc-input__field {
+  background-color: var(--fill-normal);
+}
+
+.details-form__elements .dc-select-native {
+  margin-bottom: 3.2rem;
+}
+
+.details-form__elements .dc-dropdown__display {
+  background-color: var(--general-main-2);
+}
+
+.details-form__elements .dc-dropdown__display-placeholder-text {
+  background-color: var(--general-main-2);
+}
+
+.details-form__elements .dc-dropdown__container {
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 1279px) {
+  .details-form__elements {
+    width: 100%;
+    margin: 0;
+    padding: 1rem 1.6rem 6rem;
+    overflow-y: auto;
+  }
+}
+
+.details-form__loader .barspinner {
+  margin-top: 0.4rem;
+  margin-bottom: 3.2rem;
+}
+
+.details-form__tax {
+  position: relative;
+}
+
+@media (max-width: 1279px) {
+  [dir="ltr"] .details-form__tax {
+    padding-right: 2rem;
+  }
+
+  [dir="rtl"] .details-form__tax {
+    padding-left: 2rem;
+  }
+}
+
+.details-form__tax .dc-popover {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+}
+
+[dir="ltr"] .details-form__tax .dc-popover {
+  right: -25px;
+}
+
+[dir="rtl"] .details-form__tax .dc-popover {
+  left: -25px;
+}
+
+@media (max-width: 1279px) {
+  [dir="ltr"] .details-form__tax .dc-popover {
+    right: -5px;
+  }
+
+  [dir="rtl"] .details-form__tax .dc-popover {
+    left: -5px;
+  }
+}
+
+.details-form .dc-page-error__container {
+  height: 100%;
+}
+
+.details-form__heading {
+  margin: 1.6rem;
+}
+
+.details-form__description {
+  margin: 1.6rem auto;
+  width: 45%;
+}
+
+@media (min-width: 1280px) {
+  .details-form__description {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .details-form__description {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1279px) {
+  .details-form__description {
+    width: auto;
+    width: initial;
+    margin: 0 2.4rem;
+    line-height: 20px;
+  }
+
+  [dir="ltr"] .details-form__description {
+    text-align: left;
+  }
+
+  [dir="rtl"] .details-form__description {
+    text-align: right;
+  }
+}
+
+.cfd-personal-details-modal__form .details-form__description {
+  margin: 0 auto;
+  width: auto;
+  width: initial;
+  padding-top: 3.2rem;
+}
+
+.details-form .address-details-form__eu {
+  margin-top: 4.4rem;
+}
+
+.financial-assessment {
+  gap: 1.6rem;
+}
+
+@media (min-width: 1280px) {
+  .financial-assessment__form {
+    width: 70%;
+  }
+}

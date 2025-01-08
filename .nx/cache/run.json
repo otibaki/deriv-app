@@ -1,0 +1,186 @@
+{
+  "run": {
+    "command": "nx run-many --target=build",
+    "startTime": "2025-01-08T16:56:51.409Z",
+    "endTime": "2025-01-08T17:01:24.757Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "@deriv/shared:build",
+      "target": "build",
+      "projectName": "@deriv/shared",
+      "hash": "8189332371215004522",
+      "startTime": "2025-01-08T16:56:51.421Z",
+      "endTime": "2025-01-08T16:56:51.749Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/translations:build",
+      "target": "build",
+      "projectName": "@deriv/translations",
+      "hash": "1339052230708743993",
+      "startTime": "2025-01-08T16:56:51.421Z",
+      "endTime": "2025-01-08T16:56:51.755Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/publisher:build",
+      "target": "build",
+      "projectName": "@deriv/publisher",
+      "hash": "15890184599444978567",
+      "startTime": "2025-01-08T16:56:51.750Z",
+      "endTime": "2025-01-08T16:56:51.997Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/components:build",
+      "target": "build",
+      "projectName": "@deriv/components",
+      "hash": "13804221356853875728",
+      "startTime": "2025-01-08T16:56:51.421Z",
+      "endTime": "2025-01-08T16:56:56.513Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/indicators:build",
+      "target": "build",
+      "projectName": "@deriv/indicators",
+      "hash": "5361168263594592871",
+      "startTime": "2025-01-08T16:56:56.513Z",
+      "endTime": "2025-01-08T16:56:56.798Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/bot-skeleton:build",
+      "target": "build",
+      "projectName": "@deriv/bot-skeleton",
+      "hash": "17335881315859669931",
+      "startTime": "2025-01-08T16:56:56.799Z",
+      "endTime": "2025-01-08T16:56:57.563Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/account:build",
+      "target": "build",
+      "projectName": "@deriv/account",
+      "hash": "10324067976195313885",
+      "startTime": "2025-01-08T16:56:51.998Z",
+      "endTime": "2025-01-08T16:57:36.943Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/cashier:build",
+      "target": "build",
+      "projectName": "@deriv/cashier",
+      "hash": "3519247603041800579",
+      "startTime": "2025-01-08T16:56:57.564Z",
+      "endTime": "2025-01-08T16:57:40.338Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/p2p:build",
+      "target": "build",
+      "projectName": "@deriv/p2p",
+      "hash": "9140482162083965672",
+      "startTime": "2025-01-08T16:56:51.755Z",
+      "endTime": "2025-01-08T16:57:58.532Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/cfd:build",
+      "target": "build",
+      "projectName": "@deriv/cfd",
+      "hash": "17068960665365386694",
+      "startTime": "2025-01-08T16:57:40.338Z",
+      "endTime": "2025-01-08T16:58:06.744Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/reports:build",
+      "target": "build",
+      "projectName": "@deriv/reports",
+      "hash": "7499501391538888595",
+      "startTime": "2025-01-08T16:57:58.532Z",
+      "endTime": "2025-01-08T16:58:20.727Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/wallets:build",
+      "target": "build",
+      "projectName": "@deriv/wallets",
+      "hash": "1631264065126667043",
+      "startTime": "2025-01-08T16:57:36.944Z",
+      "endTime": "2025-01-08T16:58:40.879Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/bot-web-ui:build",
+      "target": "build",
+      "projectName": "@deriv/bot-web-ui",
+      "hash": "1907837549410180330",
+      "startTime": "2025-01-08T16:58:06.745Z",
+      "endTime": "2025-01-08T16:59:15.407Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/appstore:build",
+      "target": "build",
+      "projectName": "@deriv/appstore",
+      "hash": "520115147017583301",
+      "startTime": "2025-01-08T16:58:20.727Z",
+      "endTime": "2025-01-08T16:59:20.380Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/trader:build",
+      "target": "build",
+      "projectName": "@deriv/trader",
+      "hash": "5719503919699465933",
+      "startTime": "2025-01-08T16:58:40.879Z",
+      "endTime": "2025-01-08T16:59:49.648Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@deriv/core:build",
+      "target": "build",
+      "projectName": "@deriv/core",
+      "hash": "10841255636341198234",
+      "startTime": "2025-01-08T16:59:15.408Z",
+      "endTime": "2025-01-08T17:01:24.755Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

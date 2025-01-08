@@ -1,0 +1,35 @@
+
+> @deriv/trader@3.8.0 build
+> f () { NODE_OPTIONS='-r ts-node/register' webpack --config "./build/webpack.config.js" --env base=$1;}; f
+
+(node:12939) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+assets by path [1m[32mtrader/js/*.js[39m[22m 14.1 MiB
+  assets by chunk 8.03 MiB (id hint: vendors)
+    asset [1m[32mtrader/js/trader.vendors-node_modules_cloudflare_stream-react_dist_stream-react_esm_js-node_modules_deriv_quil-145140.6c081ed9bd21566cfa23.js[39m[22m 5.34 MiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (id hint: vendors)
+    asset [1m[32mtrader/js/trader.vendors-node_modules_bowser_es5_js-node_modules_dayjs_dayjs_min_js-node_modules_lodash_deboun-8ca634.9dc66d0f9eaed95539e3.js[39m[22m 2.46 MiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (id hint: vendors)
+    asset [1m[32mtrader/js/trader.vendors-node_modules_react-content-loader_dist_react-content-loader_es_js-node_modules_react--c10131.bb9b637acb75f2bc0b39.js[39m[22m 195 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (id hint: vendors)
+    asset [1m[32mtrader/js/trader.vendors-node_modules_deriv_quill-icons_dist_esm_react_LabelPaired_LabelPairedChevronsDownCapt-dee9aa.382d17e67da104c25bd3.js[39m[22m 33.8 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (id hint: vendors)
+  + 24 assets
+assets by path [1m[32mtrader/css/*.css[39m[22m 1.61 MiB
+  assets by chunk 1.17 MiB (id hint: vendors)
+    asset [1m[32mtrader/css/trader.vendors-node_modules_cloudflare_stream-react_dist_stream-react_esm_js-node_modules_deriv_quil-145140.fc941570159bb9011e89.css[39m[22m 1.15 MiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (id hint: vendors)
+    asset [1m[32mtrader/css/trader.vendors-node_modules_react-content-loader_dist_react-content-loader_es_js-node_modules_react--c10131.18d5802594543b18a1dd.css[39m[22m 19.9 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (id hint: vendors)
+  + 6 assets
+asset [1m[32mtrader/asset-manifest.json[39m[22m 5.35 KiB [1m[32m[emitted][39m[22m
+orphan modules 20.7 MiB (javascript) 971 KiB (css/mini-extract) [1m[33m[orphan][39m[22m 7990 modules
+runtime modules 13.7 KiB 16 modules
+built modules 4.82 MiB (javascript) 1.61 MiB (css/mini-extract) [1m[33m[built][39m[22m
+  javascript modules 4.82 MiB
+    cacheable modules 4.82 MiB 1166 modules
+    modules by path [1mexternal "@deriv/[39m[22m 168 bytes 4 modules
+    + 7 modules
+  css modules 1.61 MiB
+    modules by path [1m./src/[39m[22m 456 KiB 68 modules
+    modules by path [1m../[39m[22m 1.17 MiB
+      modules by path [1m../../node_modules/@deriv-com/quill-ui/dist/assets/*.css[39m[22m 232 KiB 36 modules
+      modules by path [1m../../node_modules/@deriv-com/ui/dist/[39m[22m 19.9 KiB 2 modules
+      + 3 modules
+  [1m../api/src/remote_config.json[39m[22m 198 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+[1m[33m2 WARNINGS in child compilations (Use 'stats.children: true' resp. '--stats-children' for more details)[39m[22m
+webpack 5.97.1 compiled with [1m[33m2 warnings[39m[22m in 46172 ms

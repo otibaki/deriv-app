@@ -1,0 +1,33 @@
+
+> @deriv/reports@1.0.0 build
+> f () { NODE_OPTIONS='-r ts-node/register'  webpack --config "./build/webpack.config.js" --env base=$1;}; f
+
+(node:23960) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+assets by path [1m[32mreports/js/*.js[39m[22m 220 KiB
+  assets by chunk 78.2 KiB (id hint: vendors)
+    asset [1m[32mreports/js/reports.vendors-node_modules_moment_moment_js.8cff5d2563b4c359e0a6.js[39m[22m 60.1 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (id hint: vendors) 2 related assets
+    asset [1m[32mreports/js/reports.vendors-node_modules_lodash_debounce_index_js-node_modules_mobx-persist-store_lib_esm5_index_-41aa7c.a51d7f418e72983982e4.js[39m[22m 18.1 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (id hint: vendors) 1 related asset
+  asset [1m[32mreports/js/reports.reports-app.3956a17fcbd36b2e3e28.js[39m[22m 62.4 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: reports-app) 2 related assets
+  asset [1m[32mreports/js/reports.reports-routes.3d1210798bbb7d5d8375.js[39m[22m 59.1 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: reports-routes) 2 related assets
+  asset [1m[32mreports/js/reports.js[39m[22m 9.79 KiB [1m[32m[emitted][39m[22m [1m[32m[minimized][39m[22m (name: reports) 1 related asset
+  asset [1m[32mreports/js/reports.trade-modals.54219429147e1c1634ba.js[39m[22m 6.63 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: trade-modals) 1 related asset
+  asset [1m[32mreports/js/reports.two-month-picker.9ec7f070f1420c8fc7ba.js[39m[22m 2.95 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: two-month-picker) 1 related asset
+  asset [1m[32mreports/js/reports.404.08ee3eb7f794fc8df16b.js[39m[22m 808 bytes [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: 404) 1 related asset
+assets by path [1m[32mreports/css/*.css[39m[22m 34.2 KiB
+  asset [1m[32mreports/css/reports.reports-routes.c923d95ac2b31e3c9c4b.css[39m[22m 28.5 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: reports-routes)
+  asset [1m[32mreports/css/reports.reports-app.cda41944191fbab2b5de.css[39m[22m 5.7 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [1m[32m[minimized][39m[22m (name: reports-app)
+orphan modules 2.16 MiB (javascript) 761 KiB (css/mini-extract) [1m[33m[orphan][39m[22m 493 modules
+runtime modules 10.1 KiB 15 modules
+built modules 499 KiB (javascript) 34.7 KiB (css/mini-extract) [1m[33m[built][39m[22m
+  cacheable modules 498 KiB (javascript) 34.7 KiB (css/mini-extract)
+    javascript modules 498 KiB 17 modules
+    modules by path [1m./src/sass/[39m[22m 34.7 KiB
+      css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!../../node_modules/resolve-url-loader/index.js??ruleSet[1].rules[5].use[3]!../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[4]!../../node_modules/sass-resources-loader/lib/loader.js??ruleSet[1].rules[5].use[5]![1m./src/sass/app.scss[39m[22m 5.77 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+      css ../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!../../node_modules/resolve-url-loader/index.js??ruleSet[1].rules[5].use[3]!../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[4]!../../node_modules/sass-resources-loader/lib/loader.js??ruleSet[1].rules[5].use[5]![1m./src/sass/app/modules/reports.scss[39m[22m 28.9 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  modules by path [1mexternal "@deriv/[39m[22m 126 bytes
+    [1mexternal "@deriv/shared"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    [1mexternal "@deriv/components"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    [1mexternal "@deriv/translations"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  + 6 modules
+webpack 5.97.1 compiled [1m[32msuccessfully[39m[22m in 19681 ms

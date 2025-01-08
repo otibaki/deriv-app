@@ -1,0 +1,35 @@
+
+> @deriv/bot-web-ui@1.0.0 build
+> f () { npm run build:skeleton && NODE_OPTIONS='-r ts-node/register' webpack --progress --env base=$1;}; f
+
+[1G[0K
+> @deriv/bot-web-ui@1.0.0 build:skeleton
+> npm exec --workspace=@deriv/bot-skeleton -- npm run build
+
+[1G[0K[1G[0K
+> @deriv/bot-skeleton@1.0.0 build
+> shx rm -rf ./dist/ && shx mkdir -p ./dist/media && npm run build:copy
+
+[1G[0K
+> @deriv/bot-skeleton@1.0.0 build:copy
+> shx cp -r ../../node_modules/blockly/media/. ./dist/media/ && shx cp -r ./src/assets/images/. ./dist/media/ && shx cp -r ./src/scratch/sounds/. ./dist/media/
+
+[1G[0K[1G[0K⠙[1G[0K[1G[0K⠙[1G[0K[1G[0K⠙[1G[0K[1G[0K⠙[1G[0K[webpack-cli] [31mReferenceError: path is not defined
+    at module.exports (/Users/mac/Desktop/d2 copy/deriv-app/packages/bot-web-ui/webpack.config.js:7:17)
+    at loadConfigByPath (/Users/mac/Desktop/d2 copy/deriv-app/node_modules/webpack-cli/lib/webpack-cli.js:1445:37)
+    at async WebpackCLI.loadConfig (/Users/mac/Desktop/d2 copy/deriv-app/node_modules/webpack-cli/lib/webpack-cli.js:1515:38)
+    at async WebpackCLI.createCompiler (/Users/mac/Desktop/d2 copy/deriv-app/node_modules/webpack-cli/lib/webpack-cli.js:1781:22)
+    at async WebpackCLI.runWebpack (/Users/mac/Desktop/d2 copy/deriv-app/node_modules/webpack-cli/lib/webpack-cli.js:1877:20)
+    at async Command.<anonymous> (/Users/mac/Desktop/d2 copy/deriv-app/node_modules/webpack-cli/lib/webpack-cli.js:944:21)
+    at async Command.parseAsync (/Users/mac/Desktop/d2 copy/deriv-app/node_modules/webpack-cli/node_modules/commander/lib/command.js:935:5)
+    at async Command.<anonymous> (/Users/mac/Desktop/d2 copy/deriv-app/node_modules/webpack-cli/lib/webpack-cli.js:1356:13)
+    at async Command.parseAsync (/Users/mac/Desktop/d2 copy/deriv-app/node_modules/webpack-cli/node_modules/commander/lib/command.js:935:5)
+    at async WebpackCLI.run (/Users/mac/Desktop/d2 copy/deriv-app/node_modules/webpack-cli/lib/webpack-cli.js:1360:9)[39m
+[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m Lifecycle script `build` failed with error:
+[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mcode[39m [33m2[39m
+[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mpath[39m /Users/mac/Desktop/d2 copy/deriv-app/packages/bot-web-ui
+[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mworkspace[39m @deriv/bot-web-ui@1.0.0
+[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mlocation[39m /Users/mac/Desktop/d2 copy/deriv-app/packages/bot-web-ui
+[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m command failed
+[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mcommand[39m sh -c f () { npm run build:skeleton && NODE_OPTIONS='-r ts-node/register' webpack --progress --env base=$1;}; f
+[1G[0K⠙[1G[0K

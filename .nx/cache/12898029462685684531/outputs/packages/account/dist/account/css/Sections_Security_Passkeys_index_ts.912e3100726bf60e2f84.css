@@ -1,0 +1,348 @@
+/*------------------------------------*
+ *  # Constants
+ *------------------------------------*/
+/*RTL Language Mixin*/
+/* stylelint-disable color-no-hex */
+/* COLOR PALETTE */
+/* colors */
+/* status colors */
+/* alpha colors */
+/* gradient colors */
+/* Preserve legacy variables */
+/* Primary */
+/* stylelint-enable color-no-hex */
+/* Wallet gradient background */
+/* App Cards gradient background */
+/* Wallets */
+/*------------------------------------*
+ *  # SASS Mixins and Functions
+ *------------------------------------*/
+/*
+ * SASS interpolation
+ */
+/*
+ * PX to EM
+ * @param $px - px value to be converted
+ * @param $base - base font size (in `em`)
+ * Note: 'em' values are calculate based on the element font-size
+ *       to properly converts 'px' to 'em', please pass in the element font-size with it
+ * Usage example:
+    padding: em(16px, 1.6em); // font-size in 'em'
+ */
+/*
+ * Set property by passing a property name, and values.
+ * @param $property name - padding, margin etc.
+ * @param $values        - values in `px` (space separated for multiple values)
+ * @param $font-size     - base font-size in `em`
+ * Usage example:
+   @include toEm(padding, 8px 16px 8px, 1.6em);
+ */
+/*
+ * Generate typefaces key-value pair of variable name and config
+ * Example:
+   --paragraph-center-bold-black: (14px, center, bold, black)
+ */
+/*
+ * Sets font-size, font-weight, color, text-transform, text-align and line-height
+ * Usage example:
+   @include setTypeface(16px, bold, black, uppercase);
+ */
+/*
+ * Set typefaces by passing a typeface variable name
+ * @param $var   - typeface variable
+ * @param $tt    - text-transform property
+ * @param $align - text-align property
+ * Usage example:
+   @include typeface(--paragraph-bold-black, uppercase, center);
+ */
+/*
+ * Range Slider Thumb styling is set here
+ */
+/*
+ * SVG icons colors
+ */
+/*
+ * Bar Spinner Animation
+ * @param $count    - number of bars
+ * @param $duration - duration of animation
+ * @param $phase    - each bar phase change delay
+ * Usage example:
+   @include createBarspinnerAnimation(5, 1.2s, 0,1);
+ */
+/*
+ * Tooltip colors
+ * @param $color - color property
+ * Usage example:
+   @include tooltipColor($COLOR_RED);
+ */
+/*
+ * Convert Tooltip colors
+ * @param $color - css color property
+ * Usage example:
+   @include convertTooltipColor(var(--status-default));
+ */
+/*
+    Constants
+*/
+/*
+    Variables
+*/
+/*
+    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
+    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
+    Variables name example: --title-center-semibold-red
+ */
+/*
+    to use styles without modifier class on .inline-icon
+    use @extend
+
+    e.g. style icon on parent hover:
+        a:hover .inline-icon {
+            @extend %inline-icon-active;
+        }
+*/
+/**
+ * Define Breakpoints here.
+ */
+/** Need to add new breakpoints for mixins */
+.passkeys {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.passkeys-status__wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+.passkeys-status__wrapper .dc-input--error {
+  margin-bottom: 3.2rem;
+}
+.passkeys-status__wrapper--expanded {
+  display: block;
+}
+.passkeys-status__wrapper--expanded .passkey-status__icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.passkeys-status__wrapper--expanded .passkey-status__title {
+  margin-bottom: 0;
+}
+.passkeys-status__title {
+  margin: 2.4rem auto 0.8rem;
+}
+[dir="ltr"] .passkeys-status__description-back-button {
+  margin-left: 2.4rem;
+}
+[dir="rtl"] .passkeys-status__description-back-button {
+  margin-right: 2.4rem;
+}
+[dir="ltr"] .passkeys-status__description-back-button {
+  margin-right: 0;
+}
+[dir="rtl"] .passkeys-status__description-back-button {
+  margin-left: 0;
+}
+.passkeys-status__description-back-button {
+  margin-top: 2.4rem;
+  margin-bottom: 0;
+}
+.passkeys-status__description-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-bottom: 1px solid var(--general-hover);
+  padding: 1.6rem 0;
+}
+[dir="ltr"] .passkeys-status__description-card ul {
+  padding-left: 1.2rem;
+}
+[dir="rtl"] .passkeys-status__description-card ul {
+  padding-right: 1.2rem;
+}
+.passkeys-status__description-card ul {
+  list-style: disc;
+}
+[dir="ltr"] .passkeys-status__description-card ul li {
+  margin-left: 0.8rem;
+}
+[dir="rtl"] .passkeys-status__description-card ul li {
+  margin-right: 0.8rem;
+}
+.passkeys-status__description-card ul li::marker {
+  font-size: 1.2rem;
+}
+.passkeys-status__description-container {
+  display: flex;
+  flex-direction: column;
+}
+.passkeys-status__description-tips-wrapper {
+  display: flex;
+  padding: 1.6rem;
+  margin-top: 1.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-normal);
+  gap: 0.8rem;
+}
+.passkeys-status__description-tips-wrapper svg {
+  flex-shrink: 0;
+}
+.passkeys-status__description-tips-wrapper .dc-icon {
+  margin: 0;
+  margin: initial;
+}
+.passkeys-status__description-tips-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+[dir="ltr"] .passkeys-status__description-tips-container ul {
+  padding-left: 1.2rem;
+}
+[dir="rtl"] .passkeys-status__description-tips-container ul {
+  padding-right: 1.2rem;
+}
+.passkeys-status__description-tips-container ul {
+  list-style: disc;
+}
+[dir="ltr"] .passkeys-status__description-tips-container ul li {
+  margin-left: 0.8rem;
+}
+[dir="rtl"] .passkeys-status__description-tips-container ul li {
+  margin-right: 0.8rem;
+}
+.passkeys-status__description-tips-container ul li::marker {
+  font-size: 1rem;
+}
+.passkeys-status__footer {
+  flex-direction: row;
+  gap: 0.8rem;
+  padding: 1.6rem;
+}
+.passkeys-status__footer .dc-btn {
+  flex: 1;
+}
+.passkeys .dc-btn {
+  height: 4rem;
+}
+.passkeys-list__wrapper {
+  display: block;
+}
+.passkeys-card {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--general-hover);
+}
+.passkeys-card > .dc-icon:first-child {
+  margin-top: 0.4rem;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+[dir="ltr"] .passkeys-card > .dc-icon:last-child {
+  margin-left: auto;
+}
+[dir="rtl"] .passkeys-card > .dc-icon:last-child {
+  margin-right: auto;
+}
+.passkeys-card:last-child {
+  border-bottom: none;
+}
+.passkeys-card__passkey-type-icon {
+  margin-top: 0.4rem;
+}
+.passkeys-card__passkey-name {
+  word-break: break-word;
+}
+[dir="ltr"] .passkeys-card .dc-dropdown-container {
+  margin-left: auto;
+}
+[dir="rtl"] .passkeys-card .dc-dropdown-container {
+  margin-right: auto;
+}
+.passkeys-card .dc-dropdown-container {
+  min-width: 0;
+  min-width: initial;
+}
+[dir="ltr"] .passkeys-card .dc-dropdown-container .dc-dropdown__list {
+  left: -120px;
+}
+[dir="rtl"] .passkeys-card .dc-dropdown-container .dc-dropdown__list {
+  right: -120px;
+}
+.passkeys-card .dc-dropdown-container .dc-dropdown__list .dc-list {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.passkeys-card .dc-dropdown-container .dc-dropdown__list .dc-list--has-suffix-icon {
+  width: 16.8rem;
+}
+.passkeys-card .dc-dropdown-container .dc-dropdown__list .dc-list__item {
+  padding-top: 8px;
+  height: 4.8rem;
+}
+[dir="ltr"] .passkeys-card .dc-dropdown-container .dc-dropdown__list .dc-list__item-text {
+  padding-left: 1.6rem;
+}
+[dir="rtl"] .passkeys-card .dc-dropdown-container .dc-dropdown__list .dc-list__item-text {
+  padding-right: 1.6rem;
+}
+.passkeys-card .dc-dropdown-container .dc-dropdown__list .dc-list__item--disabled {
+  display: none;
+}
+.passkeys-card .dc-dropdown-container .dc-dropdown__display {
+  border: medium none currentColor;
+  border: initial;
+}
+[dir="ltr"] .passkeys-snackbar__container {
+  left: 0;
+}
+[dir="rtl"] .passkeys-snackbar__container {
+  right: 0;
+}
+[dir="ltr"] .passkeys-snackbar__container {
+  right: 0;
+}
+[dir="rtl"] .passkeys-snackbar__container {
+  left: 0;
+}
+.passkeys-snackbar__container {
+  position: absolute;
+  bottom: 8.2rem;
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+  background: inherit;
+}
+
+.dc-modal__container_passkeys-modal {
+  min-width: 32.8rem !important;
+}
+.dc-modal__container_passkeys-modal .dc-modal-header__close, .dc-modal__container_passkeys-modal .dc-modal-header__section {
+  margin: 1.6rem 1.6rem 0;
+  padding: 0;
+  width: auto;
+  width: initial;
+  height: auto;
+  height: initial;
+  line-height: normal;
+  line-height: initial;
+}
+.dc-modal__container_passkeys-modal .dc-modal-body {
+  padding: 1.6rem 1.6rem 0;
+}
+[dir="ltr"] .dc-modal__container_passkeys-modal .dc-modal-body ul {
+  padding-left: 1.6rem;
+}
+[dir="rtl"] .dc-modal__container_passkeys-modal .dc-modal-body ul {
+  padding-right: 1.6rem;
+}
+.dc-modal__container_passkeys-modal .dc-modal-body ul {
+  list-style: disc;
+}

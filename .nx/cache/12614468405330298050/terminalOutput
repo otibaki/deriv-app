@@ -1,0 +1,32 @@
+
+> @deriv/cashier@1.0.0 build
+> f () { NODE_OPTIONS='-r ts-node/register' webpack --config "./build/webpack.config.js" --env base=$1;}; f
+
+assets by path [1m[32mcashier/js/*.js[39m[22m 14 MiB
+  assets by info 4.36 MiB [1m[32m[immutable][39m[22m
+    assets by chunk 2.2 MiB (id hint: vendors) 2 assets
+    + 3 assets
+  + 8 assets
+assets by path [1m[32mcashier/css/*.css[39m[22m 601 KiB
+  assets by info 244 KiB [1m[32m[immutable][39m[22m
+    asset [1m[32mcashier/css/cashier-app.bca796e23e8797afaff1.css[39m[22m 181 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (name: cashier-app)
+    asset [1m[32mcashier/css/vendors-node_modules_deriv-com_ui_dist_components_Text_index_js.498bcec9ca650afdfa26.css[39m[22m 23.1 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (id hint: vendors)
+    asset [1m[32mcashier/css/vendors-node_modules_deriv_deriv-api_dist_DerivAPIBasic_js-node_modules_formik_dist_formik_es-46f998.48ae6ad43da8fb278985.css[39m[22m 20 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (id hint: vendors)
+    asset [1m[32mcashier/css/vendors-node_modules_deriv-com_ui_dist_assets_Breadcrumbs_css-node_modules_deriv-com_ui_dist_-5970c9.82c628df450c3728c6e9.css[39m[22m 19.7 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m (id hint: vendors)
+  + 6 assets
+assets by path [1m[32mcashier/public/images/*.svg[39m[22m 74.1 KiB
+  asset [1m[32mcashier/public/images/cashier-demo-dark.605d2c476f169a7b73a8c7ea5312606b.svg[39m[22m 37.3 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [from: public/images/cashier-demo-dark.svg] (auxiliary name: account-transfer, cashier-app, payment-agent, payment-agent-transfer, withdrawal)
+  asset [1m[32mcashier/public/images/cashier-demo-light.e69b0cb941dd65480866365959a517ae.svg[39m[22m 36.9 KiB [1m[32m[emitted][39m[22m [1m[32m[immutable][39m[22m [from: public/images/cashier-demo-light.svg] (auxiliary name: account-transfer, cashier-app, payment-agent, payment-agent-transfer, withdrawal)
+orphan modules 2.36 MiB (javascript) 903 KiB (css/mini-extract) [1m[33m[orphan][39m[22m 448 modules
+runtime modules 72.3 KiB 94 modules
+cacheable modules 1.76 MiB (javascript) 244 KiB (css/mini-extract)
+  javascript modules 1.76 MiB 505 modules
+  css modules 244 KiB 47 modules
+  + 1 module
+modules by path [1mexternal "@deriv/[39m[22m 210 bytes
+  [1mexternal "@deriv/components"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1mexternal "@deriv/shared"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1mexternal "@deriv/translations"[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  + 2 modules
++ 6 modules
+webpack 5.97.1 compiled [1m[32msuccessfully[39m[22m in 26567 ms

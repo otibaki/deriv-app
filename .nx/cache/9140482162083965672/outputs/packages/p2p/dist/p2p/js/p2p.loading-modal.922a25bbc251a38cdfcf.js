@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_deriv_p2p=self.webpackChunk_deriv_p2p||[]).push([[8093],{76982:(e,n,s)=>{s.r(n),s.d(n,{default:()=>t});var a=s(39155),l=s(53877),r=s(36501);const t=function(){var e=(0,r.v)().is_modal_open;return a.createElement(l.Modal,{has_close_icon:!1,is_open:e,small:!0,width:"440px"},a.createElement(l.Loading,{is_fullscreen:!1}))}}}]);
+//# sourceMappingURL=p2p.loading-modal.922a25bbc251a38cdfcf.js.map
